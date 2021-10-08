@@ -1,0 +1,33 @@
+.page-header {
+    background-color: #18A0FB;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 17px;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        .logo {
+            margin-right: 15px;
+        }
+    }
+
+    &__sm-text {
+        font-size: 14px;
+        line-height: 24px;
+        color: #FFFFFF;
+        opacity: 0.8;
+        margin-top: 3px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        .tel {
+            margin-right: 16px;
+        }
+    }
+}
+

@@ -1,0 +1,54 @@
+.logo {
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 48px;
+        flex-shrink: 0;
+        margin-right: 14px;
+    }
+
+    &__text {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 40px;
+        color: #fff;
+    }
+}
+
+.tel {
+    font-size: 16px;
+    line-height: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+    display: inline-block;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+.block-btn {
+    background-color: transparent;
+    border: 1px solid rgba($color: #fff, $alpha: 0.3);
+    padding: 14px 20px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: #FFFFFF;
+        border-color: #fff;
+        span {
+            color: #18A0FB;
+        }
+    }
+
+    &__text {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: normal;
+        transition: all 0.3s ease-in-out;
+        &--white {
+            color: #fff;
+        }
+    }
+}

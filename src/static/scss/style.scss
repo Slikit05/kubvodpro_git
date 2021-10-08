@@ -1,0 +1,42 @@
+@import "src/static/scss/utils/mixins.scss";
+@import "src/static/scss/utils/vars.scss";
+
+//seting
+@import "src/static/scss/seting/generic.scss";
+@import "src/static/scss/seting/grid.scss";
+@import "src/static/scss/seting/font.scss";
+@import "src/static/scss/seting/over.scss";
+
+//index
+@import "src/static/scss/page/main.scss";
+
+
+//inner
+@import "src/static/scss/page/inner.scss";
+@import "src/static/scss/page/news.scss";
+@import "src/static/scss/page/history.scss";
+@import "src/static/scss/page/vac.scss";
+@import "src/static/scss/page/mobile-page.scss";
+@import "src/static/scss/page/car-sell.scss";
+@import "src/static/scss/page/leadership.scss";
+
+//module
+@import "src/static/scss/modules/header.scss";
+@import "src/static/scss/modules/footer.scss";
+@import "src/static/scss/modules/first-screen.scss";
+@import "src/static/scss/modules/modal.scss";
+@import "src/static/scss/modules/developments.scss";
+@import "src/static/scss/modules/category.scss";
+@import "src/static/scss/modules/filter.scss";
+@import "src/static/scss/modules/mob-menu.scss";
+@import "src/static/scss/modules/news-inner.scss";
+@import "src/static/scss/modules/tabs.scss";
+@import "src/static/scss/modules/custom-ellement.scss";
+
+
+//media
+@import "src/static/scss/media/tablet.scss";
+@import "src/static/scss/media/mobile.scss";
+
+
+@import "src/static/scss/seting/normalize.scss";

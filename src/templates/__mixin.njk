@@ -1,0 +1,124 @@
+{% macro prevueBlock(img, svg, caption) %}
+	<div class="prevue-block">
+		<div class="prevue-block__wrapper">
+			<div class="prevue-block__bg">
+				<picture>
+					<source srcset="img/{{ img }}.webp" type="image/webp">
+					<source srcset="img/{{ img }}.jpg" type="image/jpeg">
+					<img src="img/{{ img }}.webp" alt="">
+				</picture>
+			</div>
+			<div class="prevue-block__wrap">
+				<div class="prevue-block__up">
+					<svg>
+						<use xlink:href="img/sprite.svg#svg--{{ svg }}">
+					</svg>
+					<a href="#" class="btn-more">
+						<span class="btn-more__text">ПОДРОБНЕЕ</span>
+						<div class="btn-more__square"></div>
+					</a>
+				</div>
+				<div class="prevue-block__down">
+					<h4 class="prevue-block__caption">{{ caption }}</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro prevueBlockTwo(img, category, caption, text) %}
+	<div class="prevue-block-two">
+		<div class="prevue-block-two__wrapper">
+			<div class="prevue-block-two__wrap-img">
+				<picture>
+					<source srcset="img/{{ img }}.webp" type="image/webp">
+					<source srcset="img/{{ img }}.jpg" type="image/jpeg">
+					<img src="img/{{ img }}.webp" alt="">
+				</picture>
+			</div>
+			<div class="prevue-block-two__wrap">
+				<div class="prevue-block-two__up">
+					<div class="category">{{ category }}</div>
+					<h4 class="prevue-block-two__caption">{{ caption }}</h4>
+					<span class="prevue-block-two__text">{{ text }}</span>
+				</div>
+				<div class="prevue-block-two__down">					
+					<a href="#" class="btn-more">
+						<div class="btn-more__square"></div>
+						<span class="btn-more__text">ПОДРОБНЕЕ</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro slidePrevueBlockTwo(img, category, caption, text) %}
+	<div class="projects-slider__slide swiper-slide">
+		<div class="prevue-block-two">
+			<div class="prevue-block-two__wrapper">
+				<div class="prevue-block-two__wrap-img">
+					<picture>
+						<source srcset="img/{{ img }}.webp" type="image/webp">
+						<source srcset="img/{{ img }}.jpg" type="image/jpeg">
+						<img src="img/{{ img }}.webp" alt="">
+					</picture>
+				</div>
+				<div class="prevue-block-two__wrap">
+					<div class="prevue-block-two__up">
+						<div class="category">{{ category }}</div>
+						<h4 class="prevue-block-two__caption">{{ caption }}</h4>
+						<span class="prevue-block-two__text">{{ text }}</span>
+					</div>
+					<div class="prevue-block-two__down">					
+						<a href="#" class="btn-more">
+							<div class="btn-more__square"></div>
+							<span class="btn-more__text">ПОДРОБНЕЕ</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro slideCustomersBlock(img, caption) %}
+	<div class="our-customers__slide swiper-slide">
+		<div class="customers-block">
+			<div class="customers-block__wrapper">
+				<div class="customers-block__wrap-img">
+					<picture>
+						<source srcset="img/{{ img }}.webp" type="image/webp">
+						<source srcset="img/{{ img }}.jpg" type="image/jpeg">
+						<img src="img/{{ img }}.webp" alt="">
+					</picture>
+				</div>
+				<div class="customers-block__wrap">
+					<div class="customers-block__up">
+						<h4 class="customers-block__caption">{{ caption }}</h4>
+					</div>
+					<div class="customers-block__down">					
+						<a href="#" class="btn-more">
+							<div class="btn-more__square"></div>
+							<span class="btn-more__text">ВЫПОЛНЕННЫЕ ПРОЕКТЫ</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro infoBlock(svg, caption, text) %}
+	<div class="info-post">
+		<div class="info-post__wrap">
+			<svg>
+				<use xlink:href="img/sprite.svg#svg--{{ svg }}">
+			</svg>
+			<h4 class="info-post__title">{{ caption }}</h4>
+			<p class="info-post__text">{{ text }}</p>
+		</div>
+	</div>
+{% endmacro %}
