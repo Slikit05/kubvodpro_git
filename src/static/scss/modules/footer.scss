@@ -1,0 +1,128 @@
+.footer-page {
+  background-color: #012a5e;
+  &__container {
+    padding: 42px 0 40px;
+  }
+  &__up {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+    padding-bottom: 30px;
+    margin-bottom: 34px;
+  }
+  &__text {
+    font-size: 18px;
+    line-height: 28px;
+    color: #ffffff;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 15px;
+  }
+  &__tel {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #ffffff;
+    &:hover {
+      color: #ffffff;
+    }
+    &:active {
+      color: #ffffff;
+    }
+    &:focus {
+      color: #ffffff;
+    }
+  }
+  &__mail {
+    font-size: 18px;
+    line-height: 28px;
+    color: #18a0fb;
+    margin-top: 12px;
+    display: inline-block;
+    &:hover {
+      text-decoration: underline;
+      color: #18a0fb;
+    }
+    &:active {
+      color: #18a0fb;
+    }
+    &:focus {
+      color: #18a0fb;
+    }
+  }
+  &__right {
+    .social-list {
+      margin-top: 8px;
+    }
+  }
+  &__down {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__wrap {
+    display: flex;
+    align-items: center;
+    .logo {
+      &:hover {
+        svg {
+          fill: #174EFF;
+        }
+      }
+      svg {
+        width: 42px;
+        height: 48px;
+        fill: #18A0FB;
+        margin-right: 16px;
+        transition: all 0.3s ease-in-out;
+      }
+      .logo__text {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: normal;
+        margin-right: 20px;
+      }
+    }
+  }
+  &__text-gray {
+    font-size: 14px;
+    line-height: normal;
+    color: #fff;
+    opacity: 0.7;
+  }
+}
+
+.copyright {
+  &__wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__text {
+    font-size: 14px;
+    color: #fff;
+    margin-right: 4px;
+  }
+  &__link {
+    font-size: 14px;
+    line-height: normal;
+    color: #b2bfce;
+  }
+  svg {
+    margin-left: 16px;
+    &:hover {
+      rect {
+        fill: #174EFF;
+      }
+    }
+    rect {
+      fill: #18a0fb;
+      transition: all 0.3s ease-in-out;
+    }
+    path {
+      fill: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
