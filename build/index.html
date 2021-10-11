@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title></title>
-  <link rel="stylesheet" href="css/style.css">
 
   <link rel="stylesheet" href="css/swiper.css">
 
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -43,6 +43,11 @@
   <main class="main">
 
     <section class="first-screen">
+      <picture class="first-screen__bg">
+        <source srcset="img/first-screen-bg.webp" type="image/webp">
+        <source srcset="img/first-screen-bg.jpg" type="image/jpeg">
+        <img src="img/first-screen-bg.webp" alt="">
+      </picture>
       <div class="container">
         <div class="first-screen__container">
           <h1 class="first-screen__title">Управляй водой на благо России
@@ -51,26 +56,30 @@
           <div class="first-screen__scroll-btn">
             <span>СКРОЛЬТЕ ВНИЗ</span>
             <a href="#" class="arrow-scroll">
-              <svg></svg>
+              <svg>
+                <use xlink:href="img/sprite.svg#arrow-down">
+              </svg>
             </a>
           </div>
         </div>
       </div>
     </section>
     <section class="scroll-header">
-      <div class="container">
-        <div class="scroll-header__container">
-          <div class="scroll-header__left">
-            <div class="logo">
-              <img src="img/svg-min/logo2.svg" alt="">
-              <span class="logo__text">Кубаньводпроект</span>
+      <div class="scroll-header__scroll-wrap">
+        <div class="container">
+          <div class="scroll-header__container">
+            <div class="scroll-header__left">
+              <div class="logo">
+                <img src="img/svg-min/logo2.svg" alt="">
+                <span class="logo__text">Кубаньводпроект</span>
+              </div>
             </div>
-          </div>
-          <div class="scroll-header__right">
-            <a href="#" class="tell">+7 (861) 253-73-35</a>
-            <button class="block-btn">
-              <span>ЗАКАЗАТЬ ЗВОНОК</span>
-            </button>
+            <div class="scroll-header__right">
+              <a href="#" class="tel tel--black">+7 (861) 253-73-35</a>
+              <button class="block-btn">
+                <span class="block-btn__text block-btn__text--blue">ЗАКАЗАТЬ ЗВОНОК</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +104,7 @@
                 <div class="prevue-block__wrap">
                   <div class="prevue-block__up">
                     <svg>
-                      <use xlink:href="img/sprite.svg#svg--prevue-icon1">
+                      <use xlink:href="img/sprite.svg#prevue-icon1">
                     </svg>
                     <a href="#" class="btn-more">
                       <span class="btn-more__text">ПОДРОБНЕЕ</span>
@@ -122,7 +131,7 @@
                 <div class="prevue-block__wrap">
                   <div class="prevue-block__up">
                     <svg>
-                      <use xlink:href="img/sprite.svg#svg--prevue-icon2">
+                      <use xlink:href="img/sprite.svg#prevue-icon2">
                     </svg>
                     <a href="#" class="btn-more">
                       <span class="btn-more__text">ПОДРОБНЕЕ</span>
@@ -149,7 +158,7 @@
                 <div class="prevue-block__wrap">
                   <div class="prevue-block__up">
                     <svg>
-                      <use xlink:href="img/sprite.svg#svg--prevue-icon3">
+                      <use xlink:href="img/sprite.svg#prevue-icon3">
                     </svg>
                     <a href="#" class="btn-more">
                       <span class="btn-more__text">ПОДРОБНЕЕ</span>
@@ -176,7 +185,7 @@
                 <div class="prevue-block__wrap">
                   <div class="prevue-block__up">
                     <svg>
-                      <use xlink:href="img/sprite.svg#svg--prevue-icon4">
+                      <use xlink:href="img/sprite.svg#prevue-icon4">
                     </svg>
                     <a href="#" class="btn-more">
                       <span class="btn-more__text">ПОДРОБНЕЕ</span>
@@ -203,7 +212,7 @@
                 <div class="prevue-block__wrap">
                   <div class="prevue-block__up">
                     <svg>
-                      <use xlink:href="img/sprite.svg#svg--prevue-icon5">
+                      <use xlink:href="img/sprite.svg#prevue-icon5">
                     </svg>
                     <a href="#" class="btn-more">
                       <span class="btn-more__text">ПОДРОБНЕЕ</span>
@@ -230,7 +239,7 @@
                 <div class="prevue-block__wrap">
                   <div class="prevue-block__up">
                     <svg>
-                      <use xlink:href="img/sprite.svg#svg--prevue-icon6">
+                      <use xlink:href="img/sprite.svg#prevue-icon6">
                     </svg>
                     <a href="#" class="btn-more">
                       <span class="btn-more__text">ПОДРОБНЕЕ</span>
@@ -252,260 +261,268 @@
       <div class="container">
         <div class="info-about-company__container">
           <div class="row-title">
-            <h2 class="title">Направления деятельности</h2>
+            <h2 class="title">АО «Кубаньводпроект»</h2>
           </div>
-          <div class="info-about-company__left">
-            <div class="info-about-company__aray">
-              <blockquote>Началом деятельности института является 1929 год, когда на Кубани было организовано Управление по мелиорации приазовских и прикубанских плавней «Плавстрой». Основной его задачей было проектирование и строи­тельство защитных сооружений от затопления пойменных земель, осушение болотистых плавней в низовьях р. Кубани и строительство на освоенных землях рисовых систем.</blockquote>
-              <p>На протяжении своей деятельности институт неоднократно менял свое наименование и подчиненность. В 1993 году Кубанский государственный проектный и научно-исследовательский институт «Кубаньгипроводхоз» Ми­нистерства мелиорации и водного хозяйства СССР был преобразован в от­крытое акционерное общество проектно-изыскательский институт «Куба­ньводпроект».</p>
-              <p>АО «Кубаньводпроект» - это многопрофильная организация, способная выполнять проектно-изыскательские работы на современном техническом уровне. Функционирует, сертифицированная на соответствие требованиям ГОСТ Р ИСО 9001-2008 (ИСО 9001:2008), система менеджмента качества.</p>
-              <p>Институт имеет хорошую оснащенность компьютерной техникой, изме­рительными приборами и устройствами, транспортными средствами, обору­дованием для топогеодезических, инженерно-геологических и гидрологи­ческих изысканий, располагает большим научно-техническим фондом. АО «Кубаньводпроект» имеет собственный товарный знак. Мы всегда открыты для сотрудничества со всеми организациями в области проектирования во­дохозяйственных, промышленно-гражданских объектов, туристических и ре­креационных комплексов.</p>
+          <hr class="line-up">
+          <div class="info-about-company__wrapper">
+            <div class="info-about-company__left">
+              <div class="info-about-company__aray aray-text">
+                <blockquote>Началом деятельности института является 1929 год, когда на Кубани было организовано Управление по мелиорации приазовских и прикубанских плавней «Плавстрой». Основной его задачей было проектирование и строи­тельство защитных сооружений от затопления пойменных земель, осушение болотистых плавней в низовьях р. Кубани и строительство на освоенных землях рисовых систем.</blockquote>
+                <p>На протяжении своей деятельности институт неоднократно менял свое наименование и подчиненность. В 1993 году Кубанский государственный проектный и научно-исследовательский институт «Кубаньгипроводхоз» Ми­нистерства мелиорации и водного хозяйства СССР был преобразован в от­крытое акционерное общество проектно-изыскательский институт «Куба­ньводпроект».</p>
+                <p>АО «Кубаньводпроект» - это многопрофильная организация, способная выполнять проектно-изыскательские работы на современном техническом уровне. Функционирует, сертифицированная на соответствие требованиям ГОСТ Р ИСО 9001-2008 (ИСО 9001:2008), система менеджмента качества.</p>
+                <p>Институт имеет хорошую оснащенность компьютерной техникой, изме­рительными приборами и устройствами, транспортными средствами, обору­дованием для топогеодезических, инженерно-геологических и гидрологи­ческих изысканий, располагает большим научно-техническим фондом. АО «Кубаньводпроект» имеет собственный товарный знак. Мы всегда открыты для сотрудничества со всеми организациями в области проектирования во­дохозяйственных, промышленно-гражданских объектов, туристических и ре­креационных комплексов.</p>
+              </div>
+            </div>
+            <div class="info-about-company__right">
+
+              <div class="info-post">
+                <div class="info-post__wrap">
+                  <svg>
+                    <use xlink:href="img/sprite.svg#info-icon1">
+                  </svg>
+                  <h4 class="info-post__title">Работаем с 1929 года</h4>
+                  <p class="info-post__text">Несколько слов о огромном опыте работ и о том, что компании исполнилось уже 92 года!</p>
+                </div>
+              </div>
+
+
+              <div class="info-post">
+                <div class="info-post__wrap">
+                  <svg>
+                    <use xlink:href="img/sprite.svg#info-icon2">
+                  </svg>
+                  <h4 class="info-post__title">Более 100 проектов</h4>
+                  <p class="info-post__text">Несколько слов о том какие крупные и важные проекты выполняет Кубаньводпроект на протажении 90 лет</p>
+                </div>
+              </div>
+
+
+              <div class="info-post">
+                <div class="info-post__wrap">
+                  <svg>
+                    <use xlink:href="img/sprite.svg#info-icon3">
+                  </svg>
+                  <h4 class="info-post__title">Проектирование в 20 странах мира</h4>
+                  <p class="info-post__text">Кубы, Венгрии, Вьетнама, Лаоса, Ирака, Мозамбика, Мадагаскара, Сирии, Анголы, Алжира и других стран.</p>
+                </div>
+              </div>
+
+
+              <div class="info-post">
+                <div class="info-post__wrap">
+                  <svg>
+                    <use xlink:href="img/sprite.svg#info-icon4">
+                  </svg>
+                  <h4 class="info-post__title">Ведущее предприятие Юга России</h4>
+                  <p class="info-post__text">по проектированию мелиоративных и водохозяйственных объектов, укре­плению морских и речных берегов на Юге России, объектам горного и морского туризма.</p>
+                </div>
+              </div>
+
             </div>
           </div>
-          <div class="info-about-company__right">
 
-            <div class="info-post">
-              <div class="info-post__wrap">
-                <svg>
-                  <use xlink:href="img/sprite.svg#svg--prevue-icon1">
-                </svg>
-                <h4 class="info-post__title">Работаем с 1929 года</h4>
-                <p class="info-post__text">Несколько слов о огромном опыте работ и о том, что компании исполнилось уже 92 года!</p>
-              </div>
-            </div>
-
-
-            <div class="info-post">
-              <div class="info-post__wrap">
-                <svg>
-                  <use xlink:href="img/sprite.svg#svg--prevue-icon2">
-                </svg>
-                <h4 class="info-post__title">Более 100 проектов</h4>
-                <p class="info-post__text">Несколько слов о том какие крупные и важные проекты выполняет Кубаньводпроект на протажении 90 лет</p>
-              </div>
-            </div>
-
-
-            <div class="info-post">
-              <div class="info-post__wrap">
-                <svg>
-                  <use xlink:href="img/sprite.svg#svg--prevue-icon3">
-                </svg>
-                <h4 class="info-post__title">Проектирование в 20 странах мира</h4>
-                <p class="info-post__text">Кубы, Венгрии, Вьетнама, Лаоса, Ирака, Мозамбика, Мадагаскара, Сирии, Анголы, Алжира и других стран.</p>
-              </div>
-            </div>
-
-
-            <div class="info-post">
-              <div class="info-post__wrap">
-                <svg>
-                  <use xlink:href="img/sprite.svg#svg--prevue-icon4">
-                </svg>
-                <h4 class="info-post__title">Ведущее предприятие Юга России</h4>
-                <p class="info-post__text">по проектированию мелиоративных и водохозяйственных объектов, укре­плению морских и речных берегов на Юге России, объектам горного и морского туризма.</p>
-              </div>
-            </div>
-
-          </div>
         </div>
       </div>
     </section>
     <section class="projects">
       <div class="container">
-        <div class="projects__container">
-          <div class="row-title">
-            <h2 class="title">Проекты</h2>
-          </div>
-          <div class="projects__wrapper">
-            <div class="map" id="map"></div>
-            <div class="projects-slider">
-              <div class="projects-slider__container">
-                <div class="projects-slider__wrapper">
+        <div class="row-title">
+          <h2 class="title">Проекты</h2>
+        </div>
+      </div>
+      <div class="projects__wrapper">
+        <div class="map" id="map"></div>
+        <div class="projects__wrap-bg">
+          <div class="container">
+            <div class="projects__container">
+              <div class="projects-slider">
+                <div class="projects-slider__container swiper">
+                  <div class="projects-slider__wrapper swiper-wrapper">
 
-                  <div class="projects-slider__slide swiper-slide">
-                    <div class="prevue-block-two">
-                      <div class="prevue-block-two__wrapper">
-                        <div class="prevue-block-two__wrap-img">
-                          <picture>
-                            <source srcset="img/prevue-two-bg1.webp" type="image/webp">
-                            <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
-                            <img src="img/prevue-two-bg1.webp" alt="">
-                          </picture>
-                        </div>
-                        <div class="prevue-block-two__wrap">
-                          <div class="prevue-block-two__up">
-                            <div class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</div>
-                            <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
-                            <span class="prevue-block-two__text">Doppelmayr</span>
+                    <div class="projects-slider__slide swiper-slide">
+                      <div class="prevue-block-two">
+                        <div class="prevue-block-two__wrapper">
+                          <div class="prevue-block-two__wrap-img">
+                            <picture>
+                              <source srcset="img/prevue-two-bg1.webp" type="image/webp">
+                              <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
+                              <img src="img/prevue-two-bg1.webp" alt="">
+                            </picture>
                           </div>
-                          <div class="prevue-block-two__down">
-                            <a href="#" class="btn-more">
-                              <div class="btn-more__square"></div>
-                              <span class="btn-more__text">ПОДРОБНЕЕ</span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="projects-slider__slide swiper-slide">
-                    <div class="prevue-block-two">
-                      <div class="prevue-block-two__wrapper">
-                        <div class="prevue-block-two__wrap-img">
-                          <picture>
-                            <source srcset="img/prevue-two-bg1.webp" type="image/webp">
-                            <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
-                            <img src="img/prevue-two-bg1.webp" alt="">
-                          </picture>
-                        </div>
-                        <div class="prevue-block-two__wrap">
-                          <div class="prevue-block-two__up">
-                            <div class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</div>
-                            <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
-                            <span class="prevue-block-two__text">Doppelmayr</span>
-                          </div>
-                          <div class="prevue-block-two__down">
-                            <a href="#" class="btn-more">
-                              <div class="btn-more__square"></div>
-                              <span class="btn-more__text">ПОДРОБНЕЕ</span>
-                            </a>
+                          <div class="prevue-block-two__wrap">
+                            <div class="prevue-block-two__up">
+                              <a href="#" class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</a>
+                              <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
+                              <span class="prevue-block-two__text">Doppelmayr</span>
+                            </div>
+                            <div class="prevue-block-two__down">
+                              <a href="#" class="btn-more">
+                                <div class="btn-more__square"></div>
+                                <span class="btn-more__text">ПОДРОБНЕЕ</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
 
-                  <div class="projects-slider__slide swiper-slide">
-                    <div class="prevue-block-two">
-                      <div class="prevue-block-two__wrapper">
-                        <div class="prevue-block-two__wrap-img">
-                          <picture>
-                            <source srcset="img/prevue-two-bg1.webp" type="image/webp">
-                            <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
-                            <img src="img/prevue-two-bg1.webp" alt="">
-                          </picture>
-                        </div>
-                        <div class="prevue-block-two__wrap">
-                          <div class="prevue-block-two__up">
-                            <div class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</div>
-                            <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
-                            <span class="prevue-block-two__text">Doppelmayr</span>
+                    <div class="projects-slider__slide swiper-slide">
+                      <div class="prevue-block-two">
+                        <div class="prevue-block-two__wrapper">
+                          <div class="prevue-block-two__wrap-img">
+                            <picture>
+                              <source srcset="img/prevue-two-bg1.webp" type="image/webp">
+                              <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
+                              <img src="img/prevue-two-bg1.webp" alt="">
+                            </picture>
                           </div>
-                          <div class="prevue-block-two__down">
-                            <a href="#" class="btn-more">
-                              <div class="btn-more__square"></div>
-                              <span class="btn-more__text">ПОДРОБНЕЕ</span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="projects-slider__slide swiper-slide">
-                    <div class="prevue-block-two">
-                      <div class="prevue-block-two__wrapper">
-                        <div class="prevue-block-two__wrap-img">
-                          <picture>
-                            <source srcset="img/prevue-two-bg1.webp" type="image/webp">
-                            <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
-                            <img src="img/prevue-two-bg1.webp" alt="">
-                          </picture>
-                        </div>
-                        <div class="prevue-block-two__wrap">
-                          <div class="prevue-block-two__up">
-                            <div class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</div>
-                            <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
-                            <span class="prevue-block-two__text">Doppelmayr</span>
-                          </div>
-                          <div class="prevue-block-two__down">
-                            <a href="#" class="btn-more">
-                              <div class="btn-more__square"></div>
-                              <span class="btn-more__text">ПОДРОБНЕЕ</span>
-                            </a>
+                          <div class="prevue-block-two__wrap">
+                            <div class="prevue-block-two__up">
+                              <a href="#" class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</a>
+                              <h4 class="prevue-block-two__caption">Федоровский и Тиховскй гидроузлы на р. Кубань</h4>
+                              <span class="prevue-block-two__text">АО &quot;Хазинедар оглу – Озкан&quot;</span>
+                            </div>
+                            <div class="prevue-block-two__down">
+                              <a href="#" class="btn-more">
+                                <div class="btn-more__square"></div>
+                                <span class="btn-more__text">ПОДРОБНЕЕ</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
 
-                  <div class="projects-slider__slide swiper-slide">
-                    <div class="prevue-block-two">
-                      <div class="prevue-block-two__wrapper">
-                        <div class="prevue-block-two__wrap-img">
-                          <picture>
-                            <source srcset="img/prevue-two-bg1.webp" type="image/webp">
-                            <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
-                            <img src="img/prevue-two-bg1.webp" alt="">
-                          </picture>
-                        </div>
-                        <div class="prevue-block-two__wrap">
-                          <div class="prevue-block-two__up">
-                            <div class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</div>
-                            <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
-                            <span class="prevue-block-two__text">Doppelmayr</span>
+                    <div class="projects-slider__slide swiper-slide">
+                      <div class="prevue-block-two">
+                        <div class="prevue-block-two__wrapper">
+                          <div class="prevue-block-two__wrap-img">
+                            <picture>
+                              <source srcset="img/prevue-two-bg1.webp" type="image/webp">
+                              <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
+                              <img src="img/prevue-two-bg1.webp" alt="">
+                            </picture>
                           </div>
-                          <div class="prevue-block-two__down">
-                            <a href="#" class="btn-more">
-                              <div class="btn-more__square"></div>
-                              <span class="btn-more__text">ПОДРОБНЕЕ</span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="projects-slider__slide swiper-slide">
-                    <div class="prevue-block-two">
-                      <div class="prevue-block-two__wrapper">
-                        <div class="prevue-block-two__wrap-img">
-                          <picture>
-                            <source srcset="img/prevue-two-bg1.webp" type="image/webp">
-                            <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
-                            <img src="img/prevue-two-bg1.webp" alt="">
-                          </picture>
-                        </div>
-                        <div class="prevue-block-two__wrap">
-                          <div class="prevue-block-two__up">
-                            <div class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</div>
-                            <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
-                            <span class="prevue-block-two__text">Doppelmayr</span>
-                          </div>
-                          <div class="prevue-block-two__down">
-                            <a href="#" class="btn-more">
-                              <div class="btn-more__square"></div>
-                              <span class="btn-more__text">ПОДРОБНЕЕ</span>
-                            </a>
+                          <div class="prevue-block-two__wrap">
+                            <div class="prevue-block-two__up">
+                              <a href="#" class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</a>
+                              <h4 class="prevue-block-two__caption">Вантовый пешеходный мост на Затоне в г. Краснодаре</h4>
+                              <span class="prevue-block-two__text">Doppelmayr</span>
+                            </div>
+                            <div class="prevue-block-two__down">
+                              <a href="#" class="btn-more">
+                                <div class="btn-more__square"></div>
+                                <span class="btn-more__text">ПОДРОБНЕЕ</span>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                </div>
-              </div>
-              <div class="slider-navigation">
-                <div class="projects-slider__wrap-arrow">
-                  <div class="arrow-slider projects-slider__arrow">
-                    <svg>
-                      <use xlink:href="img/sprite.svg#svg--">
-                    </svg>
-                  </div>
-                  <div class="arrow-slider projects-slider__arrow">
-                    <svg>
-                      <use xlink:href="img/sprite.svg#svg--">
-                    </svg>
+
+                    <div class="projects-slider__slide swiper-slide">
+                      <div class="prevue-block-two">
+                        <div class="prevue-block-two__wrapper">
+                          <div class="prevue-block-two__wrap-img">
+                            <picture>
+                              <source srcset="img/prevue-two-bg1.webp" type="image/webp">
+                              <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
+                              <img src="img/prevue-two-bg1.webp" alt="">
+                            </picture>
+                          </div>
+                          <div class="prevue-block-two__wrap">
+                            <div class="prevue-block-two__up">
+                              <a href="#" class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</a>
+                              <h4 class="prevue-block-two__caption">Строительство плавательных бассейнов ОАО &quot;Газпром&quot;</h4>
+                              <span class="prevue-block-two__text">ОАО &quot;Газпром&quot;</span>
+                            </div>
+                            <div class="prevue-block-two__down">
+                              <a href="#" class="btn-more">
+                                <div class="btn-more__square"></div>
+                                <span class="btn-more__text">ПОДРОБНЕЕ</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="projects-slider__slide swiper-slide">
+                      <div class="prevue-block-two">
+                        <div class="prevue-block-two__wrapper">
+                          <div class="prevue-block-two__wrap-img">
+                            <picture>
+                              <source srcset="img/prevue-two-bg1.webp" type="image/webp">
+                              <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
+                              <img src="img/prevue-two-bg1.webp" alt="">
+                            </picture>
+                          </div>
+                          <div class="prevue-block-two__wrap">
+                            <div class="prevue-block-two__up">
+                              <a href="#" class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</a>
+                              <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
+                              <span class="prevue-block-two__text">Doppelmayr</span>
+                            </div>
+                            <div class="prevue-block-two__down">
+                              <a href="#" class="btn-more">
+                                <div class="btn-more__square"></div>
+                                <span class="btn-more__text">ПОДРОБНЕЕ</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="projects-slider__slide swiper-slide">
+                      <div class="prevue-block-two">
+                        <div class="prevue-block-two__wrapper">
+                          <div class="prevue-block-two__wrap-img">
+                            <picture>
+                              <source srcset="img/prevue-two-bg1.webp" type="image/webp">
+                              <source srcset="img/prevue-two-bg1.jpg" type="image/jpeg">
+                              <img src="img/prevue-two-bg1.webp" alt="">
+                            </picture>
+                          </div>
+                          <div class="prevue-block-two__wrap">
+                            <div class="prevue-block-two__up">
+                              <a href="#" class="category">НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ</a>
+                              <h4 class="prevue-block-two__caption">Краснодарское водохранилище</h4>
+                              <span class="prevue-block-two__text">Doppelmayr</span>
+                            </div>
+                            <div class="prevue-block-two__down">
+                              <a href="#" class="btn-more">
+                                <div class="btn-more__square"></div>
+                                <span class="btn-more__text">ПОДРОБНЕЕ</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-                <div class="projects-slider__fraction fraction-slider"></div>
+                <div class="slider-navigation">
+                  <div class="slider-navigation__wrap-arrow">
+                    <div class="arrow-slider arrow-slider--prev projects-slider__arrow-prev">
+                      <svg>
+                        <use xlink:href="img/sprite.svg#short-arrow">
+                      </svg>
+                    </div>
+                    <div class="arrow-slider projects-slider__arrow-next">
+                      <svg>
+                        <use xlink:href="img/sprite.svg#short-arrow">
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="projects-slider__fraction fraction-slider"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -519,15 +536,15 @@
             <h2 class="title">Наши заказчики</h2>
             <div class="slider-navigation">
               <div class="fraction-slider our-customers__fraction"></div>
-              <div class="wrap-arrow">
-                <div class="arrow-slider our-customers__arrow">
+              <div class="slider-navigation__wrap-arrow">
+                <div class="arrow-slider arrow-slider--prev our-customers__arrow-prev">
                   <svg>
-                    <use xlink:href="img/sprite.svg#svg--">
+                    <use xlink:href="img/sprite.svg#short-arrow">
                   </svg>
                 </div>
-                <div class="arrow-slider our-customers__arrow">
+                <div class="arrow-slider our-customers__arrow-next">
                   <svg>
-                    <use xlink:href="img/sprite.svg#svg--">
+                    <use xlink:href="img/sprite.svg#short-arrow">
                   </svg>
                 </div>
               </div>
@@ -537,8 +554,8 @@
       </div>
       <div class="our-customers__slider">
         <div class="container">
-          <div class="our-customers__container">
-            <div class="our-customers__wrapper">
+          <div class="our-customers__container swiper">
+            <div class="our-customers__wrapper swiper-wrapper">
 
               <div class="our-customers__slide swiper-slide">
                 <div class="customers-block">
@@ -578,7 +595,7 @@
                     </div>
                     <div class="customers-block__wrap">
                       <div class="customers-block__up">
-                        <h4 class="customers-block__caption">ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»</h4>
+                        <h4 class="customers-block__caption">Министерство сельского хозяйства и перерабатывающей промышленности Краснодарского края</h4>
                       </div>
                       <div class="customers-block__down">
                         <a href="#" class="btn-more">
@@ -604,7 +621,7 @@
                     </div>
                     <div class="customers-block__wrap">
                       <div class="customers-block__up">
-                        <h4 class="customers-block__caption">ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»</h4>
+                        <h4 class="customers-block__caption">Кубанское бассейновое водное управление</h4>
                       </div>
                       <div class="customers-block__down">
                         <a href="#" class="btn-more">
@@ -726,7 +743,90 @@
   <script src="js/main.js"></script>
 
   <script src="js/swiper.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
   <script>
+    ymaps.ready(init);
+
+    function init() {
+      var myMap = new ymaps.Map('map', {
+          center: [55.76, 37.64],
+          zoom: 10
+        }, {
+          searchControlProvider: 'yandex#search'
+        }),
+        objectManager = new ymaps.ObjectManager({
+          // Чтобы метки начали кластеризоваться, выставляем опцию.
+          clusterize: true,
+          // ObjectManager принимает те же опции, что и кластеризатор.
+          gridSize: 32,
+          clusterDisableClickZoom: true
+        });
+
+      objectManager.objects.options.set({
+        iconLayout: 'default#image',
+        iconImageHref: 'img/svg-min/balun.svg',
+        iconImageSize: [30, 42],
+        iconImageOffset: [-3, -42]
+      });
+
+      objectManager.objects.overlays.events.add('mouseenter', function(e) { // меняем иконку при наведении
+        objectManager.objects.setObjectOptions(
+          e.get('objectId'), {
+            iconImageHref: 'img/svg-min/balun2.svg'
+          }
+        );
+      });
+      objectManager.objects.overlays.events.add('mouseleave', function(e) { // меняем обратно
+        objectManager.objects.setObjectOptions(
+          e.get('objectId'), {
+            iconImageHref: 'img/svg-min/balun.svg'
+          }
+        );
+      });
+
+      fetch('js/projects.json').then(response => response.json()).then(data => {
+        objectManager.add(data);
+      });
+
+      // Чтобы задать опции одиночным объектам и кластерам,
+      // обратимся к дочерним коллекциям ObjectManager.
+      //objectManager.objects.options.set('preset', 'islands#greenDotIcon');
+      objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+      myMap.geoObjects.add(objectManager);
+    };
+
+    const swiper = new Swiper('.projects-slider__container', {
+      slidesPerView: 3,
+      spaceBetween: 32,
+      pagination: {
+        el: '.projects-slider__fraction',
+        type: "fraction",
+        renderFraction: function(currentClass, totalClass) {
+          return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+        },
+      },
+      navigation: {
+        nextEl: '.projects-slider__arrow-next',
+        prevEl: '.projects-slider__arrow-prev',
+      },
+    });
+
+    const swiperTwo = new Swiper('.our-customers__container', {
+      slidesPerView: 3,
+      spaceBetween: 0,
+      loop: true,
+      pagination: {
+        el: '.our-customers__fraction',
+        type: "fraction",
+        renderFraction: function(currentClass, totalClass) {
+          return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+        },
+      },
+      navigation: {
+        nextEl: '.our-customers__arrow-next',
+        prevEl: '.our-customers__arrow-prev',
+      },
+    });
   </script>
 
 </body>
