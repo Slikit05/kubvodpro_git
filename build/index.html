@@ -29,8 +29,11 @@
           </div>
           <div class="page-header__right">
             <a href="#" class="tel">+7 (861) 253-73-35</a>
-            <button class="block-btn">
+            <button class="block-btn btn-tel">
               <span class="block-btn__text block-btn__text--white">ЗАКАЗАТЬ ЗВОНОК</span>
+              <svg>
+                <use xlink:href="img/sprite.svg#tel">
+              </svg>
             </button>
           </div>
         </div>
@@ -57,7 +60,7 @@
           </h1>
           <div class="first-screen__scroll-btn">
             <span>СКРОЛЬТЕ ВНИЗ</span>
-            <a href="#" class="arrow-scroll">
+            <a href="#ancor" class="arrow-scroll">
               <svg>
                 <use xlink:href="img/sprite.svg#arrow-down">
               </svg>
@@ -88,7 +91,7 @@
           </div>
         </div>
       </section>
-      <section class="activities">
+      <section class="activities" id="ancor">
         <div class="container">
           <div class="activities__container">
             <div class="row-title">
@@ -265,7 +268,7 @@
         <div class="container">
           <div class="info-about-company__container">
             <div class="row-title">
-              <h2 class="title">АО «Кубаньводпроект»</h2>
+              <h2 class="title">АО «Кубаньводпро&shy;ект»</h2>
             </div>
             <hr class="line-up">
             <div class="info-about-company__wrapper">
@@ -838,8 +841,10 @@
             </div>
             <div class="copyright">
               <div class="copyright__wrap">
-                <span class="copyright__text">Создание сайта</span>
-                <a href="#" class="copyright__link">- Very-good</a>
+                <div class="copyright__flex">
+                  <span class="copyright__text">Создание сайта -</span>
+                  <a href="#" class="copyright__link">Very-good</a>
+                </div>
                 <a href="#" class="copyright__link-wrap">
                   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="40" height="40" rx="20" />
@@ -884,14 +889,14 @@
         iconImageOffset: [-3, -42]
       });
 
-      objectManager.objects.overlays.events.add('mouseenter', function(e) { // меняем иконку при наведении
+      objectManager.objects.overlays.events.add('mouseenter', function(e) {
         objectManager.objects.setObjectOptions(
           e.get('objectId'), {
             iconImageHref: 'img/svg-min/balun2.svg'
           }
         );
       });
-      objectManager.objects.overlays.events.add('mouseleave', function(e) { // меняем обратно
+      objectManager.objects.overlays.events.add('mouseleave', function(e) {
         objectManager.objects.setObjectOptions(
           e.get('objectId'), {
             iconImageHref: 'img/svg-min/balun.svg'
@@ -903,9 +908,6 @@
         objectManager.add(data);
       });
 
-      // Чтобы задать опции одиночным объектам и кластерам,
-      // обратимся к дочерним коллекциям ObjectManager.
-      //objectManager.objects.options.set('preset', 'islands#greenDotIcon');
       objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
       myMap.geoObjects.add(objectManager);
     };
@@ -928,8 +930,12 @@
         1200: {
           slidesPerView: 3,
         },
-        1024: {
-          slidesPerView: 2,
+        575: {
+          slidesPerView: 'auto',
+        },
+        320: {
+          slidesPerView: 1,
+          loopedSlides: 1,
         }
       }
     });
@@ -939,6 +945,7 @@
       spaceBetween: 0,
       loop: true,
       loopAdditionalSlides: 2,
+      watchSlidesProgress: true,
       pagination: {
         el: '.our-customers__fraction',
         type: "fraction",
@@ -954,8 +961,12 @@
         1200: {
           slidesPerView: 3,
         },
-        1024: {
-          slidesPerView: 2,
+        575: {
+          slidesPerView: 'auto',
+          loopedSlides: 2,
+        },
+        320: {
+          slidesPerView: 1,
         }
       }
     });

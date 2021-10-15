@@ -1,8 +1,13 @@
 .footer-page {
   background-color: #012a5e;
+
   &__container {
     padding: 42px 0 40px;
+    @media (max-width: 575px) {
+      padding: 42px 0 55px;
+    }
   }
+
   &__up {
     display: flex;
     justify-content: space-between;
@@ -10,7 +15,21 @@
     border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
     padding-bottom: 30px;
     margin-bottom: 34px;
+
+    @media (max-width: 1023px) {
+      display: block;
+    }
+    @media (max-width: 575px) {
+      padding-bottom: 41px;
+    }
   }
+
+  &__left {
+    @media (max-width: 575px) {
+      margin-bottom: 16px;
+    }
+  }
+
   &__text {
     font-size: 18px;
     line-height: 28px;
@@ -18,58 +37,92 @@
     opacity: 0.8;
     display: block;
     margin-bottom: 15px;
+
+    @media (max-width: 575px) {
+      font-size: 16px;
+      line-height: 28px;
+      margin-bottom: 10px;
+    }
   }
+
   &__tel {
     display: inline-block;
     font-weight: bold;
     font-size: 24px;
     line-height: 32px;
     color: #ffffff;
+
     &:hover {
       color: #ffffff;
     }
+
     &:active {
       color: #ffffff;
     }
+
     &:focus {
       color: #ffffff;
     }
   }
+
   &__mail {
     font-size: 18px;
     line-height: 28px;
     color: #18a0fb;
     margin-top: 12px;
     display: inline-block;
+
+    @media (max-width: 575px) {
+      font-size: 16px;
+      line-height: 28px;
+      margin-top: 6px;
+    }
+
     &:hover {
       text-decoration: underline;
       color: #18a0fb;
     }
+
     &:active {
       color: #18a0fb;
     }
+
     &:focus {
       color: #18a0fb;
     }
   }
+
   &__right {
     .social-list {
       margin-top: 8px;
+
+      @media (max-width: 1023px) {
+        margin-top: 0;
+      }
     }
   }
+
   &__down {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 575px) {
+      display: block;
+    }
   }
+
   &__wrap {
     display: flex;
     align-items: center;
+
+    @media (max-width: 575px) {
+      margin-bottom: 30px;
+    }
+
     .logo {
-      &:hover {
-        svg {
-          fill: #174EFF;
-        }
+      @media (max-width: 575px) {
+        align-items: flex-start;
       }
       svg {
         width: 42px;
@@ -77,15 +130,43 @@
         fill: #18A0FB;
         margin-right: 16px;
         transition: all 0.3s ease-in-out;
+        flex-shrink: 0;
+        @media (max-width: 575px) {
+          width: 42px;
+          height: 48px;
+          margin-top: 4px;
+        }
+
+        &:hover {
+          fill: #174EFF;
+        }
       }
+
       .logo__text {
         font-weight: bold;
         font-size: 24px;
         line-height: normal;
         margin-right: 20px;
+
+        @media (max-width:1200px) {
+          margin-right: 11px;
+        }
+        @media (max-width: 575px) {
+          margin-bottom: 5px;
+        }
+      }
+
+      &__flex {
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 1023px) {
+          display: block;
+        }
       }
     }
   }
+
   &__text-gray {
     font-size: 14px;
     line-height: normal;
@@ -98,28 +179,68 @@
   &__wrap {
     display: flex;
     align-items: center;
+
+    @media (max-width: 575px) {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      width: 100%;
+    }
   }
+
+  &__flex {
+    display: flex;
+
+    @media (max-width: 1023px) {
+      display: block;
+      text-align: right;
+
+      span {
+        display: block;
+        text-align: right;
+      }
+    }
+
+    @media (max-width: 575px) {
+      display: flex;
+      text-align: left;
+    }
+  }
+
   &__text {
     font-size: 14px;
     color: #fff;
     margin-right: 4px;
+
+    @media (max-width: 1023px) {
+      margin-right: 0;
+    }
   }
+
   &__link {
     font-size: 14px;
     line-height: normal;
     color: #b2bfce;
   }
+
   svg {
     margin-left: 16px;
+
+    @media (max-width: 575px) {
+      margin-left: 0;
+      margin-right: 16px;
+    }
+
     &:hover {
       rect {
         fill: #174EFF;
       }
     }
+
     rect {
       fill: #18a0fb;
       transition: all 0.3s ease-in-out;
     }
+
     path {
       fill: #fff;
       transition: all 0.3s ease-in-out;

@@ -103,20 +103,19 @@ button {
   margin: 0 auto;
   //  padding: 0 15px;
 
-  @media screen and (max-width: 1360px) {
-    // max-width: 96.3%;
-    padding: 0 32px;
+  @media screen and (max-width: 1200px) {
+    max-width: 96.3%;
+    padding: 0 30px;
   }
 
-  @media screen and (max-width: 1079px) {
-    // max-width: 100%;
-    // padding: 0 16px;
-    // max-width: 97%
+  @media screen and (max-width: 1023px) {
+    padding: 0 40px;
+    max-width: 100%
   }
 
   @media screen and (max-width: 767px) {
     // max-width: 100%;
-    padding: 0 24px;
+    padding: 0 20px;
   }
   @media screen and (max-width: 359px) {
     // max-width: 100%;
@@ -130,7 +129,7 @@ button {
 .hiden {
   overflow: hidden;
   @media (min-width: 1080px) {
-    padding-right: 17px;
+    // padding-right: 17px;
   }
 }
 
