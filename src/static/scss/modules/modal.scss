@@ -54,9 +54,17 @@
 		max-width: 90%;
 		font-size: 0;
 		line-height: 0;
-		padding: 44px 56px 56px;
+		padding: 29px 48px 48px;
 		position: relative;
 		white-space: pre-wrap;
+
+		* {
+			line-height: normal;
+		}
+
+		&--default {
+			max-width: 736px;
+		}
 
 		@media (max-width: 767px) {
 			// max-width: 100% !important;
@@ -75,10 +83,23 @@
 	}
 
 	&__caption {
-		font-weight: 600;
-		font-size: 32px;
-		line-height: 40px;
-		color: #000000;
+		font-weight: bold;
+		font-size: 40px;
+		line-height: 56px;
+		color: #13151B;
+		position: relative;
+		padding-bottom: 20px;
+		margin-bottom: 30px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 2px;
+			background-color: #174EFF;
+			width: 48px;
+		}
 
 		@media (max-width: 767px) {
 			font-size: 26px;
@@ -88,29 +109,75 @@
 }
 
 .close {
-	width: 18px;
-	height: 18px;
+	width: 40px;
+	height: 40px;
 	position: absolute;
-	top: 24px;
-	right: 24px;
+	top: -20px;
+	right: 16px;
 	cursor: pointer;
+	background-color: #174EFF;
 
-	&::before,
-	&::after {
-		content: "";
+	&:hover {
+		.close__wrap {
+			transform: rotate(360deg);
+		}
+	}
+
+	&__wrap {
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: calc(50% - 1px);
-		width: 2px;
-		background-color: #0050B2;
+		top: 10px;
+		bottom: 10px;
+		right: 10px;
+		left: 10px;
+		transition: all 0.4s ease-in-out;
+		pointer-events: none;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: calc(50% - 1px);
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			background-color: #fff;
+		}
+
+		&::after {
+			transform: rotate(45deg);
+		}
+
+		&::before {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+.call-form {
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 32px;
+		margin-bottom: 32px;
+		@media (max-width: 767px) {
+			grid-template-columns: 1fr;
+			grid-gap: 16px;
+			margin-bottom: 16px;
+		}
 	}
 
-	&::after {
-		transform: rotate(45deg);
-	}
-
-	&::before {
-		transform: rotate(-45deg);
+	&__down {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		@media (max-width: 767px) {
+			display: block;
+			.check {
+				margin-bottom: 15px;
+			}
+			.block-btn-two {
+				width: 100%;
+			}
+		}
 	}
 }

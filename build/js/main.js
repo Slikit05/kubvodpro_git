@@ -1,47 +1,96 @@
-let changeScrollNumber = 0;
-const header = document.querySelector('header').scrollHeight;
-const firstScreen = document.querySelector('.first-screen').scrollHeight;
-const firstScroll = header + firstScreen;
+(function () {
+	let changeScrollNumber = 0;
+	const header = document.querySelector('header').scrollHeight;
+	const firstScreen = document.querySelector('.first-screen').scrollHeight;
+	const firstScroll = header + firstScreen;
 
-if (window.pageYOffset > firstScroll) {
-	document.querySelector('body').classList.remove('hiden');
-	changeScrollNumber = 1;
-} else {
-	document.querySelector('body').classList.add('hiden');
-}
+	if (document.documentElement.clientWidth > 1023) {
+		if (window.pageYOffset >= firstScroll) {
+			document.querySelector('body').classList.remove('hiden');
+			changeScrollNumber = 1;
+		} else if (window.pageYOffset > 0) {
+			document.querySelector('body').classList.remove('hiden');
+			changeScrollNumber = 1;
+		} else {
+			document.querySelector('body').classList.add('hiden');
+		}
+	}	
 
-document.querySelectorAll('.arrow-scroll').forEach(link => {
+	document.querySelectorAll('.arrow-scroll').forEach(link => {
 
-	link.addEventListener('click', function (e) {
+		link.addEventListener('click', function (e) {
 
-		console.log(this.getAttribute('href'))
 
-		let href = this.getAttribute('href');
+			let href = this.getAttribute('href');
 
-		const scrollTarget = document.querySelector(href);
+			const scrollTarget = document.querySelector(href);
 
-		const topOffset = document.querySelector('.scroll-header').scrollHeight;
-		const elementPosition = scrollTarget.getBoundingClientRect().top;
-		const offsetPosition = elementPosition - topOffset - 50;
+			const topOffset = document.querySelector('.scroll-header').scrollHeight;
+			const elementPosition = scrollTarget.getBoundingClientRect().top;
+			const offsetPosition = elementPosition - topOffset - 50;
 
-		window.scrollBy({
-			top: offsetPosition,
-			behavior: 'smooth'
+			window.scrollBy({
+				top: offsetPosition,
+				behavior: 'smooth'
+			});
+			document.querySelector('body').classList.remove('hiden');
+			changeScrollNumber = 1;
+			e.preventDefault();
 		});
-		document.querySelector('body').classList.remove('hiden');
-		changeScrollNumber = 1;
-		e.preventDefault();
 	});
-});
 
-window.addEventListener("wheel", event => {
-	if (window.pageYOffset < firstScroll && changeScrollNumber === 0) {
-		window.scrollBy({
-			top: firstScroll,
-			behavior: 'smooth'
+	if (document.documentElement.clientWidth > 1023) {
+		window.addEventListener("wheel", event => {
+			if (window.pageYOffset <= firstScroll && changeScrollNumber === 0) {
+				window.scrollBy({
+					top: firstScroll,
+					behavior: 'smooth'
+				});
+				changeScrollNumber = 1;
+			} else if (changeScrollNumber === 1) {
+				document.querySelector('body').classList.remove('hiden');
+			};
 		});
-		changeScrollNumber = 1;
-	} else if (changeScrollNumber === 1) {
-		document.querySelector('body').classList.remove('hiden');
-	};
-});
+	}
+
+	
+})();
+
+// Модалки
+
+(function () {
+  window.addEventListener("click", function (event) {
+
+    if (event.target.dataset.clickModal) {
+
+      event.preventDefault();
+
+      const btnName = event.target.dataset.clickModal;
+
+      document.querySelector("#" + btnName).classList.add("modal--open");
+      document.querySelector("html").classList.add("hiden");
+    };
+
+    if (event.target.classList.contains("modal__overlay")) {
+      event.target.closest(".modal").classList.remove("modal--open");
+      document.querySelector("html").classList.remove("hiden");
+			if (event.target.closest(".modal").querySelector('input')) {
+				event.target.closest(".modal").querySelectorAll('input').forEach(function(i) {
+					i.value = '';
+				})
+			}
+    } else if (event.target.classList.contains("close")) {
+      event.target.closest(".modal").classList.remove("modal--open");
+      document.querySelector("html").classList.remove("hiden");
+			if (event.target.closest(".modal").querySelector('input')) {
+				event.target.closest(".modal").querySelectorAll('input').forEach(function(i) {
+					i.value = '';
+				})
+			}
+    };
+  });
+})();
+
+// Модалки -- конец
+
+Inputmask("+7 (999) 999-99-99").mask('[type="tel"]');

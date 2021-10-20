@@ -6,32 +6,10 @@
 
 {% block Header %}
 
-
 {% endblock %}
 
 {% block Content %}
-	<section class="first-screen">
-		<picture class="first-screen__bg">
-			<source srcset="img/first-screen-bg.webp" type="image/webp">
-			<source srcset="img/first-screen-bg.jpg" type="image/jpeg">
-			<img src="img/first-screen-bg.webp" alt="">
-		</picture>
-		<div class="container">
-			<div class="first-screen__container">
-				<h1 class="first-screen__title">Управляй водой на благо <br>России 
-					<img src="img/logo3.svg">
-				</h1>
-				<div class="first-screen__scroll-btn">
-					<span>СКРОЛЬТЕ ВНИЗ</span>
-					<a href="#ancor" class="arrow-scroll">
-						<svg>
-							<use xlink:href="img/sprite.svg#arrow-down">
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	{% include "include/first-screen.njk" %}
 
 	<div class="wrapper-scroll-header">
 		<section class="scroll-header">
@@ -45,8 +23,8 @@
 							</div>
 						</div>
 						<div class="scroll-header__right">
-							<a href="#" class="tel tel--black">+7 (861) 253-73-35</a>
-							<button class="block-btn">
+							<a href="#" class="tel tel--black">8 (861) 253-73-35</a>
+							<button class="block-btn" data-click-modal="call-modal">
 								<span class="block-btn__text block-btn__text--blue">ЗАКАЗАТЬ ЗВОНОК</span>
 							</button>
 						</div>
@@ -62,11 +40,11 @@
 					</div>
 					<div class="activities__grid">
 						{{ mixin.prevueBlock('prevue-bg1', 'prevue-icon1', 'Разработка проектной и рабочей документации') }}
-						{{ mixin.prevueBlock('prevue-bg1', 'prevue-icon2', 'Проектирование специальных сооружений') }}
-						{{ mixin.prevueBlock('prevue-bg1', 'prevue-icon3', 'Разработка специальных разделов проектной документации') }}
-						{{ mixin.prevueBlock('prevue-bg1', 'prevue-icon4', 'Проектный инжиниринг') }}
-						{{ mixin.prevueBlock('prevue-bg1', 'prevue-icon5', 'Функции генерального проектировщика') }}
-						{{ mixin.prevueBlock('prevue-bg1', 'prevue-icon6', 'Инженерные изыскания для строительства') }}
+						{{ mixin.prevueBlock('prevue-bg2', 'prevue-icon2', 'Проектирование специальных сооружений') }}
+						{{ mixin.prevueBlock('prevue-bg3', 'prevue-icon3', 'Разработка специальных разделов проектной документации') }}
+						{{ mixin.prevueBlock('prevue-bg4', 'prevue-icon4', 'Проектный инжиниринг') }}
+						{{ mixin.prevueBlock('prevue-bg5', 'prevue-icon5', 'Функции генерального проектировщика') }}
+						{{ mixin.prevueBlock('prevue-bg6', 'prevue-icon6', 'Инженерные изыскания') }}
 					</div>
 				</div>
 			</div>
@@ -112,12 +90,11 @@
 							<div class="projects-slider">
 								<div class="projects-slider__container swiper">
 									<div class="projects-slider__wrapper swiper-wrapper">
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище', 'Doppelmayr') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Федоровский и Тиховскй гидроузлы на р. Кубань', 'АО "Хазинедар оглу – Озкан"') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый пешеходный мост на Затоне в г. Краснодаре', 'Doppelmayr') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Строительство плавательных бассейнов ОАО "Газпром"', 'ОАО "Газпром"') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище', 'Doppelmayr') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище', 'Doppelmayr') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище', 'Республика Адыгея') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg2', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Рисовые чеки', 'Краснодар') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg3', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый мост г. Краснодар', 'Краснодар') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg4', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Тиховский гидроузел', 'Абинский район') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg5', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Федоровский гидроузел', 'Фёдоровское сельское поселение') }}
 									</div>
 								</div>
 								<div class="slider-navigation">
@@ -160,18 +137,23 @@
 				<div class="container">
 					<div class="our-customers__container swiper">
 						<div class="our-customers__wrapper swiper-wrapper">
-							{{ mixin.slideCustomersBlock('customers-logo', 'ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»') }}
-							{{ mixin.slideCustomersBlock('customers-logo', 'Министерство сельского хозяйства и перерабатывающей промышленности Краснодарского края') }}
-							{{ mixin.slideCustomersBlock('customers-logo', 'Кубанское бассейновое водное управление') }}
-							{{ mixin.slideCustomersBlock('customers-logo', 'Департамент  жилищно - коммунального хозяйства администрации Краснодарского края') }}
-							{{ mixin.slideCustomersBlock('customers-logo', 'ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»') }}
-							{{ mixin.slideCustomersBlock('customers-logo', 'ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»') }}
+							{{ mixin.slideCustomersBlock('customers-logo1', 'ФГУ «Краснодарское водохранилище»') }}
+							{{ mixin.slideCustomersBlock('customers-logo2', '000 «Ильский НПЗ»') }}
+							{{ mixin.slideCustomersBlock('customers-logo3', 'ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»') }}
+							{{ mixin.slideCustomersBlock('customers-logo4', 'Государственное казенное учреждение «Главное управление строительства Краснодарского края (ГКУ «ГУСКК»)') }}
+							{{ mixin.slideCustomersBlock('customers-logo5', 'Департамент автомобильных дорог Краснодарского края') }}
+							{{ mixin.slideCustomersBlock('customers-logo6', 'Кубанское бассейновое водное управление') }}
+							{{ mixin.slideCustomersBlock('customers-logo7', 'Министерство природных ресурсов Краснодарского края') }}
+							{{ mixin.slideCustomersBlock('customers-logo8', 'Министерство сельского хозяйства и перерабатывающей промышленности Краснодарского края') }}
+							{{ mixin.slideCustomersBlock('customers-logo9', 'ООО «Роза Хутор»') }}
+							{{ mixin.slideCustomersBlock('customers-logo10', 'ФГБУ «Управление Кубаньмелиоводхоз»') }}
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-	</div>	
+	</div>
+	{% include "include/modal.njk" %}
 {% endblock %}
 
 {% block Scripts %}
@@ -181,18 +163,20 @@
 		ymaps.ready(init);
 		function init () {
 				var myMap = new ymaps.Map('map', {
-								center: [55.76, 37.64],
-								zoom: 10
-						}, {
-								searchControlProvider: 'yandex#search'
-						}),
-						objectManager = new ymaps.ObjectManager({
-								// Чтобы метки начали кластеризоваться, выставляем опцию.
-								clusterize: true,
-								// ObjectManager принимает те же опции, что и кластеризатор.
-								gridSize: 32,
-								clusterDisableClickZoom: true
-						});
+						center: [45.035470, 38.975313],
+						zoom: 10
+				}, {
+						searchControlProvider: 'yandex#search'
+				}),
+				objectManager = new ymaps.ObjectManager({
+						// Чтобы метки начали кластеризоваться, выставляем опцию.
+						clusterize: true,
+						// ObjectManager принимает те же опции, что и кластеризатор.
+						gridSize: 32,
+						clusterDisableClickZoom: true
+				});
+
+				myMap.behaviors.disable(['drag', 'scrollZoom']);
 
 				objectManager.objects.options.set( {
 						iconLayout: 'default#image',
@@ -229,10 +213,13 @@
 		const swiper = new Swiper('.projects-slider__container', {
 			slidesPerView: 3,
 			spaceBetween: 32,
+			loop: true,
+			loopAdditionalSlides: 2,
+			watchSlidesProgress: true,
 			pagination: {
 				el: '.projects-slider__fraction',
 				type: "fraction",
-				renderFraction: function(currentClass, totalClass) {
+				renderFraction: function(currentClass, totalClass) {					
 					return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
 				},
 			},
@@ -245,11 +232,11 @@
 					slidesPerView: 3,
 				},
 				575: {
-					slidesPerView: 'auto',
+					slidesPerView: 'auto',					
 				},
 				320: {
 					slidesPerView: 1,
-					loopedSlides: 1,
+					spaceBetween: 10,
 				}
 			}
 		});
