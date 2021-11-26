@@ -75,6 +75,9 @@
 	&__up {
 		margin-bottom: 20px;
 		vertical-align: inherit;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	&__down {
@@ -90,6 +93,9 @@
 		position: relative;
 		padding-bottom: 20px;
 		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
 
 		&::before {
 			content: "";

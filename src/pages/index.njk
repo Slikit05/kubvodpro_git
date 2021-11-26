@@ -2,6 +2,7 @@
 
 {% block Link %}
 	<link rel="stylesheet" href="css/swiper.css">
+	<link rel="stylesheet" href="css/choices.min.css">
 {% endblock %}
 
 {% block Header %}
@@ -19,14 +20,72 @@
 						<div class="scroll-header__left">
 							<div class="logo">
 								<img src="img/svg-min/logo2.svg" alt="">
-								<span class="logo__text">Кубаньводпроект</span>
+								{# <span class="logo__text">Кубаньводпроект</span> #}
 							</div>
+							 <nav class="navigation">
+								<ul class="navigation__list">
+									<li class="navigation__item">
+										<a href="" class="navigation__link">ИНСТИТУТ</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Страницы истории</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Участие в конкурсах</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Коллектив</a></li>
+										</ul>
+									</li>
+									<li class="navigation__item">
+										<a href="" class="navigation__link">УСЛУГИ</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Страницы истории</a></li>
+										</ul>
+									</li>
+									<li class="navigation__item">
+										<a href="" class="navigation__link">ПРОЕКТЫ</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Страницы истории</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Участие в конкурсах</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Коллектив</a></li>
+										</ul>
+									</li>
+									<li class="navigation__item">
+										<a href="" class="navigation__link">Контакты</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
 						</div>
 						<div class="scroll-header__right">
 							<a href="#" class="tel tel--black">8 (861) 253-73-35</a>
 							<button class="block-btn" data-click-modal="call-modal">
 								<span class="block-btn__text block-btn__text--blue">ЗАКАЗАТЬ ЗВОНОК</span>
 							</button>
+							<div class="change-language">
+								<span class="change-language__text">EN</span>
+							</div>
+							<div class="wrap-search">
+								<div class="search-field">
+									<form action="" class="search-field__form">
+										<div class="search-field__wrap">
+											<label class="search-field__wrap-field">
+												<svg><use xlink:href="img/sprite.svg#search-icon"></svg>
+												<input type="text" class="search-field__input">
+											</label>
+											<button class="search-field__btn">
+												<span class="search-field__text">НАЙТИ</span>
+											</button>
+										</div>
+									</form>
+								</div>
+								<div class="search-icon">
+									<div class="search-icon__wrap">
+										<svg><use xlink:href="img/sprite.svg#search-icon"></svg>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,6 +113,10 @@
 				<div class="info-about-company__container">
 					<div class="row-title">
 						<h2 class="title">АО «Кубаньводпро&shy;ект»</h2>
+						<a href="#" class="btn-more">
+							<span class="btn-more__text">О КОМПАНИИ</span>
+							<div class="btn-more__square"></div>
+						</a>
 					</div>
 					<hr class="line-up">
 					<div class="info-about-company__wrapper">
@@ -67,7 +130,7 @@
 						</div>
 						<div class="info-about-company__right">
 							{{ mixin.infoBlock('info-icon1', 'Работаем с 1929 года', 'Несколько слов о огромном опыте работ и о том, что компании исполнилось уже 92 года!') }}
-							{{ mixin.infoBlock('info-icon2', 'Более 100 проектов', 'Несколько слов о том какие крупные и важные проекты выполняет Кубаньводпроект на протажении 90 лет') }}
+							{{ mixin.infoBlock('info-icon2', 'Более 10 000 проектов', 'Несколько слов о том какие крупные и важные проекты выполняет Кубаньводпроект на протажении 90 лет') }}
 							{{ mixin.infoBlock('info-icon3', 'Проектирование в 20 странах мира', 'Кубы, Венгрии, Вьетнама, Лаоса, Ирака, Мозамбика, Мадагаскара, Сирии, Анголы, Алжира и других стран.') }}
 							{{ mixin.infoBlock('info-icon4', 'Ведущее предприятие Юга России', 'по проектированию мелиоративных и водохозяйственных объектов, укре­плению морских и речных берегов на Юге России, объектам горного и морского туризма.') }}
 						</div>
@@ -80,6 +143,17 @@
 			<div class="container">
 				<div class="row-title">
 					<h2 class="title">Проекты</h2>
+					<div class="row-title__flex"><span class="text"></span>
+						<div class="filter-select-wrap">
+							<select name="" id="" class="filter-select">
+								<option placeholder>Все направления</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="projects__wrapper">
@@ -90,7 +164,7 @@
 							<div class="projects-slider">
 								<div class="projects-slider__container swiper">
 									<div class="projects-slider__wrapper swiper-wrapper">
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище', 'Республика Адыгея') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище Краснодарское водохранилище', 'Республика Адыгея') }}
 										{{ mixin.slidePrevueBlockTwo('prevue-two-bg2', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Рисовые чеки', 'Краснодар') }}
 										{{ mixin.slidePrevueBlockTwo('prevue-two-bg3', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый мост г. Краснодар', 'Краснодар') }}
 										{{ mixin.slidePrevueBlockTwo('prevue-two-bg4', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Тиховский гидроузел', 'Абинский район') }}
@@ -98,15 +172,21 @@
 									</div>
 								</div>
 								<div class="slider-navigation">
-									<div class="slider-navigation__wrap-arrow">
-										<div class="arrow-slider arrow-slider--prev projects-slider__arrow-prev">
-											<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+									<div class="slider-navigation__wrap">
+										<div class="slider-navigation__wrap-arrow">
+											<div class="arrow-slider arrow-slider--prev projects-slider__arrow-prev">
+												<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+											</div>
+											<div class="arrow-slider projects-slider__arrow-next">
+												<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+											</div>
 										</div>
-										<div class="arrow-slider projects-slider__arrow-next">
-											<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
-										</div>
+										<div class="projects-slider__fraction fraction-slider"></div>
 									</div>
-									<div class="projects-slider__fraction fraction-slider"></div>
+									<button class="block-btn-two">
+										<div class="block-btn-two__animate"></div>
+										<span>ВСЕ ПРОЕКТЫ</span>
+									</button>
 								</div>
 							</div>
 						</div>
@@ -158,8 +238,15 @@
 
 {% block Scripts %}
 	<script src="js/swiper.min.js"></script>
-		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="js/choices.min.js"></script>
 	<script>
+		const choices = new Choices('.filter-select', {
+			itemSelectText: '',
+			searchEnabled: false,
+			placeholder: true,
+		});
 		ymaps.ready(init);
 		function init () {
 				var myMap = new ymaps.Map('map', {
@@ -232,7 +319,7 @@
 					slidesPerView: 3,
 				},
 				575: {
-					slidesPerView: 'auto',					
+					slidesPerView: 'auto',
 				},
 				320: {
 					slidesPerView: 1,
@@ -270,6 +357,60 @@
 					slidesPerView: 1,
 				}
 			}
-		});
+		});		
+
+    (function () {
+			let arrModalField = [];
+			const formCall = document.querySelector('.call-form');
+			const formCallField = formCall.querySelectorAll('input');
+			const formCallAction = formCall.getAttribute('action');
+      console.log('Путь отправки: ' + formCallAction);
+			
+      formCall.addEventListener('submit', function (e) {
+				e.preventDefault();
+
+				arrModalField.splice(0, arrModalField.length);
+				
+				formCallField.forEach(function(item) {
+					let fieldInfo = {
+						nameField: '',
+						value: '',
+						checked: '',
+					};
+
+
+					if(item.getAttribute('type') === 'checkbox') {
+						fieldInfo.nameField = item.getAttribute('name');
+						if (item.checked) {
+							fieldInfo.checked = true;
+						} else {
+							fieldInfo.checked = false;
+						}
+					} else {
+						fieldInfo.nameField = item.getAttribute('name');
+						fieldInfo.value = item.value;
+					}
+
+					console.log(fieldInfo);
+
+					arrModalField.push(fieldInfo);
+				});
+
+				console.log(arrModalField);
+
+				axios({
+					method: 'post',
+					url: formCallAction,
+					data: {arrModalField}
+				}).then(function (response) {
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+      })
+    })();
+
+		
+		
 	</script>
 {% endblock %}

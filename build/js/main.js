@@ -27,10 +27,10 @@
 
 			const topOffset = document.querySelector('.scroll-header').scrollHeight;
 			const elementPosition = scrollTarget.getBoundingClientRect().top;
-			const offsetPosition = elementPosition - topOffset - 50;
+			const offsetPosition = elementPosition - topOffset;
 
 			window.scrollBy({
-				top: offsetPosition,
+				top: firstScroll - 210,
 				behavior: 'smooth'
 			});
 			document.querySelector('body').classList.remove('hiden');
@@ -43,7 +43,7 @@
 		window.addEventListener("wheel", event => {
 			if (window.pageYOffset <= firstScroll && changeScrollNumber === 0) {
 				window.scrollBy({
-					top: firstScroll,
+					top: firstScroll - 210,
 					behavior: 'smooth'
 				});
 				changeScrollNumber = 1;
@@ -92,5 +92,21 @@
 })();
 
 // Модалки -- конец
+
+// Поле поиска
+
+window.addEventListener('click', function (event) {
+	if (event.target.classList.contains('search-icon')) {
+		if (event.target.closest('.wrap-search').querySelector('.search-field').classList.contains('search-field--open')) {
+			event.target.closest('.wrap-search').querySelector('.search-field').classList.remove('search-field--open');
+			event.target.classList.remove('search-icon--open')
+		} else {
+			event.target.closest('.wrap-search').querySelector('.search-field').classList.add('search-field--open');
+			event.target.classList.add('search-icon--open')
+		}
+	}
+});
+
+// Поле поиска -- конец
 
 Inputmask("+7 (999) 999-99-99").mask('[type="tel"]');

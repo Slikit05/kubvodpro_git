@@ -111,22 +111,42 @@
 	&__container {
 		display: flex;
 		justify-content: space-between;
-		padding: 11px 0 13px;
+		position: relative;
+		// padding: 11px 0 13px;
 	}
 
 	&__left {
 		align-items: center;
+		display: flex;
+		flex-grow: 1;
 
 		.logo {
 			img {
 				width: 42px;
-				margin-right: 22px;
+				margin-right: 14px;
 			}
 
 			&__text {
 				color: #13151B;
 				font-size: 24px;
 				line-height: 32px;
+			}
+		}
+		.navigation {
+			flex-grow: 1;
+			border: none;
+			&__list {
+				display: flex;
+			}
+			&__item {
+				flex-grow: 0;
+				.dropdown {
+					min-width: 312px;
+				}
+			}
+			&__link {
+				color: #13151B;
+				padding: 28px 20px;
 			}
 		}
 	}
@@ -145,6 +165,23 @@
 				.block-btn__text {
 					color: #fff;
 				}
+			}
+		}
+
+		.block-btn {
+			margin-right: 16px;
+		}
+
+		.change-language {
+			margin-right: 8px;
+		}
+		.search-field {
+			z-index: 10;
+			top: 12px;
+			&__input {
+				border: 1px solid #E2E5EA;
+				border-right: none;
+				padding: 13px 15px 13px 59px;
 			}
 		}
 	}
@@ -345,8 +382,6 @@
 .btn-more {
 	display: inline-flex;
 	align-items: center;
-	// сначала скрыта потом вернуть 
-	display: none !important;
 
 	&:hover {
 		.btn-more__square {
@@ -548,9 +583,11 @@
 	}
 
 	&__up {
-		// сначала убрать отступ потом вернуть
-		// margin-bottom: 28px;
+		margin-bottom: 28px;
 		flex-grow: 1;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	&__caption {
@@ -602,6 +639,12 @@
 .slider-navigation {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+
+	&__wrap {
+		display: flex;
+		align-items: center;
+	}
 
 	&__wrap-arrow {
 		display: flex;
@@ -692,8 +735,26 @@
 		}
 	}
 
+	&__flex {
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+		justify-content: flex-end;
+	}
+
 	.slider-navigation {
 		margin-top: 4px;
+	}
+
+	.btn-more {
+		margin-top: 17px;
+		&__square {
+			margin-right: 0;
+			margin-left: 12px;
+		}
+	}
+	.filter-select-wrap {
+		min-width: 416px;
 	}
 }
 
@@ -831,6 +892,7 @@
 	top: 0;
 	background-color: #fff;
 	z-index: 10;
+	
 }
 
 .field {
@@ -983,6 +1045,7 @@
 		top: 8px;
 		bottom: 8px;
 		left: 8px;
+		pointer-events: none;
 
 		&::before {
 			content: "";
@@ -1004,4 +1067,117 @@
 		z-index: 1;
 		transition: all 0.3s ease-in-out;
 	}
+}
+
+
+
+.choices {
+	width: 100%;
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    .choices__inner {
+      border-color: #333;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: calc(50% - 3px);
+    width: 14px;
+    height: 9px;
+    mask: url("../img/svg/arrow-two-fill.svg");
+    mask-size: cover;
+    background-color: #0061d9;
+    z-index: 40;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .choices__inner {
+    background-color: #fff;
+    border: 1px solid #a7a8ab;
+    border-radius: 4px;
+    padding: 9px 14px 11px;
+    transition: all 0.3s ease-in-out;
+
+    @media (max-width: 767px) {
+      min-height: 40px;
+      padding: 6px 14px 8px !important;
+    }
+  }
+
+  &__list {
+    &--single {
+      padding: 2px 32px 3.5px 0 !important;
+
+      @media (max-width: 767px) {
+        padding: 0 32px 0 0 !important;
+      }
+
+      .choices__item {
+        font-size: 18px;
+        line-height: 28px;
+        color: #000000;
+
+        @media (max-width: 767px) {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      .choices__placeholder {
+        opacity: 1;
+      }
+    }
+
+    &--dropdown {
+      transition: all 0.3s ease-in-out;
+      background-color: #F5F5F7;
+      z-index: 10 !important;
+
+      .choices__item {
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .choices__list--dropdown .choices__item--selectable.is-highlighted {
+    background-color: #0061D9;
+    color: #fff;
+  }
+}
+
+.choices.is-open {
+  background-color: #F5F5F7;
+
+  &:hover {
+
+    .choices__inner,
+    .choices__list--dropdown {
+      border-color: transparent;
+    }
+  }
+
+  .choices__inner {
+    background-color: #F5F5F7;
+    box-shadow: 0 0 0 1px #E5E5E5;
+    border-color: transparent;
+  }
+
+  .choices__list--dropdown {
+    background-color: #fff;
+    box-shadow: 0 1px 0 1px #E5E5E5;
+    border-color: transparent;
+  }
+
+  &::before {
+    transform: rotate(180deg);
+  }
 }

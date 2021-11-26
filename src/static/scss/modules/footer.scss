@@ -2,7 +2,8 @@
   background-color: #012a5e;
 
   &__container {
-    padding: 42px 0 40px;
+    padding: 35px 0 40px;
+
     @media (max-width: 575px) {
       padding: 42px 0 55px;
     }
@@ -10,21 +11,24 @@
 
   &__up {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin-bottom: 34px;
 
     @media (max-width: 767px) {
       display: block;
     }
+
     @media (max-width: 575px) {
       padding-bottom: 41px;
     }
   }
 
   &__left {
+    margin-right: 32px;
+    width: 57.4%;
     @media (max-width: 767px) {
       margin-bottom: 16px;
     }
@@ -71,6 +75,11 @@
     color: #18a0fb;
     margin-top: 12px;
     display: inline-block;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     @media (max-width: 575px) {
       font-size: 16px;
@@ -93,8 +102,8 @@
   }
 
   &__right {
+    padding-top: 8px;
     .social-list {
-      margin-top: 8px;
 
       @media (max-width: 1280px) {
         margin-top: 0;
@@ -124,6 +133,7 @@
       @media (max-width: 575px) {
         align-items: flex-start;
       }
+
       svg {
         width: 42px;
         height: 48px;
@@ -131,6 +141,7 @@
         margin-right: 16px;
         transition: all 0.3s ease-in-out;
         flex-shrink: 0;
+
         @media (max-width: 575px) {
           width: 42px;
           height: 48px;
@@ -151,6 +162,7 @@
         @media (max-width:1200px) {
           margin-right: 11px;
         }
+
         @media (max-width: 575px) {
           margin-bottom: 5px;
         }
@@ -222,6 +234,7 @@
     color: #b2bfce;
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease-in-out;
+
     &:hover {
       color: #b2bfce;
       border-color: #b2bfce;
@@ -250,6 +263,50 @@
     path {
       fill: #fff;
       transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+.footer-nav {
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  gap: 32px;
+  &__block {
+    flex-grow: 1;
+    max-width: 304px;
+    min-width: 192px;
+  }
+  &__caption {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    color: #FFFFFF;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+    display: block;
+    margin-bottom: 11px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: #18A0FB;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+  &__list {
+    margin-top: 16px;
+  }
+  &__item {
+    margin-bottom: 20px;
+  }
+  &__link {
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba($color: #fff, $alpha: 0.7);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: #18A0FB;
     }
   }
 }
