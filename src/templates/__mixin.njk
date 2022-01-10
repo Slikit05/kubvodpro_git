@@ -53,6 +53,23 @@
 	</div>
 {% endmacro %}
 
+
+{% macro docBlockSlide(img, href) %}
+	<div class="doc-slider__slide swiper-slide">
+		<div class="doc-block">
+			<div class="doc-block__wrapper">
+				<a href="{{ href }}" class="doc-block__wrap-img" data-fancybox="gallery">
+					<picture>
+						<source srcset="img/{{ img }}.webp" type="image/webp">
+						<source srcset="img/{{ img }}.jpg" type="image/jpeg">
+						<img src="img/{{ img }}.webp" alt="">
+					</picture>
+				</a>
+			</div>
+		</div>
+	</div>	
+{% endmacro %}
+
 {% macro slidePrevueBlockTwo(img, category, caption, text) %}
 	<div class="projects-slider__slide swiper-slide">
 		<div class="prevue-block-two">
@@ -121,4 +138,8 @@
 			<p class="info-post__text">{{ text }}</p>
 		</div>
 	</div>
+{% endmacro %}
+
+{% macro servicesBlock(caption) %}
+	<a href="#" class="services-block"><span class="services-block__caption">{{ caption }}</span></a>
 {% endmacro %}

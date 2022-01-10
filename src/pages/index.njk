@@ -243,11 +243,66 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="js/choices.min.js"></script>
 	<script>
+		let changeScrollNumber = 0;
+		const header = document.querySelector('header').scrollHeight;
+		const firstScreen = document.querySelector('.first-screen').scrollHeight;
+		const firstScroll = header + firstScreen;
+
+		if (document.documentElement.clientWidth > 1023) {
+			if (window.pageYOffset >= firstScroll) {
+				document.querySelector('body').classList.remove('hiden');
+				changeScrollNumber = 1;
+			} else if (window.pageYOffset > 0) {
+				document.querySelector('body').classList.remove('hiden');
+				changeScrollNumber = 1;
+			} else {
+				document.querySelector('body').classList.add('hiden');
+			}
+		}	
+
+		document.querySelectorAll('.arrow-scroll').forEach(link => {
+
+			link.addEventListener('click', function (e) {
+
+
+				let href = this.getAttribute('href');
+
+				const scrollTarget = document.querySelector(href);
+
+				const topOffset = document.querySelector('.scroll-header').scrollHeight;
+				const elementPosition = scrollTarget.getBoundingClientRect().top;
+				const offsetPosition = elementPosition - topOffset;
+
+				window.scrollBy({
+					top: firstScroll - 210,
+					behavior: 'smooth'
+				});
+				document.querySelector('body').classList.remove('hiden');
+				changeScrollNumber = 1;
+				e.preventDefault();
+			});
+		});
+
+		if (document.documentElement.clientWidth > 1023) {
+			window.addEventListener("wheel", event => {
+				if (window.pageYOffset <= firstScroll && changeScrollNumber === 0) {
+					window.scrollBy({
+						top: firstScroll - 210,
+						behavior: 'smooth'
+					});
+					changeScrollNumber = 1;
+				} else if (changeScrollNumber === 1) {
+					document.querySelector('body').classList.remove('hiden');
+				};
+			});
+		}
+
 		const choices = new Choices('.filter-select', {
 			itemSelectText: '',
 			searchEnabled: false,
 			placeholder: true,
 		});
+
 		ymaps.ready(init);
 		function init () {
 				var myMap = new ymaps.Map('map', {
@@ -264,12 +319,12 @@
 						clusterDisableClickZoom: true
 				});
 
-				myMap.behaviors.disable(['drag', 'scrollZoom']);
+				myMap.behaviors.disable(['scrollZoom']);
 
 				objectManager.objects.options.set( {
 						iconLayout: 'default#image',
 						iconImageHref: 'img/svg-min/balun.svg',
-						iconImageSize: [30, 42],
+						iconImageSize: [30, 40],
 						iconImageOffset: [-3, -42]
 				});
 
@@ -363,7 +418,7 @@
     (function () {
 			let arrModalField = [];
 			const formCall = document.querySelector('.call-form');
-			const formCallField = formCall.querySelectorAll('input');
+			const formCallField = formCall.querySelectorAll('input, textarea');
 			const formCallAction = formCall.getAttribute('action');
       console.log('Путь отправки: ' + formCallAction);
 			

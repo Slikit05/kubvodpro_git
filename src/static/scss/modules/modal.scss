@@ -4,7 +4,7 @@
 	top: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 100;
+	z-index: 120;
 	display: none;
 	overflow: hidden;
 
@@ -169,6 +169,31 @@
 			grid-template-columns: 1fr;
 			grid-gap: 16px;
 			margin-bottom: 16px;
+		}
+		&--three-column {
+			grid-template-columns: repeat(3, 1fr);
+			.field {
+				&--textarea {
+					grid-column: span 3 / auto;
+					@media (max-width: 1200px) {
+						grid-column: span 2 / auto;
+					}
+				}
+			}
+			@media (max-width: 1200px) {
+				grid-template-columns: repeat(2, 1fr);
+				.field {
+					&:first-child {
+						grid-column: span 2 / auto;
+					}
+				}
+			}
+			@media (max-width: 575px) {
+				grid-template-columns: repeat(1, 1fr);
+				.field {
+					grid-column: span 2 / auto !important;
+				}
+			}
 		}
 	}
 

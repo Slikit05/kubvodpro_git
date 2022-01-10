@@ -33,11 +33,14 @@
   &__left {
     margin-right: 32px;
     width: 57.4%;
+
     @media (max-width: 1300px) {
       width: auto;
     }
+
     @media (max-width: 767px) {
       margin-bottom: 16px;
+      margin-right: 0;
     }
   }
 
@@ -88,7 +91,7 @@
       @media (max-width: 1300px) {
         margin-bottom: 0;
       }
-      
+
     }
 
     @media (max-width: 575px) {
@@ -113,6 +116,7 @@
 
   &__right {
     padding-top: 8px;
+
     @media (max-width: 1300px) {
       .footer-page__block {
         flex-grow: 1;
@@ -120,6 +124,14 @@
       }
       display: flex;
     }
+
+    @media (max-width: 575px) {
+      display: block;
+      .footer-page__block {
+        margin-bottom: 16px;
+      }
+    }
+
     .social-list {
       @media (max-width: 1280px) {
         margin-top: 0;
@@ -284,47 +296,100 @@
 }
 
 .footer-nav {
-  // display: grid;
-  // grid-template-columns: repeat(3, 1fr);
   display: flex;
   gap: 32px;
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+
   &__block {
     flex-grow: 1;
     max-width: 304px;
     min-width: 192px;
+
     @media (max-width: 1300px) {
       max-width: 448px;
       flex-grow: 1;
     }
+
+    @media (max-width: 767px) {
+      max-width: inherit;
+    }
   }
+
+  &__wrap-up {
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+    padding-bottom: 16px;
+    margin-bottom: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+      display: none;
+
+      @media (max-width: 767px) {
+        display: block;
+        width: 16px;
+        height: 8px;
+        stroke: #fff;
+        stroke-width: 2px;
+        margin-top: 2px;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    &:last-child {
+      border: none;
+    }
+    &.open {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+    &--link {
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
   &__caption {
     font-weight: bold;
     font-size: 16px;
     line-height: 28px;
     color: #FFFFFF;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
     display: block;
-    margin-bottom: 11px;
     transition: all 0.3s ease-in-out;
+    text-transform: full-width;
+
     &:hover {
       color: #18A0FB;
     }
-    &:last-child {
-      border: none;
-    }
   }
+
   &__list {
     margin-top: 16px;
+
+    @media (max-width: 767px) {
+      margin-top: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
   }
+
   &__item {
     margin-bottom: 20px;
   }
+
   &__link {
     font-size: 14px;
     line-height: 20px;
     color: rgba($color: #fff, $alpha: 0.7);
     transition: all 0.3s ease-in-out;
+
     &:hover {
       color: #18A0FB;
     }

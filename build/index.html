@@ -51,6 +51,9 @@
                     </label>
                     <button class="search-field__btn">
                       <span class="search-field__text">НАЙТИ</span>
+                      <svg>
+                        <use xlink:href="img/sprite.svg#search-icon">
+                      </svg>
                     </button>
                   </div>
                 </form>
@@ -107,12 +110,12 @@
         </nav>
       </div>
 
-      <div class="mob-menu">
+      <div class="mob-menu" data-mobile-menu>
         <div class="mob-menu__container">
           <div class="mob-menu__up">
             <ul class="mob-menu-list">
               <li class="mob-menu-list__item">
-                <div class="mob-menu-list__up">
+                <div class="mob-menu-list__up mob-menu-list__up--drop">
                   <a href="#" class="mob-menu-list__link">Институт</a>
                   <svg>
                     <use xlink:href="img/sprite.svg#down-arrow">
@@ -126,8 +129,8 @@
                 </ul>
               </li>
               <li class="mob-menu-list__item">
-                <div class="mob-menu-list__up">
-                  <a href="#" class="mob-menu-list__link">Институт</a>
+                <div class="mob-menu-list__up mob-menu-list__up--drop">
+                  <a href="#" class="mob-menu-list__link">Услуги</a>
                   <svg>
                     <use xlink:href="img/sprite.svg#down-arrow">
                   </svg>
@@ -140,32 +143,20 @@
                 </ul>
               </li>
               <li class="mob-menu-list__item">
-                <div class="mob-menu-list__up">
-                  <a href="#" class="mob-menu-list__link">Институт</a>
+                <a href="#" class="mob-menu-list__up mob-menu-list__up--link">
+                  <div class="mob-menu-list__link">Проекты</div>
                   <svg>
                     <use xlink:href="img/sprite.svg#down-arrow">
                   </svg>
-                </div>
-                <ul class="mob-menu-dropdown">
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Об институте</a></li>
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Страницы истории</a></li>
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Участие в конкурсах</a></li>
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Карьера</a></li>
-                </ul>
+                </a>
               </li>
               <li class="mob-menu-list__item">
-                <div class="mob-menu-list__up">
-                  <a href="#" class="mob-menu-list__link">Институт</a>
+                <a href="#" class="mob-menu-list__up mob-menu-list__up--link">
+                  <div class="mob-menu-list__link">Контакты</div>
                   <svg>
                     <use xlink:href="img/sprite.svg#down-arrow">
                   </svg>
-                </div>
-                <ul class="mob-menu-dropdown">
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Об институте</a></li>
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Страницы истории</a></li>
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Участие в конкурсах</a></li>
-                  <li class="mob-menu-dropdown__item"><a href="#" class="mob-menu-dropdown__link">Карьера</a></li>
-                </ul>
+                </a>
               </li>
             </ul>
           </div>
@@ -186,11 +177,10 @@
   <main class="main">
 
     <section class="first-screen">
-      <picture class="first-screen__bg">
-        <source srcset="img/first-screen-bg.webp" type="image/webp">
-        <source srcset="img/first-screen-bg.jpg" type="image/jpeg">
-        <img src="img/first-screen-bg.webp" alt="">
-      </picture>
+
+      <video class="first-screen__video" poster="img/first-screen-bg.jpg" autoplay loop muted>
+        <source src="video/video-bg.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+      </video>
       <div class="container">
         <div class="first-screen__container">
           <h1 class="first-screen__title">Управляй водой на благо <br>России
@@ -1079,7 +1069,12 @@
             <div class="footer-page__left">
               <nav class="footer-nav">
                 <div class="footer-nav__block">
-                  <a href="#" class="footer-nav__caption">Институт</a>
+                  <div class="footer-nav__wrap-up footer-nav__wrap-up--drop">
+                    <a href="#" class="footer-nav__caption">Институт</a>
+                    <svg>
+                      <use xlink:href="img/sprite.svg#down-arrow">
+                    </svg>
+                  </div>
                   <ul class="footer-nav__list">
                     <li class="footer-nav__item"><a href="" class="footer-nav__link">Об институте</a></li>
                     <li class="footer-nav__item"><a href="" class="footer-nav__link">Страницы истории</a></li>
@@ -1088,7 +1083,12 @@
                   </ul>
                 </div>
                 <div class="footer-nav__block">
-                  <a href="#" class="footer-nav__caption">Услуги</a>
+                  <div class="footer-nav__wrap-up footer-nav__wrap-up--drop">
+                    <a href="#" class="footer-nav__caption">Услуги</a>
+                    <svg>
+                      <use xlink:href="img/sprite.svg#down-arrow">
+                    </svg>
+                  </div>
                   <ul class="footer-nav__list">
                     <li class="footer-nav__item"><a href="" class="footer-nav__link">Разработка проектной и рабочей документации</a></li>
                     <li class="footer-nav__item"><a href="" class="footer-nav__link">Проектирование специальных<br> сооружений</a></li>
@@ -1099,8 +1099,18 @@
                   </ul>
                 </div>
                 <div class="footer-nav__block">
-                  <a href="#" class="footer-nav__caption">Проекты</a>
-                  <a href="#" class="footer-nav__caption">Контакты</a>
+                  <a href="#" class="footer-nav__wrap-up footer-nav__wrap-up--link">
+                    <div href="#" class="footer-nav__caption">Проекты</div>
+                    <svg>
+                      <use xlink:href="img/sprite.svg#down-arrow">
+                    </svg>
+                  </a>
+                  <a href="#" class="footer-nav__wrap-up footer-nav__wrap-up--link">
+                    <div href="#" class="footer-nav__caption">Контакты</div>
+                    <svg>
+                      <use xlink:href="img/sprite.svg#down-arrow">
+                    </svg>
+                  </a>
                 </div>
               </nav>
             </div>
@@ -1187,11 +1197,66 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/choices.min.js"></script>
   <script>
+    let changeScrollNumber = 0;
+    const header = document.querySelector('header').scrollHeight;
+    const firstScreen = document.querySelector('.first-screen').scrollHeight;
+    const firstScroll = header + firstScreen;
+
+    if (document.documentElement.clientWidth > 1023) {
+      if (window.pageYOffset >= firstScroll) {
+        document.querySelector('body').classList.remove('hiden');
+        changeScrollNumber = 1;
+      } else if (window.pageYOffset > 0) {
+        document.querySelector('body').classList.remove('hiden');
+        changeScrollNumber = 1;
+      } else {
+        document.querySelector('body').classList.add('hiden');
+      }
+    }
+
+    document.querySelectorAll('.arrow-scroll').forEach(link => {
+
+      link.addEventListener('click', function(e) {
+
+
+        let href = this.getAttribute('href');
+
+        const scrollTarget = document.querySelector(href);
+
+        const topOffset = document.querySelector('.scroll-header').scrollHeight;
+        const elementPosition = scrollTarget.getBoundingClientRect().top;
+        const offsetPosition = elementPosition - topOffset;
+
+        window.scrollBy({
+          top: firstScroll - 210,
+          behavior: 'smooth'
+        });
+        document.querySelector('body').classList.remove('hiden');
+        changeScrollNumber = 1;
+        e.preventDefault();
+      });
+    });
+
+    if (document.documentElement.clientWidth > 1023) {
+      window.addEventListener("wheel", event => {
+        if (window.pageYOffset <= firstScroll && changeScrollNumber === 0) {
+          window.scrollBy({
+            top: firstScroll - 210,
+            behavior: 'smooth'
+          });
+          changeScrollNumber = 1;
+        } else if (changeScrollNumber === 1) {
+          document.querySelector('body').classList.remove('hiden');
+        };
+      });
+    }
+
     const choices = new Choices('.filter-select', {
       itemSelectText: '',
       searchEnabled: false,
       placeholder: true,
     });
+
     ymaps.ready(init);
 
     function init() {
@@ -1209,12 +1274,12 @@
           clusterDisableClickZoom: true
         });
 
-      myMap.behaviors.disable(['drag', 'scrollZoom']);
+      myMap.behaviors.disable(['scrollZoom']);
 
       objectManager.objects.options.set({
         iconLayout: 'default#image',
         iconImageHref: 'img/svg-min/balun.svg',
-        iconImageSize: [30, 42],
+        iconImageSize: [30, 40],
         iconImageOffset: [-3, -42]
       });
 
@@ -1306,7 +1371,7 @@
     (function() {
       let arrModalField = [];
       const formCall = document.querySelector('.call-form');
-      const formCallField = formCall.querySelectorAll('input');
+      const formCallField = formCall.querySelectorAll('input, textarea');
       const formCallAction = formCall.getAttribute('action');
       console.log('Путь отправки: ' + formCallAction);
 

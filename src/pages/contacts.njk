@@ -1,0 +1,197 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="map map--offset map--change" id="map"></section>
+	<section class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Контакты</span></li>
+			</ul>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Контакты</h2>			
+		</div>
+	</section>	
+  
+  <section class="contacts-page wrap-lg-offset">
+    <div class="container">
+      <div class="contacts-page__wrapper">
+        <div class="contacts-block">
+					<div class="contacts-block__up">
+						<svg><use xlink:href="img/sprite.svg#adrees"></svg>
+						<span class="contacts-block__caption">Адрес:</span>
+					</div>
+					<div class="contacts-block__wrap-text">
+						<span>350020, г. Краснодар, ул. Красная, 180</span>
+					</div>
+				</div>
+				<div class="contacts-block">
+					<div class="contacts-block__up">
+						<svg><use xlink:href="img/sprite.svg#phone"></svg>
+						<span class="contacts-block__caption">Направление:</span>
+					</div>
+					<div class="contacts-block__wrap-text">
+						<span><b>+7&nbsp;(861)&nbsp;253&#8209;73&#8209;35, +7&nbsp;(861)&nbsp;253&#8209;73&#8209;74</b></span>
+					</div>
+				</div>
+				<div class="contacts-block">
+					<div class="contacts-block__up">
+						<svg><use xlink:href="img/sprite.svg#mail"></svg>
+						<span class="contacts-block__caption">E-mail:</span>
+					</div>
+					<div class="contacts-block__wrap-text">
+						<a href="mailro:kubvodpro@rambler.ru">kubvodpro@rambler.ru</a>
+					</div>
+				</div>
+      </div>
+    </div>
+  </section>
+	<section class="gray-block inner-offset form-section">
+		<div class="container">
+			<div class="form-section__wrapper">
+				<div class="row-title">
+					<h2 class="title-md">Обратная связь</h2>			
+				</div>
+				<form class="call-form">
+					<div class="call-form__wrapper call-form__wrapper--three-column">
+						<label class="field">
+							<span class="field__description">Ваше Имя:</span>
+							<input type="text" placeholder="Введите имя" name="name">
+						</label>
+						<label class="field">
+							<span class="field__description">Телефон:</span>
+							<input type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+						</label>
+						<label class="field">
+							<span class="field__description">E-mail:</span>
+							<input type="email" placeholder="Для ответа" name="email">
+						</label>
+						<label class="field field--textarea">
+							<span class="field__description">Сообщение:</span>
+							<textarea placeholder="Напишите текст" name="message"></textarea>
+						</label>
+					</div>
+					<div class="call-form__down">
+						<div class="check">
+							<label>
+								<input type="checkbox" name='checkbox'>
+								<div class="check__icon" name="check"></div>
+							</label>								
+							<span>Согласен(на) на <a href="#">обработку персональных данных</a></span>
+						</div>
+						<button class="block-btn-two">
+							<div class="block-btn-two__animate"></div>
+							<span>ОТПРАВИТЬ</span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+		ymaps.ready(init);
+		let myMapTwo,
+			myPlacemark;
+		/*Здесь надо указывать координаты центра карты*/
+		function init() {
+			myMapTwo = new ymaps.Map("map", {
+				center: [45.035470, 38.975313],
+				zoom: 10
+			});
+
+			myMapTwo.behaviors.disable([
+				'scrollZoom',
+			]);
+			/*Здесь указывать кодинаты для местоположения метки*/
+			myPlacemark = new ymaps.Placemark(myMapTwo.getCenter(), {}, {
+				// Опции.
+				// Необходимо указать данный тип макета.
+				iconLayout: 'default#image',
+				// Своё изображение иконки метки.
+				iconImageHref: 'img/balun.svg',
+				// Размеры метки.
+				iconImageSize: [30, 40],
+				// Смещение левого верхнего угла иконки относительно
+				// её "ножки" (точки привязки).
+				iconImageOffset: [-3, -42]
+			}),
+
+			myMapTwo.geoObjects.add(myPlacemark);
+
+			myPlacemark.events
+        .add('mouseenter', function (e) {
+            e.get('target').options.set('iconImageHref', 'img/svg-min/balun2.svg');
+        })
+        .add('mouseleave', function (e) {
+            e.get('target').options.set('iconImageHref', 'img/svg-min/balun.svg');
+        });
+		};
+
+		(function () {
+			let arrModalField = [];
+			const formCall = document.querySelector('.call-form');
+			const formCallField = formCall.querySelectorAll('input, textarea');
+			const formCallAction = formCall.getAttribute('action');
+      console.log('Путь отправки: ' + formCallAction);
+			
+      formCall.addEventListener('submit', function (e) {
+				e.preventDefault(); 
+
+				arrModalField.splice(0, arrModalField.length);
+				
+				formCallField.forEach(function(item) {
+					let fieldInfo = {
+						nameField: '',
+						value: '',
+						checked: '',
+					};
+
+
+					if(item.getAttribute('type') === 'checkbox') {
+						fieldInfo.nameField = item.getAttribute('name');
+						if (item.checked) {
+							fieldInfo.checked = true;
+						} else {
+							fieldInfo.checked = false;
+						}
+					} else {
+						fieldInfo.nameField = item.getAttribute('name');
+						fieldInfo.value = item.value;
+					}
+
+					console.log(fieldInfo);
+
+					arrModalField.push(fieldInfo);
+				});
+
+				console.log(arrModalField);
+
+				axios({
+					method: 'post',
+					url: formCallAction,
+					data: {arrModalField}
+				}).then(function (response) {
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+      })
+    })();
+	</script>
+{% endblock %}

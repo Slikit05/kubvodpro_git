@@ -1,22 +1,25 @@
 <section class="first-screen">
-		<picture class="first-screen__bg">
-			<source srcset="img/first-screen-bg.webp" type="image/webp">
-			<source srcset="img/first-screen-bg.jpg" type="image/jpeg">
-			<img src="img/first-screen-bg.webp" alt="">
-		</picture>
-		<div class="container">
-			<div class="first-screen__container">
-				<h1 class="first-screen__title">Управляй водой на благо <br>России 
-					<img src="img/logo3.svg">
-				</h1>
-				<div class="first-screen__scroll-btn">
-					<span>СКРОЛЬТЕ ВНИЗ</span>
-					<a href="#ancor" class="arrow-scroll">
-						<svg>
-							<use xlink:href="img/sprite.svg#arrow-down">
-						</svg>
-					</a>
-				</div>
+	{# <picture class="first-screen__bg">
+		<source srcset="img/first-screen-bg.webp" type="image/webp">
+		<source srcset="img/first-screen-bg.jpg" type="image/jpeg">
+		<img src="img/first-screen-bg.webp" alt="">
+	</picture> #}
+	<video class="first-screen__video" poster="img/first-screen-bg.jpg" autoplay loop muted>
+		<source src="video/video-bg.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+	</video>
+	<div class="container">
+		<div class="first-screen__container">
+			<h1 class="first-screen__title">Управляй водой на благо <br>России 
+				<img src="img/logo3.svg">
+			</h1>
+			<div class="first-screen__scroll-btn">
+				<span>СКРОЛЬТЕ ВНИЗ</span>
+				<a href="#ancor" class="arrow-scroll">
+					<svg>
+						<use xlink:href="img/sprite.svg#arrow-down">
+					</svg>
+				</a>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>

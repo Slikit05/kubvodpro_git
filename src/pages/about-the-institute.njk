@@ -1,0 +1,206 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+<link rel="stylesheet" href="css/swiper.css">
+<link rel="stylesheet" href="css/fancybox.css"
+/>
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Институт</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Об институте</span></li>
+			</ul>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Об институте</h2>
+		</div>
+	</section>	
+  
+  <section class="area-content wrap-offset">
+    <div class="container">
+      <div class="area-content__wrapper area-container">
+        <img src="img/img2.jpg" alt="">
+        <p><strong>АО "Кубаньводпроект" – это высокопрофессиональная организация, способная качественно, на современном техническом уровне, в соответствии с действующими нормативными документами и пожеланиями заказчиков выполнять комплексные проекты и разрабатывать перспективные технические решения по промышленно - гражданским, водохозяйственным объектам, объектам газовой промышленности, инженерным сетям и комплексные инженерные изыскания.</strong></p>
+				<hr>
+        <p>В составе организации 17 производственных подразделений, объединенных единой информационно-технической базой. При выполнении проектно-изыскательских работ используются специальные программы, обеспечивающие четкое исполнение технологии и методик на основе системного лицензионного программного обеспечения.</p>
+        <p>В институте имеются свидетельства о допуске на выполнение проектных и изыскательских работ повышенного уровня ответственности, в основном по всем видам работ в соответствии с приказом № 624 от 30.12.2009 г. Минрегионразвития РФ.</p>
+        <p>АО "Кубаньводпроект" имеет достаточную техническую оснащенность измерительными приборами и устройствами, транспортными средствами и буровыми установками, офисными помещениями. В институте функционирует сертифицированная на соответствие требованиям ГОСТ Р ИСО 9001-2008 (ИСО9001-2008) система менеджмента качества. Это позволяет выполнять работы по проектрованию зданий и сооружений, объектов газовой промышленности, мелиорации, оснежению, водоснабжению и водоотведению, инженерным изысканиям и гидротехническим сооружениям качественно и в намеченные сроки.</p>
+        <p>Специалисты организации оказывали техническую помощь и участвовали в проектировании объектов мелиорациии водного хозяйства Кубы, Венгрии, Вьетнама, Лаоса, Ирака, Мозамбика, Мадагаскара, Сирии, Анголы, Алжира и других стран.</p>
+        <p>Институт имеет собственный товарный знак.</p>
+      </div>
+    </div>
+  </section>
+	<section class="wrapp-gray gray-block">
+		<section class="info-about-company">
+			<div class="container">
+				<div class="info-about-company__container">
+					<div class="row-title">
+						<h2 class="title-md">Наши гарантии</h2>
+					</div>
+					<hr class="line-up">
+					<div class="info-about-company__grid">
+						{{ mixin.infoBlock('info-icon1', 'Работаем с 1929 года', 'Несколько слов о огромном опыте работ и о том, что компании исполнилось уже 92 года!') }}
+						{{ mixin.infoBlock('info-icon2', 'Более 10 000 проектов', 'Несколько слов о том какие крупные и важные проекты выполняет Кубаньводпроект на протажении 90 лет') }}
+						{{ mixin.infoBlock('info-icon3', 'Проектирование в 20 странах мира', 'Кубы, Венгрии, Вьетнама, Лаоса, Ирака, Мозамбика, Мадагаскара, Сирии, Анголы, Алжира и других стран.') }}
+						{{ mixin.infoBlock('info-icon4', 'Ведущее предприятие Юга России', 'по проектированию мелиоративных и водохозяйственных объектов, укре­плению морских и речных берегов на Юге России, объектам горного и морского туризма.') }}
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<section class="doc-sect inner-offset">
+			<div class="container">
+				<div class="row-title">
+					<h2 class="title-md">Документы</h2>
+					<div class="slider-navigation">
+						<div class="slider-navigation__wrap">
+							<div class="slider-navigation__wrap-arrow">
+								<div class="arrow-slider arrow-slider--prev projects-slider__arrow-prev">
+									<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+								</div>
+								<div class="arrow-slider projects-slider__arrow-next">
+									<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+								</div>
+							</div>
+							<div class="projects-slider__fraction fraction-slider"></div>
+						</div>
+					</div>
+				</div>
+				<div class="doc-slider">
+					<div class="doc-slider__container swiper">
+						<div class="doc-slider__wrapper swiper-wrapper">
+							{{ mixin.docBlockSlide('Выписа СРО (изыскание) от 30.09.2021_page-0001', 'img/Выписа СРО (изыскание) от 30.09.2021_page-0001.jpg') }}
+							{{ mixin.docBlockSlide('Выписа СРО (изыскание) от 30.09.2021_page-0002', 'img/Выписа СРО (изыскание) от 30.09.2021_page-0002.jpg') }}
+							{{ mixin.docBlockSlide('Выписка СРО (проектирование от 30.09.2021_page-0001', 'img/Выписка СРО (проектирование от 30.09.2021_page-0001.jpg') }}
+							{{ mixin.docBlockSlide('Выписка СРО (проектирование от 30.09.2021_page-0002', 'img/Выписка СРО (проектирование от 30.09.2021_page-0002.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия в области гидрометеорологии_page-0001', 'img/Лицензия в области гидрометеорологии_page-0001.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия в области гидрометеорологии_page-0002', 'img/Лицензия в области гидрометеорологии_page-0002.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия в области гидрометеорологии_page-0003', 'img/Лицензия в области гидрометеорологии_page-0003.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия о государственной тайне. ФСБ', 'img/Лицензия о государственной тайне. ФСБ.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0001', 'img/Лицензия по геодезических и картографических работ_page-0001.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0002', 'img/Лицензия по геодезических и картографических работ_page-0002.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0003', 'img/Лицензия по геодезических и картографических работ_page-0003.jpg') }}
+							{{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0004', 'img/Лицензия по геодезических и картографических работ_page-0004.jpg') }}
+						</div>
+					</div>				
+				</div>
+			</div>
+		</section>
+		<section class="our-customers">
+			<div class="container">
+				<div class="our-customers__container">
+					<div class="row-title">
+						<h2 class="title">Наши заказчики</h2>
+						<div class="slider-navigation">
+							<div class="fraction-slider our-customers__fraction"></div>
+							<div class="slider-navigation__wrap-arrow">
+								<div class="arrow-slider arrow-slider--prev our-customers__arrow-prev">
+									<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+								</div>
+								<div class="arrow-slider our-customers__arrow-next">
+									<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="our-customers__slider">
+				<div class="container">
+					<div class="our-customers__container swiper">
+						<div class="our-customers__wrapper swiper-wrapper">
+							{{ mixin.slideCustomersBlock('customers-logo1', 'ФГУ «Краснодарское водохранилище»') }}
+							{{ mixin.slideCustomersBlock('customers-logo2', '000 «Ильский НПЗ»') }}
+							{{ mixin.slideCustomersBlock('customers-logo3', 'ГБУ КК «Управление по эксплуатации и капитальному строительству гидротехнических сооружений Краснодарского края»') }}
+							{{ mixin.slideCustomersBlock('customers-logo4', 'Государственное казенное учреждение «Главное управление строительства Краснодарского края (ГКУ «ГУСКК»)') }}
+							{{ mixin.slideCustomersBlock('customers-logo5', 'Департамент автомобильных дорог Краснодарского края') }}
+							{{ mixin.slideCustomersBlock('customers-logo6', 'Кубанское бассейновое водное управление') }}
+							{{ mixin.slideCustomersBlock('customers-logo7', 'Министерство природных ресурсов Краснодарского края') }}
+							{{ mixin.slideCustomersBlock('customers-logo8', 'Министерство сельского хозяйства и перерабатывающей промышленности Краснодарского края') }}
+							{{ mixin.slideCustomersBlock('customers-logo9', 'ООО «Роза Хутор»') }}
+							{{ mixin.slideCustomersBlock('customers-logo10', 'ФГБУ «Управление Кубаньмелиоводхоз»') }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+<script src="js/swiper.min.js"></script>
+<script src="js/fancybox.umd.js"></script>
+<script>
+	const swiper = new Swiper('.doc-slider__container', {
+		slidesPerView: 4,
+		spaceBetween: 32,
+		loop: true,
+		loopAdditionalSlides: 2,
+		watchSlidesProgress: true,
+		pagination: {
+			el: '.projects-slider__fraction',
+			type: "fraction",
+			renderFraction: function(currentClass, totalClass) {					
+				return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+			},
+		},
+		navigation: {
+			nextEl: '.projects-slider__arrow-next',
+			prevEl: '.projects-slider__arrow-prev',
+		},
+		breakpoints: {
+			1200: {
+				slidesPerView: 4,
+			},
+			575: {
+				slidesPerView: 'auto',
+			},
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 10,
+			}
+		}
+	});
+	const swiperTwo = new Swiper('.our-customers__container', {
+		slidesPerView: 3,
+		spaceBetween: 0,
+		loop: true,
+		loopAdditionalSlides: 2,
+		watchSlidesProgress: true,
+		pagination: {
+			el: '.our-customers__fraction',
+			type: "fraction",
+			renderFraction: function(currentClass, totalClass) {
+				return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+			},
+		},
+		navigation: {
+			nextEl: '.our-customers__arrow-next',
+			prevEl: '.our-customers__arrow-prev',
+		},
+		breakpoints: {
+			1200: {
+				slidesPerView: 3,
+			},
+			575: {
+				slidesPerView: 'auto',
+				loopedSlides: 2,
+			},
+			320: {
+				slidesPerView: 1,
+			}
+		}
+	});	
+</script>
+{% endblock %}

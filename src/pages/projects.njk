@@ -1,0 +1,553 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+	<link rel="stylesheet" href="css/choices.min.css">
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<div class="map map--offset map--change" id="map"></div>
+	<div class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Проекты</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Проекты</h2>
+			<div class="row-title__flex">
+				<span class="text">Выберите направление деятельности:</span>
+				<div class="filter-documentation filter-select-wrap">
+					<form action="" class="filter-documentation__form">
+						<div class="filter-documentation__wrapper">
+							<div class='filter-documentation__wrap filter-documentation__wrap--select'>
+								<div class='select-wrap'>
+									<select class='select filter-select select-category-document' name="all-documents">
+										<option placeholder>Все направления</option>
+										<option value='1'>1</option>
+										<option value='2'>2</option>
+										<option value='3'>3</option>
+										<option value='4'>4</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+  
+  <div class="projects-page scroll-up wrap-offset">
+    <div class="container">
+      <div class="projects-page__wrapper wrapper-list">
+        {{ mixin.prevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище Краснодарское водохранилище', 'Республика Адыгея') }}
+				{{ mixin.prevueBlockTwo('prevue-two-bg2', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Рисовые чеки', 'Краснодар') }}
+				{{ mixin.prevueBlockTwo('prevue-two-bg3', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый мост г. Краснодар', 'Краснодар') }}
+				{{ mixin.prevueBlockTwo('prevue-two-bg4', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Тиховский гидроузел', 'Абинский район') }}
+				{{ mixin.prevueBlockTwo('prevue-two-bg5', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Федоровский гидроузел', 'Фёдоровское сельское поселение') }}
+      </div>
+    </div>
+  </div>
+  <div class="pagination wrap-last-offset">
+    <div class="container">
+      <div class="pagination__wrapper">
+        <div class="pagination__nav-link pagination__nav-link--prev" data-btn-pagination="prev">
+          <a href="#" class="btn-white" >
+            <svg><use xlink:href="img/sprite.svg#pagination-arrow"></svg>
+          </a>
+        </div>
+        <ul class="pagination__list">
+          <li class="pagination__item"><a href="#" class="pagination__link pagination__link--active">1</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link">2</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link">4</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link pagination__link--dotted">...</a></li>
+          <li class="pagination__item"><a href="#" class="pagination__link">10</a></li>
+        </ul>
+        <div class="pagination__nav-link pagination__nav-link--next" data-btn-pagination="next">
+          <a href="#" class="btn-white" >
+            <svg><use xlink:href="img/sprite.svg#pagination-arrow"></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="js/choices.min.js"></script>
+	<script>
+    const filterForm = document.querySelector('.filter-documentation__form');
+		const listWrapper = document.querySelector('.wrapper-list');
+		const paginationList = document.querySelector('.pagination__list');
+		const arrLinnks = paginationList.querySelectorAll('li .pagination__link');
+		let count;
+		let interval;
+		let arrField = [];
+		let leftBorder;
+		let rightBorder;
+
+		const choices = new Choices('.filter-select', {
+			itemSelectText: '',
+			searchEnabled: false,
+			placeholder: true,
+		});
+
+		ymaps.ready(init);
+		function init () {
+			var myMap = new ymaps.Map('map', {
+					center: [45.035470, 38.975313],
+					zoom: 10
+			}, {
+					searchControlProvider: 'yandex#search'
+			}),
+			objectManager = new ymaps.ObjectManager({
+					// Чтобы метки начали кластеризоваться, выставляем опцию.
+					clusterize: true,
+					// ObjectManager принимает те же опции, что и кластеризатор.
+					gridSize: 32,
+					clusterDisableClickZoom: true
+			});
+
+			myMap.behaviors.disable(['scrollZoom']);
+
+			objectManager.objects.options.set( {
+					iconLayout: 'default#image',
+					iconImageHref: 'img/svg-min/balun.svg',
+					iconImageSize: [30, 40],
+					iconImageOffset: [-3, -42]
+			});
+
+			objectManager.objects.overlays.events.add('mouseenter', function (e) { 
+				objectManager.objects.setObjectOptions(
+					e.get('objectId'),
+					{
+						iconImageHref: 'img/svg-min/balun2.svg'
+					}
+				);
+			});
+			objectManager.objects.overlays.events.add('mouseleave', function (e) {
+				objectManager.objects.setObjectOptions(
+					e.get('objectId'),
+					{
+						iconImageHref: 'img/svg-min/balun.svg'
+					}
+				);
+			});
+
+			fetch('js/projects.json').then(response => response.json()).then(data => {
+				objectManager.add(data);
+			});
+
+			objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
+			myMap.geoObjects.add(objectManager);
+		};
+
+    const changeDocument = {
+			prevNomer: 0,
+			nomer: 1,
+			show: 6,
+			count: 20,
+			items: ['1', '2', '3', '4', '5', '6', '7', '20'],
+			animatePreloader: function(selector) {
+				let parentPaste = document.querySelector(selector);
+				parentPaste.insertAdjacentHTML('beforeend', '<div class="preloader-wrap"><svg version="1.1" id="preloader-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"   viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve"><path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" /></path></svg></div>');
+			},
+			go: function (nomer) {
+				this.prevNomer = this.nomer;
+				this.nomer = nomer;
+				this.render();
+			},
+			render: function () {
+
+				var nomer = this.nomer;
+				var show = this.show;
+				var count = this.count;
+
+				leftBorder = 2;
+				rightBorder = count - 1;
+				var showLeftDots = false;
+				var showRightDots = false;
+
+
+				if (show < count) {
+
+					var devide = Math.floor((show - 2) / 2);
+
+					var leftBorder = nomer - devide;
+					var rightBorder = nomer + devide - 1;
+
+					if (leftBorder < 2) {
+						showRightDots = true;
+						leftBorder = 2;
+						rightBorder = leftBorder + (show - 2) - 1;
+					} else if (rightBorder > count - 1) {
+						showLeftDots = true;
+						rightBorder = count - 1;
+						leftBorder = rightBorder - (show - 2) + 1;
+					} else {
+						showLeftDots = true;
+
+						showRightDots = true;
+					}
+				};
+
+				console.log(this);
+				console.log('leftBorder ' + leftBorder, showLeftDots);
+				console.log('rightBorder ' + rightBorder, showRightDots);
+				this.items = [];
+
+				var length = show;
+				if (length > count) {
+					length = count;
+				}
+
+				for (i = 1; i <= length; i++) {
+
+					if (i == 1) {
+						this.items.push(i);
+					} else if (i == length) {
+						this.items.push(count);
+					} else {
+						if (showLeftDots && showRightDots) {
+							// this.items.push(leftBorder++);
+						} else {
+							// this.items.push(leftBorder++);
+						}
+						this.items.push(leftBorder++);
+					};
+				};
+
+
+				if (document.documentElement.clientWidth > 767) {
+					if ((rightBorder - leftBorder) < 4) {
+						if (showLeftDots && showRightDots) {
+							if (rightBorder + 1 == count) {
+								showRightDots = false;
+							} else {
+								for (i = 2, l = this.items.length - 2; i <= l; i++) {
+									this.items[i]++;
+								}
+							}
+						}
+					}
+				};
+
+				if (showLeftDots) {
+					this.items[1] = '...';
+				};
+
+				if (showRightDots) {
+					this.items[(this.items.length - 2)] = '...';
+				};
+				console.log(this.items);
+			},
+			refreshPagination: function (arr) {
+				arrLinnks.forEach(function (item) {
+					item.textContent = '';
+					item.classList.remove('pagination__link--active');
+				});
+
+				for (let i = 0; i < arrLinnks.length; i++) {
+					arrLinnks[i].textContent = arr[i];
+					arrLinnks[i].closest('.pagination__item').classList.remove('pagination__item--hide');
+					arrLinnks[i].classList.remove('pagination__link--dotted');
+					if (arrLinnks[i].textContent === '') {
+						arrLinnks[i].closest('.pagination__item').classList.add('pagination__item--hide');
+					} else if (arrLinnks[i].textContent === '...') {
+						arrLinnks[i].classList.add('pagination__link--dotted');
+					}
+				}
+			},
+			createListDocuments: function (arr) {
+				console.log(arr);
+
+				if (arr.length === 0) {
+					document.querySelector('.pagination').style.display = 'none';
+					listWrapper.insertAdjacentHTML('beforeend', '<h2 class="title title-message">В этом разделе нет проектов</h2>');
+				} else {
+          if (document.querySelector('.title-message')) {
+            document.querySelector('.title-message').remove();
+          }
+					arr.documents.forEach(function (item) {
+						listWrapper.insertAdjacentHTML('beforeend', `<div class='prevue-block-two'><div class='prevue-block-two__wrapper'><div class='prevue-block-two__wrap-img'><picture><source srcset='img/${item.img}.webp' type='image/webp'><source srcset='img/${item.img}.jpg' type='image/jpeg'><img src='img/${item.img}.webp' alt=''></picture></div><div class='prevue-block-two__wrap'><div class='prevue-block-two__up'><h4 class='prevue-block-two__caption'>${item.caption}</h4><span class='prevue-block-two__text'>${item.text}</span></div></div></div></div>`);
+					});
+					document.querySelector('.pagination').style.display = '';
+				}				
+			},
+			cicleField: function () {
+				arrField = [];
+				filterForm.querySelectorAll('input').forEach(function (i) {
+					let fieldSuccessful = {
+						nameInput: '',
+						value: '',
+					};
+					fieldSuccessful.nameInput = i.getAttribute('name');
+					fieldSuccessful.value = i.value;
+					arrField.push(fieldSuccessful);
+				});
+			},
+			timer: function (arrFilter) {
+				clearInterval(interval);
+				count = 12;
+				interval = setInterval(() => {
+					count--;
+					console.log('count: ', count--);
+					if (count <= 0) {
+						clearInterval(interval);
+						// Здесь скрипт очиски списка документов и получение данных
+
+						listWrapper.querySelectorAll('*').forEach(function (i) {
+							i.remove();
+						});
+
+						axios({
+							method: 'post',
+							url: '',
+							data: {
+								arrFilter
+							}
+						}).then(function (response) {
+							console.log(response);
+						}).catch(function (error) {
+							console.log(error);
+						});
+
+						fetch('js/documentList.json').then(response => response.json()).then(data => {
+							this.createListDocuments(data);
+							this.count = data.pagination;
+
+
+							// генерация пагинации
+							if (document.documentElement.clientWidth < 768) {
+								console.log('меньше 768')
+								this.show = 5;
+								this.nomer = 1;
+								this.render();
+								this.refreshPagination(this.items);
+							} else if (document.documentElement.clientWidth < 1200 && document.documentElement.clientWidth > 767) {
+								console.log('меньше 1200')
+								this.show = 5;
+								this.nomer = 1;
+								this.render();
+								this.refreshPagination(this.items);
+							} else {
+								console.log(this.count);
+								this.nomer = 1;
+								this.render();
+								this.refreshPagination(this.items);
+							}
+							arrLinnks[0].classList.add('pagination__link--active');
+							// генерация пагинации --- конец
+						});
+
+						// Здесь скрипт очиски списка документов и получение данных -- end
+					}
+				}, 200);
+			},
+			clickFunction: function (elem, target) {
+				let numberItem = {
+					numberPage: '',
+				};
+				// let index = [...elem.querySelectorAll('.pagination__link')].findIndex(el => el == event.target);
+				paginationList.querySelectorAll('.pagination__link').forEach(function (i) {
+					i.classList.remove('pagination__link--active');
+				});
+
+				if (target.classList.contains('pagination__link--dotted') || target.classList.contains('pagination__link--active')) {} else {
+					this.go(Number(target.textContent));
+					this.refreshPagination(this.items);
+				};
+
+				this.cicleField();
+				filterForm.querySelectorAll('select').forEach(function (i) {
+					let fieldSuccessful = {
+						nameInput: '',
+						value: '',
+					};
+					fieldSuccessful.nameInput = i.getAttribute('name');
+					fieldSuccessful.value = i.value;
+					arrField.push(fieldSuccessful);
+				});
+				numberItem.numberPage = this.nomer;
+				arrField.push(numberItem);
+				console.log(arrField);
+
+				axios({
+					method: 'post',
+					url: '',
+					data: {
+						arrField
+					}
+				}).then(function (response) {
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+
+				fetch('js/documentList.json').then(response => response.json()).then(data => {
+					this.createListDocuments(data);
+				});
+			},
+		};
+
+		(function () {
+			filterForm.addEventListener('input', function (event) {
+
+				changeDocument.cicleField();
+				changeDocument.timer(arrField);
+			});
+
+			filterForm.addEventListener('change', function (event) {
+				if (event.target.classList.contains('select')) {
+					console.log('селект изменился');
+					changeDocument.cicleField();
+					filterForm.querySelectorAll('select').forEach(function (i) {
+						let fieldSuccessful = {
+							nameInput: '',
+							value: '',
+						};
+						fieldSuccessful.nameInput = i.getAttribute('name');
+						fieldSuccessful.value = i.value;
+						arrField.push(fieldSuccessful);
+					});
+					//console.log(arrField);
+					changeDocument.timer(arrField);
+				}
+			});
+
+			paginationList.addEventListener('click', function (event) {
+				event.preventDefault();
+				// let index = [...this.querySelectorAll('.pagination__link')].findIndex(el => el == event.target);
+				if (document.documentElement.clientWidth < 768) {
+					changeDocument.show = 5;
+				} else if (document.documentElement.clientWidth < 1300 && document.documentElement.clientWidth > 767) {
+					changeDocument.show = 6;
+				} else {};
+
+				listWrapper.querySelectorAll('*').forEach(function (i) {
+					i.remove();
+				});
+
+				changeDocument.clickFunction(this, event.target);
+
+				arrLinnks.forEach(function (i) {
+					if (i.textContent === String(changeDocument.nomer)) {
+						i.classList.add('pagination__link--active');
+					}
+				});
+				window.scrollTo({
+					top: document.querySelector('.scroll-up').getBoundingClientRect().top + document.body.scrollTop,
+				})
+				console.log(document.querySelector('.scroll-up').getBoundingClientRect().top + document.body.scrollTop);
+			});
+
+			document.addEventListener('click', function (event) {
+				
+				if (event.target.dataset.btnPagination) {
+					event.preventDefault();
+
+					let numberItem = {
+						numberPage: '',
+					};
+
+					function changeActive() {
+						listWrapper.querySelectorAll('*').forEach(function (i) {
+							i.remove();
+						});
+						changeDocument.cicleField();
+						filterForm.querySelectorAll('select').forEach(function (i) {
+							let fieldSuccessful = {
+								nameInput: '',
+								value: '',
+							};
+							fieldSuccessful.nameInput = i.getAttribute('name');
+							fieldSuccessful.value = i.value;
+							arrField.push(fieldSuccessful);
+						});
+						numberItem.numberPage = changeDocument.nomer;
+						arrField.push(numberItem);
+						console.log(arrField);
+
+						axios({
+							method: 'post',
+							url: '',
+							data: {
+								arrField
+							}
+						}).then(function (response) {
+							console.log(response);
+						}).catch(function (error) {
+							console.log(error);
+						});
+				
+						fetch('js/documentList.json').then(response => response.json()).then(data => {
+							changeDocument.createListDocuments(data);
+						});
+					}
+
+					if (event.target.dataset.btnPagination === 'prev') {
+						if(changeDocument.nomer > 1) {
+							console.log('prev');
+							console.log(--changeDocument.nomer)
+							changeDocument.go(Number(changeDocument.nomer));
+							changeDocument.refreshPagination(changeDocument.items);
+							changeActive();
+						}
+					} else if (event.target.dataset.btnPagination === 'next') {        
+						if(changeDocument.nomer < changeDocument.count) {
+							console.log('next');
+							console.log(++changeDocument.nomer)
+							changeDocument.go(Number(changeDocument.nomer));
+							changeDocument.refreshPagination(changeDocument.items);
+							changeActive();
+						}
+					};
+					arrLinnks.forEach(function (i) {
+						if (i.textContent === String(changeDocument.nomer)) {
+							i.classList.add('pagination__link--active');
+						}
+					});
+					window.scrollTo({
+						top: document.querySelector('.scroll-up').getBoundingClientRect().top - document.body.scrollTop,
+					})
+					console.log(document.querySelector('.scroll-up').getBoundingClientRect().top + document.body.scrollTop);
+				};
+			});
+
+		})();
+
+		// генерация пагинации
+		if (document.documentElement.clientWidth < 768) {
+			console.log('меньше 768')
+			changeDocument.show = 5;
+			changeDocument.nomer = 1;
+			changeDocument.render();
+			changeDocument.refreshPagination(changeDocument.items);
+		} else if (document.documentElement.clientWidth < 1200 && document.documentElement.clientWidth > 767) {
+			console.log('меньше 1200')
+			changeDocument.show = 5;
+			changeDocument.nomer = 1;
+			changeDocument.render();
+			changeDocument.refreshPagination(changeDocument.items);
+		} else {
+			console.log(changeDocument.count);
+			changeDocument.nomer = 1;
+			changeDocument.render();
+			changeDocument.refreshPagination(changeDocument.items);
+		};
+		arrLinnks[0].classList.add('pagination__link--active');
+		// генерация пагинации --- конец
+
+	</script>
+{% endblock %}
