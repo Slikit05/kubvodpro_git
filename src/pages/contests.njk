@@ -1,0 +1,207 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+<link rel="stylesheet" href="css/swiper.css">
+<link rel="stylesheet" href="css/fancybox.css"
+/>
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Институт</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Об институте</span></li>
+			</ul>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Участие в конкурсах</h2>
+		</div>
+	</section>	
+  
+  <section class="area-content wrap-offset">
+    <div class="container">
+      <div class="area-content__wrapper area-container">
+        <img src="img/img2.jpg" alt="">        
+        <p>До строительства Краснодарского водохранилища низменные земли вдоль р. Кубани нередко подвергались катастрофическим навод­нениям. Попытки защитить жилые, хозяйственные строения и сельхозугодья с помощью примитивных сооружений из подручных средств.</p>
+      </div>
+    </div>
+  </section>
+  <section class="doc-sect">
+    <div class="container">
+      <div class="row-title">
+        <h2 class="title-md">Документы</h2>
+        <div class="slider-navigation">
+          <div class="slider-navigation__wrap">
+            <div class="slider-navigation__wrap-arrow">
+              <div class="arrow-slider arrow-slider--prev projects-slider__arrow-prev">
+                <svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+              </div>
+              <div class="arrow-slider projects-slider__arrow-next">
+                <svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+              </div>
+            </div>
+            <div class="projects-slider__fraction fraction-slider"></div>
+          </div>
+        </div>
+      </div>
+      <div class="doc-slider">
+        <div class="doc-slider__container swiper">
+          <div class="doc-slider__wrapper swiper-wrapper">
+            {{ mixin.docBlockSlide('Выписа СРО (изыскание) от 30.09.2021_page-0001', 'img/Выписа СРО (изыскание) от 30.09.2021_page-0001.jpg') }}
+            {{ mixin.docBlockSlide('Выписа СРО (изыскание) от 30.09.2021_page-0002', 'img/Выписа СРО (изыскание) от 30.09.2021_page-0002.jpg') }}
+            {{ mixin.docBlockSlide('Выписка СРО (проектирование от 30.09.2021_page-0001', 'img/Выписка СРО (проектирование от 30.09.2021_page-0001.jpg') }}
+            {{ mixin.docBlockSlide('Выписка СРО (проектирование от 30.09.2021_page-0002', 'img/Выписка СРО (проектирование от 30.09.2021_page-0002.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия в области гидрометеорологии_page-0001', 'img/Лицензия в области гидрометеорологии_page-0001.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия в области гидрометеорологии_page-0002', 'img/Лицензия в области гидрометеорологии_page-0002.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия в области гидрометеорологии_page-0003', 'img/Лицензия в области гидрометеорологии_page-0003.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия о государственной тайне. ФСБ', 'img/Лицензия о государственной тайне. ФСБ.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0001', 'img/Лицензия по геодезических и картографических работ_page-0001.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0002', 'img/Лицензия по геодезических и картографических работ_page-0002.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0003', 'img/Лицензия по геодезических и картографических работ_page-0003.jpg') }}
+            {{ mixin.docBlockSlide('Лицензия по геодезических и картографических работ_page-0004', 'img/Лицензия по геодезических и картографических работ_page-0004.jpg') }}
+          </div>
+        </div>				
+      </div>
+    </div>
+  </section>
+	<section class="gray-block inner-offset form-section">
+		<div class="container">
+			<div class="form-section__wrapper">
+				<div class="row-title">
+					<h2 class="title-md">Предложить участие</h2>			
+				</div>
+				<form class="call-form">
+					<div class="call-form__wrapper call-form__wrapper--four-column">
+						<label class="field">
+							<span class="field__description">Ваше Имя:</span>
+							<input type="text" placeholder="Введите имя" name="name">
+						</label>
+						<label class="field">
+							<span class="field__description">Телефон:</span>
+							<input type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+						</label>
+						<label class="field">
+							<span class="field__description">E-mail:</span>
+							<input type="email" placeholder="Для ответа" name="email">
+						</label>
+						<label class="field">
+							<span class="field__description">Организация:</span>
+							<input type="text" placeholder="Юридическое название" name="company">
+						</label>
+					</div>
+					<div class="call-form__down">
+						<div class="check">
+							<label>
+								<input type="checkbox" name='checkbox'>
+								<div class="check__icon" name="check"></div>
+							</label>								
+							<span>Согласен(на) на <a href="#">обработку персональных данных</a></span>
+						</div>
+						<button class="block-btn-two">
+							<div class="block-btn-two__animate"></div>
+							<span>ОТПРАВИТЬ</span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+<script src="js/swiper.min.js"></script>
+<script src="js/fancybox.umd.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+	const swiper = new Swiper('.doc-slider__container', {
+		slidesPerView: 4,
+		spaceBetween: 32,
+		loop: true,
+		loopAdditionalSlides: 2,
+		watchSlidesProgress: true,
+		pagination: {
+			el: '.projects-slider__fraction',
+			type: "fraction",
+			renderFraction: function(currentClass, totalClass) {					
+				return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+			},
+		},
+		navigation: {
+			nextEl: '.projects-slider__arrow-next',
+			prevEl: '.projects-slider__arrow-prev',
+		},
+		breakpoints: {
+			1200: {
+				slidesPerView: 4,
+			},
+			575: {
+				slidesPerView: 'auto',
+			},
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 10,
+			}
+		}
+	});
+
+  (function () {
+			let arrModalField = [];
+			const formCall = document.querySelector('.call-form');
+			const formCallField = formCall.querySelectorAll('input, textarea');
+			const formCallAction = formCall.getAttribute('action');
+      console.log('Путь отправки: ' + formCallAction);
+			
+      formCall.addEventListener('submit', function (e) {
+				e.preventDefault(); 
+
+				arrModalField.splice(0, arrModalField.length);
+				
+				formCallField.forEach(function(item) {
+					let fieldInfo = {
+						nameField: '',
+						value: '',
+						checked: '',
+					};
+
+
+					if(item.getAttribute('type') === 'checkbox') {
+						fieldInfo.nameField = item.getAttribute('name');
+						if (item.checked) {
+							fieldInfo.checked = true;
+						} else {
+							fieldInfo.checked = false;
+						}
+					} else {
+						fieldInfo.nameField = item.getAttribute('name');
+						fieldInfo.value = item.value;
+					}
+
+					console.log(fieldInfo);
+
+					arrModalField.push(fieldInfo);
+				});
+
+				console.log(arrModalField);
+
+				axios({
+					method: 'post',
+					url: formCallAction,
+					data: {arrModalField}
+				}).then(function (response) {
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+      })
+    })();
+</script>
+{% endblock %}

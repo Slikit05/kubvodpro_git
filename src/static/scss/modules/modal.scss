@@ -195,6 +195,26 @@
 				}
 			}
 		}
+		&--four-column {
+			grid-template-columns: repeat(4, 1fr);
+			.field {
+				&--textarea {
+					grid-column: span 4 / auto;
+					@media (max-width: 1200px) {
+						grid-column: span 2 / auto;
+					}
+				}
+			}
+			@media (max-width: 1200px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media (max-width: 575px) {
+				grid-template-columns: repeat(1, 1fr);
+				.field {
+					grid-column: span 2 / auto !important;
+				}
+			}
+		}
 	}
 
 	&__down {

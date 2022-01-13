@@ -17,13 +17,16 @@
 .wrapp-gray {
   .info-about-company {
     margin-bottom: 0;
+
     &::before {
       display: none;
     }
+
     &__container {
       padding-bottom: 0;
     }
   }
+
   .doc-slider__container {
     margin-bottom: 0;
   }
@@ -279,11 +282,27 @@
     margin-bottom: 40px;
 
     img {
-      width: 100%;
-      margin-bottom: 35px;
+      max-width: 100%;
+      margin: 0 auto 35px;
 
       &:last-child {
         margin-bottom: 0;
+      }
+    }
+
+    h3,
+    h4 {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 32px;
+      margin-bottom: 22px;
+      color: #13151B;
+
+      @media (max-width: 767px) {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 18px;
       }
     }
 
@@ -292,6 +311,11 @@
       line-height: 28px;
       color: #4F5054;
       margin-bottom: 25px;
+
+      @media (max-width: 767px) {
+        font-size: 16px;
+        line-height: 25px;
+      }
 
       strong {
         font-size: 22px;
@@ -316,6 +340,11 @@
         line-height: 28px;
         position: relative;
         padding-left: 24px;
+        color: #13151B;
+        @media (max-width: 767px) {
+          font-size: 16px;
+          line-height: 25px;
+        }
 
         &::before {
           content: "";
@@ -337,9 +366,7 @@
   }
 }
 
-.wrapp-gray {
-
-}
+.wrapp-gray {}
 
 .grid-three-columns {
   display: grid;
@@ -412,6 +439,45 @@
   &__wrap-img {
     img {
       width: 100%;
+    }
+  }
+}
+
+.project-sect-slider {
+  &__container {
+    margin-bottom: 47px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+
+    @media (max-width: 1023px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__wrap-img {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__wrap-text {
+    max-width: 527px;
+    align-self: center;
+    margin-left: 112px;
+
+    @media (max-width: 1023px) {
+      max-width: initial;
+      margin-left: 0;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 20px;
     }
   }
 }

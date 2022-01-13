@@ -1,0 +1,246 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+	<link rel="stylesheet" href="css/swiper.css">
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Страницы истории</span></li>
+			</ul>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Страницы истории</h2>
+		</div>
+	</section>	
+  
+  <section class="area-content wrap-offset">
+    <div class="container">
+      <div class="area-content__wrapper area-container">
+				<div class="gallery-slider">
+					<div class="gallery-slider__container swiper">
+						<div class="gallery-slider__wrapper swiper-wrapper">
+							<div class="gallery-slider__slide swiper-slide">
+								<div class="gallery-slider__block">
+									<picture>
+										<source srcset="img/gallery-img.webp" type="image/webp">
+										<source srcset="img/gallery-img.jpg" type="image/jpeg">
+										<img data-alt-img='Пример описания или названия фотографии1' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+									</picture>
+								</div>
+							</div>
+							<div class="gallery-slider__slide swiper-slide">
+								<div class="gallery-slider__block">
+									<picture>
+										<source srcset="img/gallery-img.webp" type="image/webp">
+										<source srcset="img/gallery-img.jpg" type="image/jpeg">
+										<img data-alt-img='Пример описания или названия фотографии2' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+									</picture>
+								</div>
+							</div>
+							<div class="gallery-slider__slide swiper-slide">
+								<div class="gallery-slider__block">
+									<picture>
+										<source srcset="img/gallery-img.webp" type="image/webp">
+										<source srcset="img/gallery-img.jpg" type="image/jpeg">
+										<img data-alt-img='Пример описания или названия фотографии3' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+									</picture>
+								</div>
+							</div>
+							<div class="gallery-slider__slide swiper-slide">
+								<div class="gallery-slider__block">
+									<picture>
+										<source srcset="img/gallery-img.webp" type="image/webp">
+										<source srcset="img/gallery-img.jpg" type="image/jpeg">
+										<img data-alt-img='Пример описания или названия фотографии4' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+									</picture>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="line-info">
+						<span class="line-info__text" data-text-img>Пример описания или названия фотографии</span>
+						<div class="slider-navigation">
+							<div class="slider-navigation__wrap">
+								<div class="slider-navigation__wrap-arrow">
+									<div class="arrow-slider-two  gallery-slider__arrow-prev">
+										<svg><use xlink:href="img/sprite.svg#pagination-arrow"></svg>
+									</div>
+									<div class="arrow-slider-two arrow-slider-two--next gallery-slider__arrow-next">
+										<svg><use xlink:href="img/sprite.svg#pagination-arrow"></svg>
+									</div>
+								</div>
+								<div class="gallery-slider__fraction fraction-slider"></div>
+							</div>
+						</div>
+					</div>					
+				</div>
+        <p>До строительства Краснодарского водохранилища низменные земли вдоль р. Кубани нередко подвергались катастрофическим навод­нениям. Попытки защитить жилые, хозяйственные строения и сельхозугодья с помощью примитивных сооружений из подручных средств желаемого результата не давали. Убытки исчислялись многими миллионами рублей.</p>
+        <p>За обозримую историю Кубани было зафиксировано более 100 катастрофических наводнений на р. Кубани, которые наносили огромный ущерб населению и экономике края. Бороться с наводнениями начали еще во второй половине XIX столетия путем строительства огради­тельных валов и дамб. Работы велись эпизодически при отсутствии проектной документации и производительной строительной техники. Катастрофический паводок 1966 года стал последним аргументом в пользу строительства Краснодарского водохранилища. В 1967 работы были начаты и в 1975 году водохранилище введено в эксплуатацию. С тех пор оно успешно предотвращает крупные наводнения в низовьях р. Кубани и по степени эффективности является одним из наиболее значимых водохозяйственных объектов в нашей стране.</p>
+        <p>Для реализации государственной программы по защите населения, инфраструктуры нижней Кубани от наводнений и освоению земель под интенсивное сельскохозяйственное использование по проектам института построены Краснодарское, Шапсугское, Октябрьское, Шенджийское, Варнавинское, Крюковское водохранилища и несколько гидроузлов.</p>
+				<h3>Институтом разработаны проекты:</h3>
+				<ul>
+					<li>подпорных сооружений на р. Кубани - Федоровский и Тиховский гидроузлы с рыбопропускными и судоходными сооружениями;</li>
+					<li>головных сооружений оросительных систем с расходом воды до 330 м3/с;</li>
+					<li>насосных станций с расходом воды до 70 м3/с.</li>
+				</ul>
+				<p>Общая площадь запроектированных и построенных оросительных систем в Краснодарском крае и Республике Адыгея составила 480 тыс. га, в том числе 256 тыс. га рисовых.</p>
+				<p>Для обеспечения питьевой водой населения, сельскохозяйственных и промышленных предприятий Таманского полуострова, Старомин­ского, Щербиновского, Кущевского, Ейского районов и г.Ейска запроектированы и построены групповые водопроводы и водопроводные сети.</p>
+				<p>За последние 10 лет разработаны свыше 60 проектов по реконструкции противопаводковой системы обвалования рек Кубани и Протоки. Из них около 20 км берегоукрепительных и руслорегулирующих сооружений.</p>
+				<p>Ко дню своего юбилея институт стал ведущим предприятием по проектированию мелиоративных и водохозяйственных объектов, укре­плению морских и речных берегов на Юге России, объектам горного и морского туризма.</p>
+      </div>
+    </div>
+  </section>
+	<section class="project-sect gray-block inner-offset">
+		<div class="container">
+			<div class="project-sect__container">
+				<div class="row-title">
+					<h2 class="title-md">Наиболее значимые проекты и разработки</h2>
+				</div>
+				<div class="project-sect__wrapper">
+					<div class="project-sect-slider">
+						<div class="project-sect-slider__container swiper">
+							<div class="project-sect-slider__wrapper swiper-wrapper">
+								<div class="project-sect-slider__slide swiper-slide">
+									<div class="project-sect-slider__grid">
+										<picture class="project-sect-slider__wrap-img">
+											<source src="img/project-sect-slider.webp" type="image/webp">
+											<source src="img/project-sect-slider.jpg" type="image/jpg">
+											<img src="img/project-sect-slider.webp" alt="">
+										</picture>
+										<div class="project-sect-slider__wrap-text">
+											<h4 class="sm-title">Краснодарское водохранилище</h4>
+											<p class="project-sect-slider__text">Краснодарское водохранилище - одно из крупнейших на юге России, с проектной мощностью более 3 млрд. м3 воды, уже в течение 35 лет защищает низовья Кубани от наводнений, обеспечивает гарантированную подачу воды на оросительные системы, улучшает условия водообеспечения рыбомелиоративных систем и судоходства.</p>
+											<a href="" class="btn-more"><span class="btn-more__square"></span><span class="btn-more__text">ПОДРОБНЕЕ</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="project-sect-slider__slide swiper-slide">
+									<div class="project-sect-slider__grid">
+										<picture class="project-sect-slider__wrap-img">
+											<source src="img/project-sect-slider.webp" type="image/webp">
+											<source src="img/project-sect-slider.jpg" type="image/jpg">
+											<img src="img/project-sect-slider.webp" alt="">
+										</picture>
+										<div class="project-sect-slider__wrap-text">
+											<h4 class="sm-title">Краснодарское водохранилище</h4>
+											<p class="project-sect-slider__text">Краснодарское водохранилище - одно из крупнейших на юге России, с проектной мощностью более 3 млрд. м3 воды, уже в течение 35 лет защищает низовья Кубани от наводнений, обеспечивает гарантированную подачу воды на оросительные системы, улучшает условия водообеспечения рыбомелиоративных систем и судоходства.</p>
+											<a href="" class="btn-more"><span class="btn-more__square"></span><span class="btn-more__text">ПОДРОБНЕЕ</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="project-sect-slider__slide swiper-slide">
+									<div class="project-sect-slider__grid">
+										<picture class="project-sect-slider__wrap-img">
+											<source src="img/project-sect-slider.webp" type="image/webp">
+											<source src="img/project-sect-slider.jpg" type="image/jpg">
+											<img src="img/project-sect-slider.webp" alt="">
+										</picture>
+										<div class="project-sect-slider__wrap-text">
+											<h4 class="sm-title">Краснодарское водохранилище</h4>
+											<p>Краснодарское водохранилище - одно из крупнейших на юге России, с проектной мощностью более 3 млрд. м3 воды, уже в течение 35 лет защищает низовья Кубани от наводнений, обеспечивает гарантированную подачу воды на оросительные системы, улучшает условия водообеспечения рыбомелиоративных систем и судоходства.</p>
+											<a href="" class="btn-more"><span class="btn-more__square"></span><span class="btn-more__text">ПОДРОБНЕЕ</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="project-sect-slider__slide swiper-slide">
+									<div class="project-sect-slider__grid">
+										<picture class="project-sect-slider__wrap-img">
+											<source src="img/project-sect-slider.webp" type="image/webp">
+											<source src="img/project-sect-slider.jpg" type="image/jpg">
+											<img src="img/project-sect-slider.webp" alt="">
+										</picture>
+										<div class="project-sect-slider__wrap-text">
+											<h4 class="sm-title">Краснодарское водохранилище</h4>
+											<p class="project-sect-slider__text">Краснодарское водохранилище - одно из крупнейших на юге России, с проектной мощностью более 3 млрд. м3 воды, уже в течение 35 лет защищает низовья Кубани от наводнений, обеспечивает гарантированную подачу воды на оросительные системы, улучшает условия водообеспечения рыбомелиоративных систем и судоходства.</p>
+											<a href="" class="btn-more"><span class="btn-more__square"></span><span class="btn-more__text">ПОДРОБНЕЕ</span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="slider-navigation">
+							<div class="slider-navigation__wrap">
+								<div class="slider-navigation__wrap-arrow">
+									<div class="arrow-slider arrow-slider--prev project-sect-slider__arrow-prev">
+										<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+									</div>
+									<div class="arrow-slider project-sect-slider__arrow-next">
+										<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
+									</div>
+								</div>
+								<div class="project-sect-slider__fraction fraction-slider"></div>
+							</div>
+							<button class="block-btn-two">
+								<div class="block-btn-two__animate"></div>
+								<span>ВСЕ ПРОЕКТЫ</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+	<script src="js/swiper.min.js"></script>
+	<script>
+		const swiperTwo = new Swiper('.gallery-slider__container', {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			loop: true,
+			loopAdditionalSlides: 2,
+			watchSlidesProgress: true,
+			pagination: {
+				el: '.gallery-slider__fraction',
+				type: "fraction",
+				renderFraction: function(currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+				},
+			},
+			navigation: {
+				nextEl: '.gallery-slider__arrow-next',
+				prevEl: '.gallery-slider__arrow-prev',
+			},
+			on: {
+				init: function (swiper) {
+					{# console.log(swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg); #}
+					document.querySelector('[data-text-img]').textContent = swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg
+				},
+				activeIndexChange: function (swiper) {
+					{# console.log(swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg); #}
+					document.querySelector('[data-text-img]').textContent = swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg
+				},
+			},
+		});
+		const swiper = new Swiper('.project-sect-slider__container', {
+			slidesPerView: 1,
+			spaceBetween: 15,
+			loop: true,
+			loopAdditionalSlides: 2,
+			watchSlidesProgress: true,
+			pagination: {
+				el: '.project-sect-slider__fraction',
+				type: "fraction",
+				renderFraction: function(currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+				},
+			},
+			navigation: {
+				nextEl: '.project-sect-slider__arrow-next',
+				prevEl: '.project-sect-slider__arrow-prev',
+			}
+		});
+	</script>
+{% endblock %}

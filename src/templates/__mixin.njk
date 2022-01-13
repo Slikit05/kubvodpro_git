@@ -143,3 +143,38 @@
 {% macro servicesBlock(caption) %}
 	<a href="#" class="services-block"><span class="services-block__caption">{{ caption }}</span></a>
 {% endmacro %}
+
+{% macro reviewsBlock(logo) %}
+	<div class="reviews-block">
+		<div class="reviews-block__wrapper">
+			<div class="reviews-block__left">
+				<img src="img/{{ logo }}" alt="" class="reviews-block__logo">
+				<span class="reviews-block__name">Наименование заказчика</span>
+				<a href="#" class="btn-more">
+					<div class="btn-more__square"></div>
+					<span class="btn-more__text">НАЗВАНИЕ ПРОЕКТА</span>					
+				</a>
+			</div>
+			<div class="reviews-block__right">
+				<div class="reviews-block__wrap-text">
+					<p>В составе организации 17 производственных подразделений, объединенных единой информационно-технической базой. При выполнении проектно-изыскательских работ используются специальные программы, обеспечивающие четкое исполнение технологии и методик на основе системного лицензионного программного обеспечения.</p>
+					<p>В институте имеются свидетельства о допуске на выполнение проектных и изыскательских работ повышенного уровня ответственности, в основном по всем видам работ в соответствии с приказом № 624 от 30.12.2009 г. Минрегионразвития РФ.</p>
+				</div>
+				<a href="#" class="download-file">
+					<div class="download-file__left">
+						<div class="doc-icon">
+							<svg><use xlink:href="img/sprite.svg#doc-icon"></svg>
+							<div class="doc-icon__line">
+								<span class="doc-icon__text">PDF</span>
+							</div>
+						</div>
+					</div>					
+					<div class="download-file__wrap-text">
+						<span class="download-file__caption">Скачать Pdf официального письма с отзывом</span>
+						<span class="download-file__info-text">1.2 мб, PDF</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
