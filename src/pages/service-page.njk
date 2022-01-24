@@ -1,0 +1,137 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+	<link rel="stylesheet" href="css/swiper.css">
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Пример названия проекта</span></li>
+			</ul>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Пример названия проекта</h2>
+		</div>
+	</section>	
+  
+  <section class="area-content wrap-offset">
+    <div class="container">
+      <div class="area-content__wrapper area-container">
+				<img src="img/img2.jpg" alt="">
+        <p><strong>АО "Кубаньводпроект" – это высокопрофессиональная организация, способная качественно, на современном техническом уровне, в соответствии с действующими нормативными документами и пожеланиями заказчиков выполнять комплексные проекты и разрабатывать перспективные технические решения по промышленно - гражданским, водохозяйственным объектам, объектам газовой промышленности, инженерным сетям и комплексные инженерные изыскания.</strong></p>
+				<hr>
+        <p>В составе организации 17 производственных подразделений, объединенных единой информационно-технической базой. При выполнении проектно-изыскательских работ используются специальные программы, обеспечивающие четкое исполнение технологии.</p>
+				<div class="video-block">
+					<div class="video-block__wrap">
+						<div class="video-block__target" data-target-play>
+							<div class="video-block__icon">
+								<svg>
+									<use xlink:href="img/sprite.svg#play">
+								</svg>
+							</div>
+						</div>
+						<video poster="img/first-screen-bg.jpg" muted>
+							<source src="video/video-bg.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+						</video>
+					</div>					
+					<div class="line-info">
+						<span class="line-info__text">Пример названия видеоролика</span>
+						<span class="line-info__bold-text">12:30</span>
+					</div>
+				</div>
+				<p>АО «Кубаньводпроект» - это многопрофильная организация, способная выполнять проектно-изыскательские работы на современном техническом уровне. Функционирует, сертифицированная на соответствие требованиям ГОСТ Р ИСО 9001-2008 (ИСО 9001:2008), система менеджмента качества.</p>
+				<p>Институт имеет хорошую оснащенность компьютерной техникой, изме­рительными приборами и устройствами, транспортными средствами, обору­дованием для топогеодезических, инженерно-геологических и гидрологи­ческих изысканий, располагает большим научно-техническим фондом. АО «Кубаньводпроект» имеет собственный товарный знак. Мы всегда открыты для сотрудничества со всеми организациями в области проектирования во­дохозяйственных, промышленно-гражданских объектов, туристических и ре­креационных комплексов. Институт имеет хорошую оснащенность.</p>
+				<button class="block-btn-two block-btn-two--right">
+          <div class="block-btn-two__animate"></div>
+          <span>ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</span>
+        </button>
+      </div>
+    </div>
+  </section>
+	<section class="gray-block inner-offset">
+		<div class="container">
+			<div class="">
+				<div class="row-title">
+					<h2 class="title-md">Выполненые проекты</h2>			
+				</div>
+				<div class="projects-page">
+					<div class="projects-page__wrapper wrapper-list">
+						{{ mixin.prevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище Краснодарское водохранилище', 'Республика Адыгея') }}
+						{{ mixin.prevueBlockTwo('prevue-two-bg2', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Рисовые чеки', 'Краснодар') }}
+						{{ mixin.prevueBlockTwo('prevue-two-bg3', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый мост г. Краснодар', 'Краснодар') }}
+						{{ mixin.prevueBlockTwo('prevue-two-bg4', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Тиховский гидроузел', 'Абинский район') }}
+						{{ mixin.prevueBlockTwo('prevue-two-bg5', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Федоровский гидроузел', 'Фёдоровское сельское поселение') }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="gray-block inner-offset form-section">
+		<div class="container">
+			<div class="form-section__wrapper">
+				<div class="row-title">
+					<h2 class="title-md">Обратная связь</h2>			
+				</div>
+				<form class="call-form">
+					<div class="call-form__wrapper call-form__wrapper--three-column">
+						<label class="field">
+							<span class="field__description">Ваше Имя:</span>
+							<input type="text" placeholder="Введите имя" name="name">
+						</label>
+						<label class="field">
+							<span class="field__description">Телефон:</span>
+							<input type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+						</label>
+						<label class="field">
+							<span class="field__description">E-mail:</span>
+							<input type="email" placeholder="Для ответа" name="email">
+						</label>
+					</div>
+					<div class="call-form__down">
+						<div class="check">
+							<label>
+								<input type="checkbox" name='checkbox'>
+								<div class="check__icon" name="check"></div>
+							</label>								
+							<span>Согласен(на) на <a href="#">обработку персональных данных</a></span>
+						</div>
+						<button class="block-btn-two">
+							<div class="block-btn-two__animate"></div>
+							<span>ОТПРАВИТЬ</span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+	<script src="js/swiper.min.js"></script>
+	<script>
+		const targetVideos = document.querySelectorAll("[data-target-play]");
+
+		for(let targetVideo of targetVideos) {
+			targetVideo.addEventListener("click", (event) => {
+				event.target.closest(".video-block").querySelector("video").play();
+				event.target.style.display = 'none';
+				if (event.target.closest(".video-block").querySelector("video").hasAttribute("controls")) {
+					
+				} else {
+					event.target.closest(".video-block").querySelector("video").setAttribute("controls","controls")   
+				}
+			})
+		}
+		
+	</script>
+{% endblock %}

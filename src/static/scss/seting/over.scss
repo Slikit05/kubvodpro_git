@@ -222,6 +222,14 @@
 		height: 2px;
 		background-color: #174EFF;
 	}
+
+	span {
+		display: block;
+		font-size: 14px;
+		line-height: 20px;
+		color: #8E8F93;
+		margin-top: 10px;
+	}
 }
 
 .title-md {
@@ -1212,6 +1220,23 @@
 		z-index: 1;
 		transition: all 0.3s ease-in-out;
 	}
+
+	&--change {
+		.block-btn-two__animate {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 2px;
+				height: 100%;
+				left: 0;
+				background-color: #fff;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+	}
+	&--right {
+		margin-left: auto;
+	}
 }
 
 
@@ -1370,12 +1395,14 @@ body .hide-text {
 
 	&__list {
 		display: flex;
+		flex-wrap: wrap;
 	}
 
 	&__item {
 		display: flex;
 		align-items: center;
 		margin-right: 9px;
+		margin-bottom: 2px;
 
 		svg {
 			width: 12px;
@@ -1610,6 +1637,12 @@ body .hide-text {
 		line-height: 20px;
 		color: #13151B;
 	}
+
+	&__bold-text {
+		font-weight: bold;
+		font-size: 12px;
+		line-height: 16px;
+	}
 }
 
 .arrow-slider-two {
@@ -1683,3 +1716,72 @@ body .hide-text {
 		background-color: #0b40e8;
 	}
 }
+
+.project-info-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 32px;
+	margin-bottom: 45px;
+}
+
+.project-info-block {
+	.project-info-block__caption {
+		font-size: 14px;
+		line-height: 20px;
+		color: #4F5054;
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	.project-info-block__text {
+		font-weight: bold;
+		font-size: 24px;
+		line-height: 32px;
+		color: #13151B;
+	}
+}
+
+.video-block {	
+	margin-bottom: 34px;
+	&__wrap {
+		position: relative;
+	}
+
+	&__target {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 10;
+	}
+
+	&__icon {
+		width: 96px;
+		height: 96px;
+		border-radius: 50%;
+		border: 8px solid #FFFFFF;
+		background: rgba(1, 42, 94, 0.3);
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		svg {
+			fill: #fff;
+			width: 32px;
+			height: 28px;
+			cursor: pointer;
+		}
+	}
+
+	video {
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+

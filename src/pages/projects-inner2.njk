@@ -1,0 +1,339 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+	<link rel="stylesheet" href="css/swiper.css">
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="first-screen">
+		<picture class="first-screen__bg">
+			<source srcset="img/first-screen-bg2.webp" type="image/webp">
+			<source srcset="img/first-screen-bg2.jpg" type="image/jpeg">
+			<img src="img/first-screen-bg2.webp" alt="">
+		</picture>
+		<div class="container">
+			<div class="first-screen__container first-screen__container--left-content">
+				<div>
+					<div class="bread-crumbs">
+						<ul class="bread-crumbs__list">
+							<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+							<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Пример названия проекта</span></li>
+						</ul>
+					</div>
+					<h1 class="first-screen__title first-screen__title--two">Пример названия проекта</h1>
+				</div>				
+				<div class="first-screen__scroll-btn first-screen__scroll-btn--change">
+					<span>СКРОЛЬТЕ ВНИЗ</span>
+					<a href="#ancor" class="arrow-scroll">
+						<svg>
+							<use xlink:href="img/sprite.svg#arrow-down">
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper-scroll-header">
+		<section class="scroll-header">
+			<div class="scroll-header__scroll-wrap">
+				<div class="container">
+					<div class="scroll-header__container">
+						<div class="scroll-header__left">
+							<div class="logo">
+								<img src="img/svg-min/logo2.svg" alt="">
+								{# <span class="logo__text">Кубаньводпроект</span> #}
+							</div>
+							 <nav class="navigation">
+								<ul class="navigation__list">
+									<li class="navigation__item">
+										<a href="" class="navigation__link">ИНСТИТУТ</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Страницы истории</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Участие в конкурсах</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Коллектив</a></li>
+										</ul>
+									</li>
+									<li class="navigation__item">
+										<a href="" class="navigation__link">УСЛУГИ</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Страницы истории</a></li>
+										</ul>
+									</li>
+									<li class="navigation__item">
+										<a href="" class="navigation__link">ПРОЕКТЫ</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Страницы истории</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Участие в конкурсах</a></li>
+											<li class="dropdown__item"><a href="" class="dropdown__link">Коллектив</a></li>
+										</ul>
+									</li>
+									<li class="navigation__item">
+										<a href="" class="navigation__link">Контакты</a>
+										<ul class="dropdown">
+											<li class="dropdown__item"><a href="" class="dropdown__link">Об институте</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div class="scroll-header__right">
+							<a href="#" class="tel tel--black">8 (861) 253-73-35</a>
+							<button class="block-btn" data-click-modal="call-modal">
+								<span class="block-btn__text block-btn__text--blue">ЗАКАЗАТЬ ЗВОНОК</span>
+							</button>
+							<div class="change-language">
+								<span class="change-language__text">EN</span>
+							</div>
+							<div class="wrap-search">
+								<div class="search-field">
+									<form action="" class="search-field__form">
+										<div class="search-field__wrap">
+											<label class="search-field__wrap-field">
+												<svg><use xlink:href="img/sprite.svg#search-icon"></svg>
+												<input type="text" class="search-field__input">
+											</label>
+											<button class="search-field__btn">
+												<span class="search-field__text">НАЙТИ</span>
+											</button>
+										</div>
+									</form>
+								</div>
+								<div class="search-icon">
+									<div class="search-icon__wrap">
+										<svg><use xlink:href="img/sprite.svg#search-icon"></svg>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</section>
+		<section class="area-content wrap-offset" id="ancor">
+			<div class="container">
+				<div class="area-content__wrapper area-container">
+					<div class="project-info-grid">
+						<div class="project-info-block">
+							<span class="project-info-block__caption">Заказчик:</span>
+							<p class="project-info-block__text">Наименование заказчика</p>
+						</div>
+						<div class="project-info-block">
+							<span class="project-info-block__caption">Направление:</span>
+							<p class="project-info-block__text">Пример направления</p>
+						</div>
+						<div class="project-info-block">
+							<span class="project-info-block__caption">Годы реализации:</span>
+							<p class="project-info-block__text">1998 - 2004 г.</p>
+						</div>
+					</div>
+					<div class="gallery-slider">
+						<div class="gallery-slider__container swiper">
+							<div class="gallery-slider__wrapper swiper-wrapper">
+								<div class="gallery-slider__slide swiper-slide">
+									<div class="gallery-slider__block">
+										<picture>
+											<source srcset="img/gallery-img.webp" type="image/webp">
+											<source srcset="img/gallery-img.jpg" type="image/jpeg">
+											<img data-alt-img='Пример описания или названия фотографии1' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+										</picture>
+									</div>
+								</div>
+								<div class="gallery-slider__slide swiper-slide">
+									<div class="gallery-slider__block">
+										<picture>
+											<source srcset="img/gallery-img.webp" type="image/webp">
+											<source srcset="img/gallery-img.jpg" type="image/jpeg">
+											<img data-alt-img='Пример описания или названия фотографии2' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+										</picture>
+									</div>
+								</div>
+								<div class="gallery-slider__slide swiper-slide">
+									<div class="gallery-slider__block">
+										<picture>
+											<source srcset="img/gallery-img.webp" type="image/webp">
+											<source srcset="img/gallery-img.jpg" type="image/jpeg">
+											<img data-alt-img='Пример описания или названия фотографии3' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+										</picture>
+									</div>
+								</div>
+								<div class="gallery-slider__slide swiper-slide">
+									<div class="gallery-slider__block">
+										<picture>
+											<source srcset="img/gallery-img.webp" type="image/webp">
+											<source srcset="img/gallery-img.jpg" type="image/jpeg">
+											<img data-alt-img='Пример описания или названия фотографии4' src="img/gallery-img.webp" alt="" class="gallery-slider__img">
+										</picture>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="line-info">
+							<span class="line-info__text" data-text-img>Пример описания или названия фотографии</span>
+							<div class="slider-navigation">
+								<div class="slider-navigation__wrap">
+									<div class="slider-navigation__wrap-arrow">
+										<div class="arrow-slider-two  gallery-slider__arrow-prev">
+											<svg><use xlink:href="img/sprite.svg#pagination-arrow"></svg>
+										</div>
+										<div class="arrow-slider-two arrow-slider-two--next gallery-slider__arrow-next">
+											<svg><use xlink:href="img/sprite.svg#pagination-arrow"></svg>
+										</div>
+									</div>
+									<div class="gallery-slider__fraction fraction-slider"></div>
+								</div>
+							</div>
+						</div>					
+					</div>
+					<p>До строительства Краснодарского водохранилища низменные земли вдоль р. Кубани нередко подвергались катастрофическим навод­нениям. Попытки защитить жилые, хозяйственные строения и сельхозугодья с помощью примитивных сооружений из подручных средств желаемого результата не давали. Убытки исчислялись многими миллионами рублей.</p>
+					<p>За обозримую историю Кубани было зафиксировано более 100 катастрофических наводнений на р. Кубани, которые наносили огромный ущерб населению и экономике края. Бороться с наводнениями начали еще во второй половине XIX столетия путем строительства огради­тельных валов и дамб. Работы велись эпизодически при отсутствии проектной документации и производительной строительной техники. Катастрофический паводок 1966 года стал последним аргументом в пользу строительства Краснодарского водохранилища. В 1967 работы были начаты и в 1975 году водохранилище введено в эксплуатацию. С тех пор оно успешно предотвращает крупные наводнения в низовьях р. Кубани и по степени эффективности является одним из наиболее значимых водохозяйственных объектов в нашей стране.</p>
+					<p>Для реализации государственной программы по защите населения, инфраструктуры нижней Кубани от наводнений и освоению земель под интенсивное сельскохозяйственное использование по проектам института построены Краснодарское, Шапсугское, Октябрьское, Шенджийское, Варнавинское, Крюковское водохранилища и несколько гидроузлов.</p>
+					<h3>Институтом разработаны проекты:</h3>
+					<ul>
+						<li>подпорных сооружений на р. Кубани - Федоровский и Тиховский гидроузлы с рыбопропускными и судоходными сооружениями;</li>
+						<li>головных сооружений оросительных систем с расходом воды до 330 м3/с;</li>
+						<li>насосных станций с расходом воды до 70 м3/с.</li>
+					</ul>
+					<button class="block-btn-two block-btn-two--change">
+						<div class="block-btn-two__animate"></div>
+						<span>НАЗАД</span>
+					</button>
+				</div>
+			</div>
+		</section>
+		<section class="gray-block inner-offset form-section">
+			<div class="container">
+				<div class="form-section__wrapper">
+					<div class="row-title">
+						<h2 class="title-md">Обратная связь</h2>			
+					</div>
+					<form class="call-form">
+						<div class="call-form__wrapper call-form__wrapper--three-column">
+							<label class="field">
+								<span class="field__description">Ваше Имя:</span>
+								<input type="text" placeholder="Введите имя" name="name">
+							</label>
+							<label class="field">
+								<span class="field__description">Телефон:</span>
+								<input type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+							</label>
+							<label class="field">
+								<span class="field__description">E-mail:</span>
+								<input type="email" placeholder="Для ответа" name="email">
+							</label>
+						</div>
+						<div class="call-form__down">
+							<div class="check">
+								<label>
+									<input type="checkbox" name='checkbox'>
+									<div class="check__icon" name="check"></div>
+								</label>								
+								<span>Согласен(на) на <a href="#">обработку персональных данных</a></span>
+							</div>
+							<button class="block-btn-two">
+								<div class="block-btn-two__animate"></div>
+								<span>ОТПРАВИТЬ</span>
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+	<script src="js/swiper.min.js"></script>
+	<script>
+		let changeScrollNumber = 0;
+		const header = document.querySelector('header').scrollHeight;
+		const firstScreen = document.querySelector('.first-screen').scrollHeight;
+		const firstScroll = header + firstScreen;
+
+		if (document.documentElement.clientWidth > 1023) {
+			if (window.pageYOffset >= firstScroll) {
+				document.querySelector('body').classList.remove('hiden');
+				changeScrollNumber = 1;
+			} else if (window.pageYOffset > 0) {
+				document.querySelector('body').classList.remove('hiden');
+				changeScrollNumber = 1;
+			} else {
+				document.querySelector('body').classList.add('hiden');
+			}
+		}	
+
+		document.querySelectorAll('.arrow-scroll').forEach(link => {
+
+			link.addEventListener('click', function (e) {
+
+
+				let href = this.getAttribute('href');
+
+				const scrollTarget = document.querySelector(href);
+
+				const topOffset = document.querySelector('.scroll-header').scrollHeight;
+				const elementPosition = scrollTarget.getBoundingClientRect().top;
+				const offsetPosition = elementPosition - topOffset;
+
+				window.scrollBy({
+					top: firstScroll - 210,
+					behavior: 'smooth'
+				});
+				document.querySelector('body').classList.remove('hiden');
+				changeScrollNumber = 1;
+				e.preventDefault();
+			});
+		});
+
+		if (document.documentElement.clientWidth > 1023) {
+			window.addEventListener("wheel", event => {
+				if (window.pageYOffset <= firstScroll && changeScrollNumber === 0) {
+					window.scrollBy({
+						top: firstScroll - 210,
+						behavior: 'smooth'
+					});
+					changeScrollNumber = 1;
+				} else if (changeScrollNumber === 1) {
+					document.querySelector('body').classList.remove('hiden');
+				};
+			});
+		};
+
+		const swiperTwo = new Swiper('.gallery-slider__container', {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			loop: true,
+			loopAdditionalSlides: 2,
+			watchSlidesProgress: true,
+			pagination: {
+				el: '.gallery-slider__fraction',
+				type: "fraction",
+				renderFraction: function(currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+				},
+			},
+			navigation: {
+				nextEl: '.gallery-slider__arrow-next',
+				prevEl: '.gallery-slider__arrow-prev',
+			},
+			on: {
+				init: function (swiper) {
+					{# console.log(swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg); #}
+					document.querySelector('[data-text-img]').textContent = swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg
+				},
+				activeIndexChange: function (swiper) {
+					{# console.log(swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg); #}
+					document.querySelector('[data-text-img]').textContent = swiper.visibleSlides[0].querySelector('.gallery-slider__block img').dataset.altImg
+				},
+			},
+		});
+		
+	</script>
+{% endblock %}
