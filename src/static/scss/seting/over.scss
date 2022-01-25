@@ -1371,6 +1371,15 @@
 	color: #4F5054;
 }
 
+.text-md {
+	font-size: 18px;
+	line-height: 28px;
+	color: #4F5054;
+	&--white {
+		color: #fff;
+	}
+}
+
 body .hide-elem {
 	width: 0;
 	padding: 0;

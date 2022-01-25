@@ -71,6 +71,15 @@
     &--left-content {
       align-items: flex-start;
     }
+    &--change {
+      justify-content: center;
+      .first-screen__title {
+        margin-bottom: 40px;
+      }
+      .text-md {
+        margin-bottom: 56px;
+      }
+    }
   }
 
   &__title {

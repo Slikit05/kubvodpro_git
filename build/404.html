@@ -174,10 +174,22 @@
   </header>
   <main class="main">
 
-    <section class="wrap-offset">
-      <div class="container">
-        <div class="area-container">
+    <section class="first-screen">
+      <picture class="first-screen__bg">
+        <source srcset="img/first-screen-bg3.webp" type="image/webp">
+        <source srcset="img/first-screen-bg3.jpg" type="image/jpeg">
+        <img src="img/first-screen-bg3.webp" alt="">
+      </picture>
 
+      <div class="container">
+        <div class="first-screen__container first-screen__container--change">
+          <h1 class="first-screen__title">Ошибка 404. <br>Страница не найдена
+          </h1>
+          <span class="text-md text-md--white">Страница, на которую Вы хотели перейти, не найдена. Возможно, введен некорректный адрес или страница была удалена.</span>
+          <button class="block-btn-two block-btn-two--change">
+            <div class="block-btn-two__animate"></div>
+            <span>ПЕРЕЙТИ НА ГЛАВНУЮ</span>
+          </button>
         </div>
       </div>
     </section>
