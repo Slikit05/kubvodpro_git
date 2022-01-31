@@ -390,6 +390,9 @@
 
 .doc-sect {
   overflow: hidden;
+  .slider-navigation__wrap-arrow {
+		margin-left: 15px;
+	}
 }
 
 
@@ -414,6 +417,7 @@
 
   &__slide {
     height: auto;
+    max-width: 308px;
 
     @media (max-width:1280px) {
       max-width: 368px;

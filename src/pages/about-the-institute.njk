@@ -64,6 +64,7 @@
 					<h2 class="title-md">Документы</h2>
 					<div class="slider-navigation">
 						<div class="slider-navigation__wrap">
+							<div class="projects-slider__fraction fraction-slider"></div>
 							<div class="slider-navigation__wrap-arrow">
 								<div class="arrow-slider arrow-slider--prev projects-slider__arrow-prev">
 									<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
@@ -72,7 +73,7 @@
 									<svg><use xlink:href="img/sprite.svg#short-arrow"></svg>
 								</div>
 							</div>
-							<div class="projects-slider__fraction fraction-slider"></div>
+							
 						</div>
 					</div>
 				</div>
@@ -145,9 +146,6 @@
 	const swiper = new Swiper('.doc-slider__container', {
 		slidesPerView: 4,
 		spaceBetween: 32,
-		loop: true,
-		loopAdditionalSlides: 2,
-		watchSlidesProgress: true,
 		pagination: {
 			el: '.projects-slider__fraction',
 			type: "fraction",
