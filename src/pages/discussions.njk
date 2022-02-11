@@ -1,0 +1,45 @@
+{% extends "__layout.njk" %}
+
+{% block Link %}
+{% endblock %}
+
+{% block Header %}
+
+{% endblock %}
+
+{% block Content %}
+	<section class="bread-crumbs">
+		<div class="container">
+			<ul class="bread-crumbs__list">
+				<li class="bread-crumbs__item"><a href="#" class="bread-crumbs__link">Главная</a><svg><use xlink:href="img/sprite.svg#bread-crumbs-arrow"></svg></li>
+				<li class="bread-crumbs__item"><span class="bread-crumbs__link bread-crumbs__link--active">Общественные обсуждения</span></li>
+			</ul>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row-title row-title--up-inner">
+			<h2 class="title">Общественные обсуждения</h2>
+		</div>
+	</section>	
+
+	<section class="services-sect wrap-last-offset">
+		<div class="container">
+			<div class="services-sect__wrapper grid-three-columns">
+        {{ mixin.servicesBlock2('Детский оздоровительный комплекс Ак Барс 3 этап. Пляж', '') }}
+        {{ mixin.servicesBlock2('Строительство эллинга для хранения плавательных средств', 'pdf, 0,38 mb') }}
+        {{ mixin.servicesBlock2('Детский оздоровительный комплекс Ак Барс 3 этап. Пляж', 'pdf, 0,49 mb') }}
+
+        {{ mixin.servicesBlock2('Строительство эллинга для хранения плавательных средств', '') }}
+        {{ mixin.servicesBlock2('Детский оздоровительный комплекс Ак Барс 3 этап. Пляж', 'pdf, 0,49 mb') }}
+        {{ mixin.servicesBlock2('Строительство эллинга для хранения плавательных средств', '') }}
+
+        {{ mixin.servicesBlock2('Детский оздоровительный комплекс Ак Барс 3 этап. Пляж', 'pdf, 0,49 mb') }}
+        {{ mixin.servicesBlock2('Строительство эллинга для хранения плавательных средств', 'pdf, 0,38 mb') }}
+			</div>
+		</div>
+	</section>
+	{% include "include/modal.njk" %}
+{% endblock %}
+
+{% block Scripts %}
+{% endblock %}

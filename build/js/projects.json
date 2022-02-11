@@ -1,10 +1,76 @@
 {
-	"type": "FeatureCollection",
-	"features": [
-		{"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [44.984422, 39.272566]}, "properties": {}},
-		{"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [45.135467, 38.180237]}, "properties": {}},
-		{"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [45.025331, 38.957842]}, "properties": {}},
-		{"type": "Feature", "id": 3, "geometry": {"type": "Point", "coordinates": [45.183984, 38.218473]}, "properties": {}},
-		{"type": "Feature", "id": 4, "geometry": {"type": "Point", "coordinates": [45.101439, 38.488498]}, "properties": {}}
+	"projectList": [
+		{	
+			"key": "1",
+			"type": "FeatureCollection",
+			"features": [
+				{"type": "Feature", "id": 0, "links": "#test1", "geometry": {"type": "Point", "coordinates": [44.984422, 39.272566]}, "properties": {}},
+				{"type": "Feature", "id": 1, "links": "#test2",  "geometry": {"type": "Point", "coordinates": [45.135467, 38.180237]}, "properties": {}},
+				{"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [45.025331, 38.957842]}, "properties": {"balloonContentHeader": "<img class='ballon-img' src='img/prevue-two-bg3.jpg' alt=''/>", "balloonContentBody": "<div class='ballon-wrap'><div class='category ballon-category'>тест</div><h4 class='ballon-title'>Тестовый заголовок</h4></div>", "balloonContentFooter": "<p class='ballon-text'>Тестовый текст</p>", "clusterCaption": "", "hintContent": ""}},
+				{"type": "Feature", "id": 3, "links": "#test4",  "geometry": {"type": "Point", "coordinates": [45.183984, 38.218473]}, "properties": {}},
+				{"type": "Feature", "id": 4, "geometry": {"type": "Point", "coordinates": [45.101439, 38.488498]}, "properties": {"balloonContentHeader": "<img class='ballon-img' src='img/prevue-two-bg3.jpg' alt=''/>", "balloonContentBody": "<div class='ballon-wrap'><div class='category ballon-category'>тест</div><h4 class='ballon-title'>Тестовый заголовок</h4></div>", "balloonContentFooter": "<p class='ballon-text'>Тестовый текст</p>", "clusterCaption": "", "hintContent": ""}}
+			],
+			"infocards": [
+				{"img": "prevue-two-bg1", "title": "Тестовый заголовок1", "text": "Тестовый текст1", "links": "#links1", "category": "тест"},
+				{"img": "prevue-two-bg1", "title": "Тестовый заголовок1", "text": "Тестовый текст1", "links": "#links1", "category": "тест"},
+				{"img": "prevue-two-bg1", "title": "Тестовый заголовок1", "text": "Тестовый текст1", "links": "#links1", "category": "тест"},
+				{"img": "prevue-two-bg1", "title": "Тестовый заголовок1", "text": "Тестовый текст1", "links": "#links1", "category": "тест"},
+				{"img": "prevue-two-bg1", "title": "Тестовый заголовок1", "text": "Тестовый текст1", "links": "#links1", "category": "тест"}
+			]
+		},
+		{	
+			"key": "2",
+			"type": "FeatureCollection",
+			"features": [
+				{"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [34.984422, 69.272566]}, "properties": {}},
+				{"type": "Feature", "id": 1, "links": "#test2",  "geometry": {"type": "Point", "coordinates": [45.135467, 38.180237]}, "properties": {}},
+				{"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [45.025331, 38.957842]}, "properties": {}},
+				{"type": "Feature", "id": 3, "links": "#test4",  "geometry": {"type": "Point", "coordinates": [25.183984, 18.218473]}, "properties": {}},
+				{"type": "Feature", "id": 4, "links": "#test5",  "geometry": {"type": "Point", "coordinates": [45.101439, 38.488498]}, "properties": {}}
+			],
+			"infocards": [
+				{"img": "prevue-two-bg2", "title": "Тестовый заголовок2", "text": "Тестовый текст2", "links": "#links2", "category": "тест"},
+				{"img": "prevue-two-bg2", "title": "Тестовый заголовок2", "text": "Тестовый текст2", "links": "#links2", "category": "тест"},
+				{"img": "prevue-two-bg2", "title": "Тестовый заголовок2", "text": "Тестовый текст2", "links": "#links2", "category": "тест"},
+				{"img": "prevue-two-bg2", "title": "Тестовый заголовок2", "text": "Тестовый текст2", "links": "#links2", "category": "тест"},
+				{"img": "prevue-two-bg2", "title": "Тестовый заголовок2", "text": "Тестовый текст2", "links": "#links2", "category": "тест"}
+			]
+		},
+		{	
+			"key": "3",
+			"type": "FeatureCollection",
+			"features": [
+				{"type": "Feature", "id": 0, "links": "#test1",  "geometry": {"type": "Point", "coordinates": [14.984422, 59.272566]}, "properties": {}},
+				{"type": "Feature", "id": 1, "links": "#test2",  "geometry": {"type": "Point", "coordinates": [85.135467, 38.180237]}, "properties": {}},
+				{"type": "Feature", "id": 2, "links": "#test3",  "geometry": {"type": "Point", "coordinates": [45.025331, 38.957842]}, "properties": {}},
+				{"type": "Feature", "id": 3, "links": "#test4",  "geometry": {"type": "Point", "coordinates": [25.183984, 38.218473]}, "properties": {}},
+				{"type": "Feature", "id": 4, "links": "#test5",  "geometry": {"type": "Point", "coordinates": [45.101439, 38.488498]}, "properties": {}}
+			],
+			"infocards": [
+				{"img": "prevue-two-bg3", "title": "Тестовый заголовок3", "text": "Тестовый текст3", "links": "#links3", "category": "тест"},
+				{"img": "prevue-two-bg3", "title": "Тестовый заголовок3", "text": "Тестовый текст3", "links": "#links3", "category": "тест"},
+				{"img": "prevue-two-bg3", "title": "Тестовый заголовок3", "text": "Тестовый текст3", "links": "#links3", "category": "тест"},
+				{"img": "prevue-two-bg3", "title": "Тестовый заголовок3", "text": "Тестовый текст3", "links": "#links3", "category": "тест"},
+				{"img": "prevue-two-bg3", "title": "Тестовый заголовок3", "text": "Тестовый текст3", "links": "#links3", "category": "тест"}
+			]
+		},
+		{	
+			"key": "4",
+			"type": "FeatureCollection",
+			"features": [
+				{"type": "Feature", "id": 0, "links": "#test1",  "geometry": {"type": "Point", "coordinates": [24.984422, 89.272566]}, "properties": {}},
+				{"type": "Feature", "id": 1, "links": "#test2",  "geometry": {"type": "Point", "coordinates": [45.135467, 28.180237]}, "properties": {}},
+				{"type": "Feature", "id": 2, "links": "#test3",  "geometry": {"type": "Point", "coordinates": [45.025331, 38.957842]}, "properties": {}},
+				{"type": "Feature", "id": 3, "links": "#test4",  "geometry": {"type": "Point", "coordinates": [55.183984, 38.218473]}, "properties": {}},
+				{"type": "Feature", "id": 4, "links": "#test5",  "geometry": {"type": "Point", "coordinates": [25.101439, 38.488498]}, "properties": {}}
+			],
+			"infocards": [
+				{"img": "prevue-two-bg4", "title": "Тестовый заголовок4", "text": "Тестовый текст4", "links": "#links4", "category": "тест"},
+				{"img": "prevue-two-bg4", "title": "Тестовый заголовок4", "text": "Тестовый текст4", "links": "#links4", "category": "тест"},
+				{"img": "prevue-two-bg4", "title": "Тестовый заголовок4", "text": "Тестовый текст4", "links": "#links4", "category": "тест"},
+				{"img": "prevue-two-bg4", "title": "Тестовый заголовок4", "text": "Тестовый текст4", "links": "#links4", "category": "тест"},
+				{"img": "prevue-two-bg4", "title": "Тестовый заголовок4", "text": "Тестовый текст4", "links": "#links4", "category": "тест"}
+			]
+		}
 	]
 }

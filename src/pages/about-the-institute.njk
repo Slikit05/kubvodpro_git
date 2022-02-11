@@ -146,11 +146,23 @@
 	const swiper = new Swiper('.doc-slider__container', {
 		slidesPerView: 4,
 		spaceBetween: 32,
+		loop: true,
+		loopAdditionalSlides: 0,
 		pagination: {
 			el: '.projects-slider__fraction',
 			type: "fraction",
-			renderFraction: function(currentClass, totalClass) {					
+			renderFraction: function(currentClass, totalClass) {				
 				return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+			},
+		},
+		on: {
+			init: function (swiper) {
+				const slides = swiper.slides;
+				for (let slide of slides) {
+					if (slide.classList.contains('swiper-slide-duplicate')) {
+						slide.querySelector('a').removeAttribute('data-fancybox');
+					}
+				}
 			},
 		},
 		navigation: {

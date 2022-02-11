@@ -87,6 +87,9 @@
     line-height: 120px;
     text-align: center;
     color: #fff;
+    &--blue {
+      color: #D9F4FF;
+    }
 
     @media (max-width:1280px) {
       font-size: 64px;

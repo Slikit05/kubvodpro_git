@@ -146,7 +146,7 @@
 					<div class="row-title__flex">
 						<span class="text">Выберите направление деятельности:</span>
 						<div class="filter-select-wrap">
-							<select name="" id="" class="filter-select">
+							<select name="" id="" class="filter-select" data-choice-select>
 								<option placeholder>Все направления</option>
 								<option>1</option>
 								<option>2</option>
@@ -165,11 +165,11 @@
 							<div class="projects-slider">
 								<div class="projects-slider__container swiper">
 									<div class="projects-slider__wrapper swiper-wrapper">
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище Краснодарское водохранилище', 'Республика Адыгея') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg2', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Рисовые чеки', 'Краснодар') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg3', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый мост г. Краснодар', 'Краснодар') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg4', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Тиховский гидроузел', 'Абинский район') }}
-										{{ mixin.slidePrevueBlockTwo('prevue-two-bg5', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Федоровский гидроузел', 'Фёдоровское сельское поселение') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg1', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Краснодарское водохранилище Краснодарское водохранилище', 'Республика Адыгея', '1') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg2', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Рисовые чеки', 'Краснодар', '2') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg3', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Вантовый мост г. Краснодар', 'Краснодар', '3') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg4', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Тиховский гидроузел', 'Абинский район', '4') }}
+										{{ mixin.slidePrevueBlockTwo('prevue-two-bg5', 'НАПРАВЛЕНИЕ ДЕЯТЕЛЬНОСТИ', 'Федоровский гидроузел', 'Фёдоровское сельское поселение', '5') }}
 									</div>
 								</div>
 								<div class="slider-navigation">
@@ -240,7 +240,6 @@
 {% block Scripts %}
 	<script src="js/swiper.min.js"></script>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="js/choices.min.js"></script>
 	<script>
 		let changeScrollNumber = 0;
@@ -258,7 +257,7 @@
 			} else {
 				document.querySelector('body').classList.add('hiden');
 			}
-		}	
+		};
 
 		document.querySelectorAll('.arrow-scroll').forEach(link => {
 
@@ -303,11 +302,46 @@
 			placeholder: true,
 		});
 
-		ymaps.ready(init);
-		function init () {
+		fetch('js/projects.json').then(response => response.json()).then(data => {
+			const selectChoice = document.querySelector('[data-choice-select]');
+
+
+			const swiperProjects = new Swiper('.projects-slider__container', {
+				slidesPerView: 3,
+				spaceBetween: 32,
+				loop: true,
+				loopAdditionalSlides: 2,
+				watchSlidesProgress: true,
+				pagination: {
+					el: '.projects-slider__fraction',
+					type: "fraction",
+					renderFraction: function(currentClass, totalClass) {					
+						return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+					},
+				},
+				navigation: {
+					nextEl: '.projects-slider__arrow-next',
+					prevEl: '.projects-slider__arrow-prev',
+				},
+				breakpoints: {
+					1200: {
+						slidesPerView: 3,
+					},
+					575: {
+						slidesPerView: 'auto',
+					},
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 10,
+					}
+				}
+			});
+
+			ymaps.ready(init);
+			function init () {
 				var myMap = new ymaps.Map('map', {
 						center: [45.035470, 38.975313],
-						zoom: 10
+						zoom: 6
 				}, {
 						searchControlProvider: 'yandex#search'
 				}),
@@ -344,44 +378,67 @@
 						}
 					);
 				});
+				//---------------
+				objectManager.add(data.projectList[0]);
 
-				fetch('js/projects.json').then(response => response.json()).then(data => {
-					objectManager.add(data);
+				objectManager.clusters.options.set('hasBalloon', false);
+				objectManager.objects.options.set('hasBalloon', false);
+
+				objectManager.clusters.options.set('preset', 'islands#blueClusterIcons');
+				myMap.geoObjects.add(objectManager);
+
+				let myCollection = new ymaps.GeoObjectCollection();
+
+				selectChoice.addEventListener('change', function(event) {
+					const valueOption = event.target.value;
+					const arrProjects = data.projectList;
+					
+					for (let item of arrProjects) {
+						if (valueOption === item.key) {
+							const keyArr = item.key;
+							objectManager.removeAll();
+							objectManager.add(item.features);
+							
+							for (let targets of swiperProjects.slides) {
+								targets.remove();
+							};
+
+							for (let cards of item.infocards) {
+								console.log(cards);
+								swiperProjects.wrapperEl.insertAdjacentHTML('beforeend', `<div class="projects-slider__slide swiper-slide"><div class="prevue-block-two"><div class="prevue-block-two__wrapper"><div class="prevue-block-two__wrap-img"><picture><source srcset="img/${cards.img}.webp" type="image/webp"><source srcset="img/${cards.img}.jpg" type="image/jpeg"><img src="img/${cards.img}.webp" alt=""></picture></div><div class="prevue-block-two__wrap"><div class="prevue-block-two__up"><a href="#" class="category">${cards.category}</a><h4 class="prevue-block-two__caption">${cards.title}</h4><span class="prevue-block-two__text">${cards.text}</span></div><div class="prevue-block-two__down"><a href="${cards.links}" class="btn-more"><div class="btn-more__square"></div><span class="btn-more__text">ПОДРОБНЕЕ</span></a></div></div></div></div></div>`);
+								
+							};
+							swiperProjects.loopDestroy();
+							swiperProjects.loopCreate();
+							swiperProjects.update();						
+							swiperProjects.updateSlides();
+							swiperProjects.updateProgress();
+							swiperProjects.slideTo(0)
+						}
+					};
 				});
 
-				objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
-				myMap.geoObjects.add(objectManager);
-		};
+				objectManager.clusters.events.add('click', function(e) {
+					//myMap.setZoom(15);
+					console.log(objectManager.clusters);
+				});
 
-		const swiper = new Swiper('.projects-slider__container', {
-			slidesPerView: 3,
-			spaceBetween: 32,
-			loop: true,
-			loopAdditionalSlides: 2,
-			watchSlidesProgress: true,
-			pagination: {
-				el: '.projects-slider__fraction',
-				type: "fraction",
-				renderFraction: function(currentClass, totalClass) {					
-					return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
-				},
-			},
-			navigation: {
-				nextEl: '.projects-slider__arrow-next',
-				prevEl: '.projects-slider__arrow-prev',
-			},
-			breakpoints: {
-				1200: {
-					slidesPerView: 3,
-				},
-				575: {
-					slidesPerView: 'auto',
-				},
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 10,
-				}
-			}
+				objectManager.objects.events.add('click', function (e) {
+					const objectId = e.get('objectId');
+					if (objectManager.objects._objectsById[objectId].links) {
+						console.log(objectManager.objects._objectsById[objectId].links);
+						window.location.href = objectManager.objects._objectsById[objectId].links;
+					} else {
+						for (let slide of swiperProjects.slides) {
+							if (!slide.classList.contains('swiper-slide-duplicate')) {
+								if (objectId === (slide.dataset.keySlide - 1)) {
+									swiperProjects.slideTo(slide.dataset.swiperSlideIndex)
+								}
+							}
+						}
+					};					
+				});
+			};
 		});
 
 		const swiperTwo = new Swiper('.our-customers__container', {
@@ -413,59 +470,7 @@
 					slidesPerView: 1,
 				}
 			}
-		});		
-
-    (function () {
-			let arrModalField = [];
-			const formCall = document.querySelector('.call-form');
-			const formCallField = formCall.querySelectorAll('input, textarea');
-			const formCallAction = formCall.getAttribute('action');
-      console.log('Путь отправки: ' + formCallAction);
-			
-      formCall.addEventListener('submit', function (e) {
-				e.preventDefault();
-
-				arrModalField.splice(0, arrModalField.length);
-				
-				formCallField.forEach(function(item) {
-					let fieldInfo = {
-						nameField: '',
-						value: '',
-						checked: '',
-					};
-
-
-					if(item.getAttribute('type') === 'checkbox') {
-						fieldInfo.nameField = item.getAttribute('name');
-						if (item.checked) {
-							fieldInfo.checked = true;
-						} else {
-							fieldInfo.checked = false;
-						}
-					} else {
-						fieldInfo.nameField = item.getAttribute('name');
-						fieldInfo.value = item.value;
-					}
-
-					console.log(fieldInfo);
-
-					arrModalField.push(fieldInfo);
-				});
-
-				console.log(arrModalField);
-
-				axios({
-					method: 'post',
-					url: formCallAction,
-					data: {arrModalField}
-				}).then(function (response) {
-					console.log(response);
-				}).catch(function (error) {
-					console.log(error);
-				});
-      })
-    })();
-
+		});
 		
 		
 	</script>

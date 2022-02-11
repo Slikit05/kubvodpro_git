@@ -26,8 +26,8 @@
 	</div>
 {% endmacro %}
 
-{% macro prevueBlockTwo(img, category, caption, text) %}
-	<div class="prevue-block-two">
+{% macro prevueBlockTwo(img, category, caption, text, key) %}
+	<div class="prevue-block-two" data-key-slide='{{ key }}'>
 		<div class="prevue-block-two__wrapper">
 			<div class="prevue-block-two__wrap-img">
 				<picture>
@@ -70,8 +70,8 @@
 	</div>	
 {% endmacro %}
 
-{% macro slidePrevueBlockTwo(img, category, caption, text) %}
-	<div class="projects-slider__slide swiper-slide">
+{% macro slidePrevueBlockTwo(img, category, caption, text, key) %}
+	<div class="projects-slider__slide swiper-slide" data-key-slide='{{ key }}'>
 		<div class="prevue-block-two">
 			<div class="prevue-block-two__wrapper">
 				<div class="prevue-block-two__wrap-img">
@@ -142,6 +142,19 @@
 
 {% macro servicesBlock(caption) %}
 	<a href="#" class="services-block"><span class="services-block__caption">{{ caption }}</span></a>
+{% endmacro %}
+
+{% macro servicesBlock2(caption, text) %}
+	<a href="#" class="services-block">
+		<span class="services-block__caption">{{ caption }}</span>
+		<span class="services-block__text">{{ text }}</span>
+		<div class="btn-more">
+			<div class="btn-more__icon">
+				<svg><use xlink:href="img/sprite.svg#icon-download"></svg>
+			</div>
+			<span class="btn-more__text">СКАЧАТЬ</span>					
+		</div>
+	</a>
 {% endmacro %}
 
 {% macro reviewsBlock(logo) %}

@@ -187,3 +187,61 @@ accFooter.createAccordion();
 // акордионы  - конец
 
 Inputmask("+7 (999) 999-99-99").mask('[type="tel"]');
+
+
+
+(function () {
+	let arrModalField = [];
+	const formCall = document.querySelector('.call-form');
+	const formCallField = formCall.querySelectorAll('input, textarea');
+	const formCallAction = formCall.getAttribute('action');
+	console.log('Путь отправки: ' + formCallAction);
+	
+	formCall.addEventListener('submit', function (e) {
+		e.preventDefault();
+
+		arrModalField.splice(0, arrModalField.length);
+		
+		formCallField.forEach(function(item) {
+			let fieldInfo = {
+				nameField: '',
+				value: '',
+				checked: '',
+			};
+
+
+			if(item.getAttribute('type') === 'checkbox') {
+				fieldInfo.nameField = item.getAttribute('name');
+				if (item.checked) {
+					fieldInfo.checked = true;
+					if (item.classList.contains('error')) {
+						item.classList.remove('error');
+					};
+
+					axios({
+						method: 'post',
+						url: formCallAction,
+						data: {arrModalField}
+					}).then(function (response) {
+						console.log(response);
+					}).catch(function (error) {
+						console.log(error);
+					});
+					
+				} else {
+					fieldInfo.checked = false;
+					item.classList.add('error');
+				};
+			} else {
+				fieldInfo.nameField = item.getAttribute('name');
+				fieldInfo.value = item.value;
+			}
+
+			console.log(fieldInfo);
+
+			arrModalField.push(fieldInfo);
+		});
+
+		console.log(arrModalField);
+	})
+})();

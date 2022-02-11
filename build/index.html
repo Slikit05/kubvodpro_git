@@ -183,7 +183,7 @@
       </video>
       <div class="container">
         <div class="first-screen__container">
-          <h1 class="first-screen__title">Управляй водой на благо <br>России
+          <h1 class="first-screen__title first-screen__title--blue">Управляй водой на благо <br>России
             <img src="img/logo3.svg">
           </h1>
           <div class="first-screen__scroll-btn">
@@ -532,7 +532,7 @@
             <div class="row-title__flex">
               <span class="text">Выберите направление деятельности:</span>
               <div class="filter-select-wrap">
-                <select name="" id="" class="filter-select">
+                <select name="" id="" class="filter-select" data-choice-select>
                   <option placeholder>Все направления</option>
                   <option>1</option>
                   <option>2</option>
@@ -552,7 +552,7 @@
                   <div class="projects-slider__container swiper">
                     <div class="projects-slider__wrapper swiper-wrapper">
 
-                      <div class="projects-slider__slide swiper-slide">
+                      <div class="projects-slider__slide swiper-slide" data-key-slide='1'>
                         <div class="prevue-block-two">
                           <div class="prevue-block-two__wrapper">
                             <div class="prevue-block-two__wrap-img">
@@ -580,7 +580,7 @@
                       </div>
 
 
-                      <div class="projects-slider__slide swiper-slide">
+                      <div class="projects-slider__slide swiper-slide" data-key-slide='2'>
                         <div class="prevue-block-two">
                           <div class="prevue-block-two__wrapper">
                             <div class="prevue-block-two__wrap-img">
@@ -608,7 +608,7 @@
                       </div>
 
 
-                      <div class="projects-slider__slide swiper-slide">
+                      <div class="projects-slider__slide swiper-slide" data-key-slide='3'>
                         <div class="prevue-block-two">
                           <div class="prevue-block-two__wrapper">
                             <div class="prevue-block-two__wrap-img">
@@ -636,7 +636,7 @@
                       </div>
 
 
-                      <div class="projects-slider__slide swiper-slide">
+                      <div class="projects-slider__slide swiper-slide" data-key-slide='4'>
                         <div class="prevue-block-two">
                           <div class="prevue-block-two__wrapper">
                             <div class="prevue-block-two__wrap-img">
@@ -664,7 +664,7 @@
                       </div>
 
 
-                      <div class="projects-slider__slide swiper-slide">
+                      <div class="projects-slider__slide swiper-slide" data-key-slide='5'>
                         <div class="prevue-block-two">
                           <div class="prevue-block-two__wrapper">
                             <div class="prevue-block-two__wrap-img">
@@ -1028,11 +1028,11 @@
                 <div class="call-form__wrapper">
                   <label class="field">
                     <span class="field__description">Ваше Имя:</span>
-                    <input type="text" placeholder="Введите имя" name="name">
+                    <input type="text" placeholder="Введите имя" name="name" required>
                   </label>
                   <label class="field">
                     <span class="field__description">Телефон:</span>
-                    <input type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+                    <input type="tel" placeholder="+7 (___) ___-__-__" name="phone" required>
                   </label>
                 </div>
                 <div class="call-form__down">
@@ -1146,6 +1146,7 @@
                   </a>
                 </li>
               </ul>
+              <a href="" class="footer-nav__link">Обработка персональных данных</a>
             </div>
           </div>
           <div class="footer-page__down">
@@ -1189,12 +1190,12 @@
     </div>
 
   </footer>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/inputmask.js"></script>
   <script src="js/main.js"></script>
 
   <script src="js/swiper.min.js"></script>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&fc075a8b-9c59-4b8d-b8cb-0172442a14a7" type="text/javascript"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/choices.min.js"></script>
   <script>
     let changeScrollNumber = 0;
@@ -1212,7 +1213,7 @@
       } else {
         document.querySelector('body').classList.add('hiden');
       }
-    }
+    };
 
     document.querySelectorAll('.arrow-scroll').forEach(link => {
 
@@ -1257,84 +1258,142 @@
       placeholder: true,
     });
 
-    ymaps.ready(init);
+    fetch('js/projects.json').then(response => response.json()).then(data => {
+      const selectChoice = document.querySelector('[data-choice-select]');
 
-    function init() {
-      var myMap = new ymaps.Map('map', {
-          center: [45.035470, 38.975313],
-          zoom: 10
-        }, {
-          searchControlProvider: 'yandex#search'
-        }),
-        objectManager = new ymaps.ObjectManager({
-          // Чтобы метки начали кластеризоваться, выставляем опцию.
-          clusterize: true,
-          // ObjectManager принимает те же опции, что и кластеризатор.
-          gridSize: 32,
-          clusterDisableClickZoom: true
+
+      const swiperProjects = new Swiper('.projects-slider__container', {
+        slidesPerView: 3,
+        spaceBetween: 32,
+        loop: true,
+        loopAdditionalSlides: 2,
+        watchSlidesProgress: true,
+        pagination: {
+          el: '.projects-slider__fraction',
+          type: "fraction",
+          renderFraction: function(currentClass, totalClass) {
+            return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
+          },
+        },
+        navigation: {
+          nextEl: '.projects-slider__arrow-next',
+          prevEl: '.projects-slider__arrow-prev',
+        },
+        breakpoints: {
+          1200: {
+            slidesPerView: 3,
+          },
+          575: {
+            slidesPerView: 'auto',
+          },
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          }
+        }
+      });
+
+      ymaps.ready(init);
+
+      function init() {
+        var myMap = new ymaps.Map('map', {
+            center: [45.035470, 38.975313],
+            zoom: 6
+          }, {
+            searchControlProvider: 'yandex#search'
+          }),
+          objectManager = new ymaps.ObjectManager({
+            // Чтобы метки начали кластеризоваться, выставляем опцию.
+            clusterize: true,
+            // ObjectManager принимает те же опции, что и кластеризатор.
+            gridSize: 32,
+            clusterDisableClickZoom: true
+          });
+
+        myMap.behaviors.disable(['scrollZoom']);
+
+        objectManager.objects.options.set({
+          iconLayout: 'default#image',
+          iconImageHref: 'img/svg-min/balun.svg',
+          iconImageSize: [30, 40],
+          iconImageOffset: [-3, -42]
         });
 
-      myMap.behaviors.disable(['scrollZoom']);
+        objectManager.objects.overlays.events.add('mouseenter', function(e) {
+          objectManager.objects.setObjectOptions(
+            e.get('objectId'), {
+              iconImageHref: 'img/svg-min/balun2.svg'
+            }
+          );
+        });
+        objectManager.objects.overlays.events.add('mouseleave', function(e) {
+          objectManager.objects.setObjectOptions(
+            e.get('objectId'), {
+              iconImageHref: 'img/svg-min/balun.svg'
+            }
+          );
+        });
+        //---------------
+        objectManager.add(data.projectList[0]);
 
-      objectManager.objects.options.set({
-        iconLayout: 'default#image',
-        iconImageHref: 'img/svg-min/balun.svg',
-        iconImageSize: [30, 40],
-        iconImageOffset: [-3, -42]
-      });
+        objectManager.clusters.options.set('hasBalloon', false);
+        objectManager.objects.options.set('hasBalloon', false);
 
-      objectManager.objects.overlays.events.add('mouseenter', function(e) {
-        objectManager.objects.setObjectOptions(
-          e.get('objectId'), {
-            iconImageHref: 'img/svg-min/balun2.svg'
-          }
-        );
-      });
-      objectManager.objects.overlays.events.add('mouseleave', function(e) {
-        objectManager.objects.setObjectOptions(
-          e.get('objectId'), {
-            iconImageHref: 'img/svg-min/balun.svg'
-          }
-        );
-      });
+        objectManager.clusters.options.set('preset', 'islands#blueClusterIcons');
+        myMap.geoObjects.add(objectManager);
 
-      fetch('js/projects.json').then(response => response.json()).then(data => {
-        objectManager.add(data);
-      });
+        let myCollection = new ymaps.GeoObjectCollection();
 
-      objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
-      myMap.geoObjects.add(objectManager);
-    };
+        selectChoice.addEventListener('change', function(event) {
+          const valueOption = event.target.value;
+          const arrProjects = data.projectList;
 
-    const swiper = new Swiper('.projects-slider__container', {
-      slidesPerView: 3,
-      spaceBetween: 32,
-      loop: true,
-      loopAdditionalSlides: 2,
-      watchSlidesProgress: true,
-      pagination: {
-        el: '.projects-slider__fraction',
-        type: "fraction",
-        renderFraction: function(currentClass, totalClass) {
-          return '<span class="' + currentClass + '"></span> ' + 'из' + ' <span class="' + totalClass + '"></span>';
-        },
-      },
-      navigation: {
-        nextEl: '.projects-slider__arrow-next',
-        prevEl: '.projects-slider__arrow-prev',
-      },
-      breakpoints: {
-        1200: {
-          slidesPerView: 3,
-        },
-        575: {
-          slidesPerView: 'auto',
-        },
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 10,
-        }
-      }
+          for (let item of arrProjects) {
+            if (valueOption === item.key) {
+              const keyArr = item.key;
+              objectManager.removeAll();
+              objectManager.add(item.features);
+
+              for (let targets of swiperProjects.slides) {
+                targets.remove();
+              };
+
+              for (let cards of item.infocards) {
+                console.log(cards);
+                swiperProjects.wrapperEl.insertAdjacentHTML('beforeend', `<div class="projects-slider__slide swiper-slide"><div class="prevue-block-two"><div class="prevue-block-two__wrapper"><div class="prevue-block-two__wrap-img"><picture><source srcset="img/${cards.img}.webp" type="image/webp"><source srcset="img/${cards.img}.jpg" type="image/jpeg"><img src="img/${cards.img}.webp" alt=""></picture></div><div class="prevue-block-two__wrap"><div class="prevue-block-two__up"><a href="#" class="category">${cards.category}</a><h4 class="prevue-block-two__caption">${cards.title}</h4><span class="prevue-block-two__text">${cards.text}</span></div><div class="prevue-block-two__down"><a href="${cards.links}" class="btn-more"><div class="btn-more__square"></div><span class="btn-more__text">ПОДРОБНЕЕ</span></a></div></div></div></div></div>`);
+
+              };
+              swiperProjects.loopDestroy();
+              swiperProjects.loopCreate();
+              swiperProjects.update();
+              swiperProjects.updateSlides();
+              swiperProjects.updateProgress();
+              swiperProjects.slideTo(0)
+            }
+          };
+        });
+
+        objectManager.clusters.events.add('click', function(e) {
+          //myMap.setZoom(15);
+          console.log(objectManager.clusters);
+        });
+
+        objectManager.objects.events.add('click', function(e) {
+          const objectId = e.get('objectId');
+          if (objectManager.objects._objectsById[objectId].links) {
+            console.log(objectManager.objects._objectsById[objectId].links);
+            window.location.href = objectManager.objects._objectsById[objectId].links;
+          } else {
+            for (let slide of swiperProjects.slides) {
+              if (!slide.classList.contains('swiper-slide-duplicate')) {
+                if (objectId === (slide.dataset.keySlide - 1)) {
+                  swiperProjects.slideTo(slide.dataset.swiperSlideIndex)
+                }
+              }
+            }
+          };
+        });
+      };
     });
 
     const swiperTwo = new Swiper('.our-customers__container', {
@@ -1367,59 +1426,6 @@
         }
       }
     });
-
-    (function() {
-      let arrModalField = [];
-      const formCall = document.querySelector('.call-form');
-      const formCallField = formCall.querySelectorAll('input, textarea');
-      const formCallAction = formCall.getAttribute('action');
-      console.log('Путь отправки: ' + formCallAction);
-
-      formCall.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        arrModalField.splice(0, arrModalField.length);
-
-        formCallField.forEach(function(item) {
-          let fieldInfo = {
-            nameField: '',
-            value: '',
-            checked: '',
-          };
-
-
-          if (item.getAttribute('type') === 'checkbox') {
-            fieldInfo.nameField = item.getAttribute('name');
-            if (item.checked) {
-              fieldInfo.checked = true;
-            } else {
-              fieldInfo.checked = false;
-            }
-          } else {
-            fieldInfo.nameField = item.getAttribute('name');
-            fieldInfo.value = item.value;
-          }
-
-          console.log(fieldInfo);
-
-          arrModalField.push(fieldInfo);
-        });
-
-        console.log(arrModalField);
-
-        axios({
-          method: 'post',
-          url: formCallAction,
-          data: {
-            arrModalField
-          }
-        }).then(function(response) {
-          console.log(response);
-        }).catch(function(error) {
-          console.log(error);
-        });
-      })
-    })();
   </script>
 
 </body>

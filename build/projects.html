@@ -196,7 +196,7 @@
               <div class="filter-documentation__wrapper">
                 <div class='filter-documentation__wrap filter-documentation__wrap--select'>
                   <div class='select-wrap'>
-                    <select class='select filter-select select-category-document' name="all-documents">
+                    <select class='select filter-select select-category-document' name="all-documents" data-choice-select>
                       <option placeholder>Все направления</option>
                       <option value='1'>1</option>
                       <option value='2'>2</option>
@@ -216,7 +216,7 @@
       <div class="container">
         <div class="projects-page__wrapper wrapper-list">
 
-          <div class="prevue-block-two">
+          <div class="prevue-block-two" data-key-slide='1'>
             <div class="prevue-block-two__wrapper">
               <div class="prevue-block-two__wrap-img">
                 <picture>
@@ -242,7 +242,7 @@
           </div>
 
 
-          <div class="prevue-block-two">
+          <div class="prevue-block-two" data-key-slide='2'>
             <div class="prevue-block-two__wrapper">
               <div class="prevue-block-two__wrap-img">
                 <picture>
@@ -268,7 +268,7 @@
           </div>
 
 
-          <div class="prevue-block-two">
+          <div class="prevue-block-two" data-key-slide='3'>
             <div class="prevue-block-two__wrapper">
               <div class="prevue-block-two__wrap-img">
                 <picture>
@@ -294,7 +294,7 @@
           </div>
 
 
-          <div class="prevue-block-two">
+          <div class="prevue-block-two" data-key-slide='4'>
             <div class="prevue-block-two__wrapper">
               <div class="prevue-block-two__wrap-img">
                 <picture>
@@ -320,7 +320,7 @@
           </div>
 
 
-          <div class="prevue-block-two">
+          <div class="prevue-block-two" data-key-slide='5'>
             <div class="prevue-block-two__wrapper">
               <div class="prevue-block-two__wrap-img">
                 <picture>
@@ -391,11 +391,11 @@
                 <div class="call-form__wrapper">
                   <label class="field">
                     <span class="field__description">Ваше Имя:</span>
-                    <input type="text" placeholder="Введите имя" name="name">
+                    <input type="text" placeholder="Введите имя" name="name" required>
                   </label>
                   <label class="field">
                     <span class="field__description">Телефон:</span>
-                    <input type="tel" placeholder="+7 (___) ___-__-__" name="phone">
+                    <input type="tel" placeholder="+7 (___) ___-__-__" name="phone" required>
                   </label>
                 </div>
                 <div class="call-form__down">
@@ -509,6 +509,7 @@
                   </a>
                 </li>
               </ul>
+              <a href="" class="footer-nav__link">Обработка персональных данных</a>
             </div>
           </div>
           <div class="footer-page__down">
@@ -552,6 +553,7 @@
     </div>
 
   </footer>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/inputmask.js"></script>
   <script src="js/main.js"></script>
 
@@ -575,54 +577,91 @@
       placeholder: true,
     });
 
-    ymaps.ready(init);
+    fetch('js/projects.json').then(response => response.json()).then(data => {
+      const selectChoice = document.querySelector('[data-choice-select]');
 
-    function init() {
-      var myMap = new ymaps.Map('map', {
-          center: [45.035470, 38.975313],
-          zoom: 10
-        }, {
-          searchControlProvider: 'yandex#search'
-        }),
-        objectManager = new ymaps.ObjectManager({
-          // Чтобы метки начали кластеризоваться, выставляем опцию.
-          clusterize: true,
-          // ObjectManager принимает те же опции, что и кластеризатор.
-          gridSize: 32,
-          clusterDisableClickZoom: true
+      ymaps.ready(init);
+
+      function init() {
+        var myMap = new ymaps.Map('map', {
+            center: [45.035470, 38.975313],
+            zoom: 5
+          }, {
+            searchControlProvider: 'yandex#search'
+          }),
+          objectManager = new ymaps.ObjectManager({
+            // Чтобы метки начали кластеризоваться, выставляем опцию.
+            clusterize: true,
+            // ObjectManager принимает те же опции, что и кластеризатор.
+            gridSize: 32,
+            clusterDisableClickZoom: true
+          });
+
+        myMap.behaviors.disable(['scrollZoom']);
+
+        objectManager.objects.options.set({
+          iconLayout: 'default#image',
+          iconImageHref: 'img/svg-min/balun.svg',
+          iconImageSize: [30, 40],
+          iconImageOffset: [-3, -42]
         });
 
-      myMap.behaviors.disable(['scrollZoom']);
+        objectManager.objects.overlays.events.add('mouseenter', function(e) {
+          objectManager.objects.setObjectOptions(
+            e.get('objectId'), {
+              iconImageHref: 'img/svg-min/balun2.svg'
+            }
+          );
+        });
+        objectManager.objects.overlays.events.add('mouseleave', function(e) {
+          objectManager.objects.setObjectOptions(
+            e.get('objectId'), {
+              iconImageHref: 'img/svg-min/balun.svg'
+            }
+          );
+        });
+        //---------------
+        objectManager.add(data.projectList[0]);
 
-      objectManager.objects.options.set({
-        iconLayout: 'default#image',
-        iconImageHref: 'img/svg-min/balun.svg',
-        iconImageSize: [30, 40],
-        iconImageOffset: [-3, -42]
-      });
+        objectManager.clusters.options.set('hasBalloon', false);
 
-      objectManager.objects.overlays.events.add('mouseenter', function(e) {
-        objectManager.objects.setObjectOptions(
-          e.get('objectId'), {
-            iconImageHref: 'img/svg-min/balun2.svg'
-          }
-        );
-      });
-      objectManager.objects.overlays.events.add('mouseleave', function(e) {
-        objectManager.objects.setObjectOptions(
-          e.get('objectId'), {
-            iconImageHref: 'img/svg-min/balun.svg'
-          }
-        );
-      });
+        objectManager.clusters.events.add('click', function(e) {
+          myMap.setZoom(10);
+        });
 
-      fetch('js/projects.json').then(response => response.json()).then(data => {
-        objectManager.add(data);
-      });
+        objectManager.clusters.options.set('preset', 'islands#blueClusterIcons');
+        myMap.geoObjects.add(objectManager);
 
-      objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
-      myMap.geoObjects.add(objectManager);
-    };
+        let myCollection = new ymaps.GeoObjectCollection();
+
+        selectChoice.addEventListener('change', function(event) {
+          const valueOption = event.target.value;
+          const arrProjects = data.projectList;
+
+          for (let item of arrProjects) {
+            if (valueOption === item.key) {
+              const keyArr = item.key;
+              objectManager.removeAll();
+              objectManager.add(item.features);
+
+              for (let targets of swiperProjects.slides) {
+                targets.remove();
+              };
+            }
+          };
+        });
+
+        objectManager.objects.events.add('click', function(e) {
+          const objectId = e.get('objectId');
+          if (objectManager.objects._objectsById[objectId].links) {
+            console.log(objectManager.objects._objectsById[objectId].links);
+            window.location.href = objectManager.objects._objectsById[objectId].links;
+          } else {
+            console.log(data);
+          };
+        });
+      };
+    });
 
     const changeDocument = {
       prevNomer: 0,
@@ -751,7 +790,7 @@
             document.querySelector('.title-message').remove();
           }
           arr.documents.forEach(function(item) {
-            listWrapper.insertAdjacentHTML('beforeend', `<div class='prevue-block-two'><div class='prevue-block-two__wrapper'><div class='prevue-block-two__wrap-img'><picture><source srcset='img/${item.img}.webp' type='image/webp'><source srcset='img/${item.img}.jpg' type='image/jpeg'><img src='img/${item.img}.webp' alt=''></picture></div><div class='prevue-block-two__wrap'><div class='prevue-block-two__up'><h4 class='prevue-block-two__caption'>${item.caption}</h4><span class='prevue-block-two__text'>${item.text}</span></div></div></div></div>`);
+            listWrapper.insertAdjacentHTML('beforeend', `<div class='prevue-block-two'><div class='prevue-block-two__wrapper'><div class='prevue-block-two__wrap-img'><picture><source srcset='img/${item.img}.webp' type='image/webp'><source srcset='img/${item.img}.jpg' type='image/jpeg'><img src='img/${item.img}.webp' alt=''></picture></div><div class='prevue-block-two__wrap'><div class='prevue-block-two__up'><a href='#' class='category'>${item.category}</a><h4 class='prevue-block-two__caption'>${item.caption}</h4><span class='prevue-block-two__text'>${item.text}</span></div></div></div></div>`);
           });
           document.querySelector('.pagination').style.display = '';
         }
