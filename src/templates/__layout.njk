@@ -12,7 +12,13 @@
 </head>
 <body>
     {% import "__mixin.njk" as mixin %}
-    <header>
+    
+    
+    {% if noScroll %}
+        <header>
+    {% else %}
+        <header class="header-scroll-sticky">
+    {% endif %}
         {% include "include/header.njk" %}
         {% include "include/mob-menu.njk" %}
         {% block Header %}

@@ -9,6 +9,16 @@
     margin-bottom: 30px;
   }
 
+  &--not-found {
+    margin-bottom: 0;
+    .text-md {      
+      text-align: center;
+      @media (max-width: 767px) {
+        max-width: 90%;
+      }
+    }
+  }
+
   &::before {
     content: "";
     position: absolute;

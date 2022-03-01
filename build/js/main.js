@@ -98,6 +98,9 @@
 window.addEventListener('click', function (event) {
 	if (event.target.classList.contains('search-icon')) {
 		if (event.target.closest('.wrap-search').querySelector('.search-field').classList.contains('search-field--open')) {
+			if (event.target.closest('.scroll-header')) {
+				event.target.closest('.scroll-header').classList.remove('open-search');
+			}
 			if (event.target.closest('.wrap-search').nextElementSibling) {
 				event.target.closest('.wrap-search').nextElementSibling.classList.remove('hide-elem');
 			}
@@ -107,6 +110,9 @@ window.addEventListener('click', function (event) {
 			event.target.closest('.wrap-search').querySelector('.search-field').classList.remove('search-field--open');			
 			event.target.classList.remove('search-icon--open')
 		} else {
+			if (event.target.closest('.scroll-header')) {
+				event.target.closest('.scroll-header').classList.add('open-search');
+			}
 			if (event.target.closest('.wrap-search').nextElementSibling) {
 				event.target.closest('.wrap-search').nextElementSibling.classList.add('hide-elem');
 			}

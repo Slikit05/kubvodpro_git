@@ -869,8 +869,9 @@
 		margin-top: 17px;
 
 		@media (max-width: 1023px) {
-			margin-left: auto;
-			margin-top: -18px;
+			display: flex;
+			justify-content: flex-end;
+			margin-top: -35px;
 		}
 
 		&__square {
@@ -1207,6 +1208,9 @@
 	align-self: center;
 	display: block;
 	white-space: normal;
+	@media (max-width: 767px) {
+		padding: 10.5px 24px;
+	}
 
 	&:hover {
 		background-color: #0B40E8;
@@ -1432,6 +1436,13 @@ body .hide-text {
 
 	&:first-child {
 		margin-top: 28px;
+		@media (max-width: 767px) {
+			margin-top: 18px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		margin-bottom: 10px;
 	}
 
 	&__list {
@@ -1483,7 +1494,7 @@ body .hide-text {
 	padding: 27px 32px;
 	flex-direction: column;
 	justify-content: space-between;
-	@media (max-width: 767px) {
+	@media (max-width: 768px) {
 		padding: 25px;
 	}
 
@@ -1732,6 +1743,7 @@ body .hide-text {
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 
 	@media (max-width: 1200px) {
 		left: -28px;
@@ -1740,6 +1752,7 @@ body .hide-text {
 	@media (max-width: 767px) {
 		width: 40px;
 		height: 40px;
+		top: calc(50% - 58px);
 		left: -10px;
 	}
 
@@ -1764,6 +1777,10 @@ body .hide-text {
 		height: 20px;
 		stroke: #fff;
 		stroke-width: 2px;
+	}
+	&:hover {
+		box-shadow: 0 0 0 4px #0b40e8;
+		background-color: #0b40e8;
 	}
 }
 
@@ -1888,4 +1905,23 @@ body .hide-text {
 	line-height: 20px;
 	color: #8e8f93;
 	padding: 0 15px;
+}
+
+.open-accordion {
+	.footer-nav__list {
+		border-bottom: 1px solid rgba(255,255,255,.2);
+	}
+}
+
+.footer-nav__block.open-accordion {
+	@media (max-width: 767px) {
+		margin-bottom: 15px;
+	}
+}
+
+.form-section {
+	.call-form__down .block-btn-two {
+		width: auto;
+		margin-left: auto;
+	}
 }

@@ -93,6 +93,9 @@
 		position: relative;
 		padding-bottom: 20px;
 		margin-bottom: 30px;
+		@media (max-width: 767px) {
+			margin-bottom: 13px;
+		}
 		&:last-child {
 			margin-bottom: 0;
 		}
